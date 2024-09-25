@@ -446,6 +446,8 @@ MonoBehaviour:
   gridOffset: {x: 0, y: 0, z: 0}
   buildingPrefab: {fileID: 6512959986631814516, guid: 1d64193033a94d54a868cee1522055aa,
     type: 3}
+  isBuilding: 0
+  buildingPreviewPosition: {x: 0, y: 0}
 --- !u!114 &832575521
 MonoBehaviour:
   m_ObjectHideFlags: 0

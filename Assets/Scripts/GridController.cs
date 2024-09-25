@@ -96,7 +96,7 @@ public class GridController : MonoBehaviour
             {
                 SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingController.BuildingType.NONE, Quaternion.identity);
                 buildingPreviewPosition = gridPosition;
-                SetBuilding(gridPosition.x, gridPosition.y, BuildingController.BuildingType.TOWN_HALL, Quaternion.identity).GetComponent<MeshRenderer>().material.color = new Color(10, 10, 10, 0.5f);
+                SetBuilding(gridPosition.x, gridPosition.y, BuildingController.BuildingType.TOWN_HALL, Quaternion.identity).transform.GetChild(0).GetComponent<MeshRenderer>().material.color = new Color(3, 3, 3, 0.5f);
             }
         }
     }
