@@ -40,11 +40,11 @@ public class GridController : MonoBehaviour
         }
     }
 
-    public void SetBuilding(int x, int y)
+    public void SetBuilding(int x, int y, BuildingController.BuildingType buildingType, Quaternion buildingRotation)
     {
         if (x >= 0 && y >= 0 && x < gridWidth && y < gridHeight)
         {
-            buildingsGrid[x, y].Test();
+            buildingsGrid[x, y].BuildBuilding(buildingType, buildingRotation);
         }
         else
         {
@@ -74,7 +74,7 @@ public class GridController : MonoBehaviour
                 Debug.DrawRay(Camera.main.ScreenPointToRay(Input.mousePosition).origin, hit.point - Camera.main.ScreenPointToRay(Input.mousePosition).origin, Color.red, 5);
                 Vector3 worldPosition = hit.point;
                 Vector2Int gridPosition = GetGridPosition(worldPosition);
-                SetBuilding(gridPosition.x, gridPosition.y);
+                SetBuilding(gridPosition.x, gridPosition.y, BuildingController.BuildingType.TOWN_HALL, Quaternion.identity);
             }
         }
     }

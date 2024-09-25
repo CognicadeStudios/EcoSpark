@@ -6,27 +6,26 @@ using UnityEngine;
 public class BuildingController : MonoBehaviour
 {
     public enum BuildingType : int {
-        TOWN_HALL = 1,
-        SOLAR_PANEL = 2,
-        WIND_TURBINE = 4,
-        WATER_TURBINE = 8,
-        NUCLEAR_PLANT = 16,
-        OIL_DRILL = 32, 
-        COAL_FACTORY = 64,
-        RENEWABLE_ENERGY = SOLAR_PANEL | WIND_TURBINE | WATER_TURBINE,
-        NON_RENEWABLE_ENERGY = NUCLEAR_PLANT | OIL_DRILL | COAL_FACTORY,
+        NONE,
+        TOWN_HALL,
+        SOLAR_PANEL,
+        WIND_TURBINE,
+        WATER_TURBINE,
+        NUCLEAR_PLANT,
+        OIL_DRILL, 
+        COAL_FACTORY,
     };
+    public List<GameObject> buildingPrefabs;
     public BuildingType buildingType;
-    public TextMesh textMesh;
     public Vector2Int gridPosition;
+    public GameObject currentBuilding;
     void Start() 
     {
-        textMesh.text = "0";
+        currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, Quaternion.identity);
     }
-
-    public void Test() 
+    public void BuildBuilding(BuildingType buildingType, Quaternion buildingRotation)
     {
-        Debug.Log(buildingType);
-        textMesh.text = "1";
+        this.buildingType = buildingType;
+        currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, buildingRotation);
     }
 }
