@@ -1,48 +1,37 @@
+using CodeMonkey;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Upgrade : MonoBehaviour
+
+public abstract class Upgrade
 {
-    public int ID;
+    public static SolarUpgrade solar = new SolarUpgrade();
+    //I need multiple types of upgrade, each with a different 
     public int level;
-    public int maxlevel = 1;
 
-    public float timeLeft;
-    public float[] upgradeTimes = { 2 };
-    public float upgradeTime
+    public abstract void LevelUp();
+}
+
+public class SolarUpgrade : Upgrade
+{
+    public int sun = 0;
+    public int sunPer = 1;
+
+    public SolarUpgrade()
     {
-        get
-        {
-            if (level == maxlevel)
-            {
-                return 0f;
-            }
-            return upgradeTimes[level];
-        }
+        level = 0;
     }
 
-    public int[] rpCosts = { 1 };
-
-    public Slider slider;
-    public Button button;
-
-    // Start is called before the first frame update
-    void Start()
+    public override void LevelUp()
     {
-        
+        level++;
+        sunPer++;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        
+        sun += sunPer;
     }
-
-    public void levelUp()
-    {
-        Debug.Log("Yay, Upgrade Successful");
-    }
-    
 }
