@@ -4,11 +4,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public GameManager Instance; 
+    public static GameManager Instance; 
     public int money;
     public int publicApproval;
     public int ecoScore;
     public int cityEnergy;
+    [SerializeField]
+    private int rps;
+
+    
+    public int ResearchPoints
+    {
+        get
+        {
+            return rps;
+        }
+        set
+        {
+            rps = value;
+        }
+    }
 
     void Awake()
     {

@@ -7,11 +7,13 @@ using UnityEngine.UI;
 
 public abstract class Upgrade
 {
+    
     public static SolarUpgrade solar = new SolarUpgrade();
-    //I need multiple types of upgrade, each with a different 
+    
     public int level;
 
     public abstract void LevelUp();
+    public abstract int GetCostToUpgrade();
 }
 
 public class SolarUpgrade : Upgrade
@@ -21,13 +23,19 @@ public class SolarUpgrade : Upgrade
 
     public SolarUpgrade()
     {
-        level = 0;
+        level = 1;
     }
 
     public override void LevelUp()
     {
         level++;
         sunPer++;
+
+    }
+
+    public override int GetCostToUpgrade()
+    {
+        return level * level;
     }
 
     public void Update()

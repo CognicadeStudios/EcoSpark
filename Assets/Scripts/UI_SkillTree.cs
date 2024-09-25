@@ -8,7 +8,7 @@ public class UI_SkillTree : MonoBehaviour
     {
         transform.Find("SolarPanel").Find("Button").GetComponent<Button_UI>().ClickFunc = () =>
         {
-            GetComponent<ResearchManager>().UnlockUpgrade(Upgrade.solar);
+            ResearchManager.Instance.UnlockUpgrade(Upgrade.solar);
         };
     }
 }
