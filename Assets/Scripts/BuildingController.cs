@@ -28,7 +28,6 @@ public class BuildingController : MonoBehaviour
         this.buildingType = buildingType;
         return currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, buildingRotation, transform);
     }
-
     public void DestroyBuilding()
     {
         Destroy(currentBuilding);
