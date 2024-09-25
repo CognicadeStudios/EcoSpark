@@ -20,7 +20,7 @@ public class GridController : MonoBehaviour
         {
             for (int y = 0; y < gridHeight; y++)
             {
-                buildingsGrid[x, y] = Instantiate(buildingPrefab, GetWorldPosition(new Vector2Int(x, y)), buildingPrefab.transform.rotation).GetComponent<BuildingController>();
+                buildingsGrid[x, y] = Instantiate(buildingPrefab, GetWorldPosition(new Vector2Int(x, y)), buildingPrefab.transform.rotation, transform).GetComponent<BuildingController>();
                 buildingsGrid[x, y].gridPosition = new Vector2Int(x, y);
                 buildingsGrid[x, y].GetComponent<BoxCollider>().size = new Vector3(gridScale, gridScale, 1);
             }
@@ -73,8 +73,7 @@ public class GridController : MonoBehaviour
         {
             isBuilding = true;
         }
-        
-        if(isBuilding)
+        else if(isBuilding)
         {
             RaycastHit hit;
             if(!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f))
@@ -84,8 +83,13 @@ public class GridController : MonoBehaviour
 
             Vector3 worldPosition = hit.point;
             Vector2Int gridPosition = GetGridPosition(worldPosition);
+            
+            if (!(gridPosition.x >= 0 && gridPosition.y >= 0 && gridPosition.x < gridWidth && gridPosition.y < gridHeight))
+            {
+                return;
+            }
 
-            if(Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(1))
             {
                 isBuilding = false;
                 buildingPreviewPosition = new Vector2Int(-1, -1);
