@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 using CodeMonkey.Utils;
 
 public class GridController : MonoBehaviour
@@ -9,27 +8,30 @@ public class GridController : MonoBehaviour
     public int gridWidth, gridHeight;
     public float gridScale;
     public Vector3 gridOffset;
-
-    private GridObject [,] data;
-
+    public BuildingController [,] buildingsGrid;
+    public GameObject buildingPrefab;
+    public static GridController instance;
     public void Awake()
     {
-        data = new GridObject[gridWidth, gridHeight];
+        instance = this;
+        buildingsGrid = new BuildingController[gridWidth, gridHeight];
 
         for (int x = 0; x < gridWidth; x++)
         {
             for (int y = 0; y < gridHeight; y++)
             {
-                data[x, y] = new GridObject(0);
+                buildingsGrid[x, y] = Instantiate(buildingPrefab, GetWorldPosition(new Vector2Int(x, y)), buildingPrefab.transform.rotation).GetComponent<BuildingController>();
+                buildingsGrid[x, y].gridPosition = new Vector2Int(x, y);
+                buildingsGrid[x, y].GetComponent<BoxCollider>().size = new Vector3(gridScale, gridScale, 1);
             }
         }
     }
 
-    public GridObject getGridObject(int x, int y)
+    public BuildingController GetBuilding(int x, int y)
     {
         if (x >= 0 && y >= 0 && x < gridWidth && y < gridHeight)
         {
-            return data[x, y];
+            return buildingsGrid[x, y];
         }
         else
         {
@@ -38,11 +40,11 @@ public class GridController : MonoBehaviour
         }
     }
 
-    public void setGridObject(int x, int y, GridObject gridObject)
+    public void SetBuilding(int x, int y)
     {
         if (x >= 0 && y >= 0 && x < gridWidth && y < gridHeight)
         {
-            data[x, y] = gridObject;
+            buildingsGrid[x, y].Test();
         }
         else
         {
@@ -50,13 +52,30 @@ public class GridController : MonoBehaviour
         }
     }
 
-    public Vector2Int getGridPosition(Vector3 worldPosition)
+    public Vector2Int GetGridPosition(Vector3 worldPosition)
     {
-        return new Vector2Int(Mathf.FloorToInt((worldPosition.x - gridOffset.x) / gridScale), Mathf.FloorToInt((worldPosition.y - gridOffset.y) / gridScale));
+        return new Vector2Int(Mathf.RoundToInt((worldPosition.x - gridOffset.x) / gridScale), Mathf.RoundToInt((worldPosition.z - gridOffset.y) / gridScale));
     }
 
-    public Vector3 getWorldPosition(Vector2Int gridPosition)
+    public Vector3 GetWorldPosition(Vector2Int gridPosition)
     {
-        return new Vector3(gridPosition.x * gridScale, gridPosition.y * gridScale, 0) + gridOffset;
+        return new Vector3(gridPosition.x * gridScale, 0, gridPosition.y * gridScale) + gridOffset;
+    }
+
+    public void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            //shoot a raycase form the mouse position and get the hit postion
+            RaycastHit hit;
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f))
+            {
+                //draw the raycase as debug.drawray
+                Debug.DrawRay(Camera.main.ScreenPointToRay(Input.mousePosition).origin, hit.point - Camera.main.ScreenPointToRay(Input.mousePosition).origin, Color.red, 5);
+                Vector3 worldPosition = hit.point;
+                Vector2Int gridPosition = GetGridPosition(worldPosition);
+                SetBuilding(gridPosition.x, gridPosition.y);
+            }
+        }
     }
 }
