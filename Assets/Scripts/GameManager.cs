@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance; 
+    public GameManager Instance; 
     public int money;
     public int publicApproval;
     public int ecoScore;
