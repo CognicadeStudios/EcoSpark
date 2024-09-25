@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 832575519}
   - component: {fileID: 832575518}
   - component: {fileID: 832575520}
+  - component: {fileID: 832575521}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -445,6 +446,22 @@ MonoBehaviour:
   gridOffset: {x: 0, y: 0, z: 0}
   buildingPrefab: {fileID: 6512959986631814516, guid: 1d64193033a94d54a868cee1522055aa,
     type: 3}
+--- !u!114 &832575521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832575517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a31839641c712f1488ff6d03106aa006, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  money: 1000
+  publicApproval: 1000
+  ecoScore: 1000
+  cityEnergy: 1000
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

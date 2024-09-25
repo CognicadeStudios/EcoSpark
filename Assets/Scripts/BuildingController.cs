@@ -23,9 +23,15 @@ public class BuildingController : MonoBehaviour
     {
         currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, Quaternion.identity);
     }
-    public void BuildBuilding(BuildingType buildingType, Quaternion buildingRotation)
+    public GameObject BuildBuilding(BuildingType buildingType, Quaternion buildingRotation)
     {
         this.buildingType = buildingType;
-        currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, buildingRotation);
+        return currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, buildingRotation);
+    }
+
+    public void DestroyBuilding()
+    {
+        Destroy(currentBuilding);
+        this.buildingType = BuildingType.NONE;
     }
 }

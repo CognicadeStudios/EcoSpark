@@ -40,18 +40,22 @@ public class GridController : MonoBehaviour
         }
     }
 
-    public void SetBuilding(int x, int y, BuildingController.BuildingType buildingType, Quaternion buildingRotation)
+    public GameObject SetBuilding(int x, int y, BuildingController.BuildingType buildingType, Quaternion buildingRotation)
     {
         if (x >= 0 && y >= 0 && x < gridWidth && y < gridHeight)
         {
-            buildingsGrid[x, y].BuildBuilding(buildingType, buildingRotation);
+            if(buildingsGrid[x, y].buildingType != BuildingController.BuildingType.NONE)
+            {
+                buildingsGrid[x, y].DestroyBuilding();
+            }
+            return buildingsGrid[x, y].BuildBuilding(buildingType, buildingRotation);
         }
         else
         {
-            Debug.Log("SetGridObject: Grid position out of bounds: " + x + ", " + y);
+            Debug.Log("SetBuildingTest: Grid position out of bounds: " + x + ", " + y);
+            return null;
         }
     }
-
     public Vector2Int GetGridPosition(Vector3 worldPosition)
     {
         return new Vector2Int(Mathf.RoundToInt((worldPosition.x - gridOffset.x) / gridScale), Mathf.RoundToInt((worldPosition.z - gridOffset.y) / gridScale));
@@ -61,20 +65,38 @@ public class GridController : MonoBehaviour
     {
         return new Vector3(gridPosition.x * gridScale, 0, gridPosition.y * gridScale) + gridOffset;
     }
-
+    public bool isBuilding = false;
+    public Vector2Int buildingPreviewPosition;
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1) && !isBuilding)
         {
-            //shoot a raycase form the mouse position and get the hit postion
+            isBuilding = true;
+        }
+        
+        if(isBuilding)
+        {
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f))
+            if(!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f))
             {
-                //draw the raycase as debug.drawray
-                Debug.DrawRay(Camera.main.ScreenPointToRay(Input.mousePosition).origin, hit.point - Camera.main.ScreenPointToRay(Input.mousePosition).origin, Color.red, 5);
-                Vector3 worldPosition = hit.point;
-                Vector2Int gridPosition = GetGridPosition(worldPosition);
+                return;
+            }
+
+            Vector3 worldPosition = hit.point;
+            Vector2Int gridPosition = GetGridPosition(worldPosition);
+
+            if(Input.GetMouseButtonDown(0))
+            {
+                isBuilding = false;
+                buildingPreviewPosition = new Vector2Int(-1, -1);
                 SetBuilding(gridPosition.x, gridPosition.y, BuildingController.BuildingType.TOWN_HALL, Quaternion.identity);
+            }
+            
+            if(buildingsGrid[gridPosition.x, gridPosition.y].buildingType == BuildingController.BuildingType.NONE && buildingPreviewPosition != gridPosition)
+            {
+                SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingController.BuildingType.NONE, Quaternion.identity);
+                buildingPreviewPosition = gridPosition;
+                SetBuilding(gridPosition.x, gridPosition.y, BuildingController.BuildingType.TOWN_HALL, Quaternion.identity).GetComponent<MeshRenderer>().material.color = new Color(10, 10, 10, 0.5f);
             }
         }
     }

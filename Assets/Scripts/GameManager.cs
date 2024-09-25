@@ -5,10 +5,10 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; 
-    public static int money;
-    public static int publicApproval;
-    public static int ecoScore;
-    public static int cityEnergy;
+    public int money;
+    public int publicApproval;
+    public int ecoScore;
+    public int cityEnergy;
 
     void Awake()
     {
