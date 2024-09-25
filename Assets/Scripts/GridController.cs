@@ -67,13 +67,17 @@ public class GridController : MonoBehaviour
     }
     public bool isBuilding = false;
     public Vector2Int buildingPreviewPosition;
+    BuildingController.BuildingType currentBuildingType;
+
+    public void EnableBuildingMode(BuildingController.BuildingType buildingType)
+    {
+        currentBuildingType = buildingType;
+        isBuilding = true;
+    }
+
     public void Update()
     {
-        if (Input.GetMouseButtonDown(1) && !isBuilding)
-        {
-            isBuilding = true;
-        }
-        else if(isBuilding)
+        if(isBuilding)
         {
             RaycastHit hit;
             if(!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f))
@@ -93,14 +97,14 @@ public class GridController : MonoBehaviour
             {
                 isBuilding = false;
                 buildingPreviewPosition = new Vector2Int(-1, -1);
-                SetBuilding(gridPosition.x, gridPosition.y, BuildingController.BuildingType.TOWN_HALL, Quaternion.identity);
+                SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType, Quaternion.identity);
             }
             
             if(buildingsGrid[gridPosition.x, gridPosition.y].buildingType == BuildingController.BuildingType.NONE && buildingPreviewPosition != gridPosition)
             {
                 SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingController.BuildingType.NONE, Quaternion.identity);
                 buildingPreviewPosition = gridPosition;
-                SetBuilding(gridPosition.x, gridPosition.y, BuildingController.BuildingType.TOWN_HALL, Quaternion.identity).transform.GetChild(0).GetComponent<MeshRenderer>().material.color = new Color(3, 3, 3, 0.5f);
+                SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType, Quaternion.identity).transform.GetChild(0).GetComponent<MeshRenderer>().material.color = new Color(3, 3, 3, 0.5f);
             }
         }
     }

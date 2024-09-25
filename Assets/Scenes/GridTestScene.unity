@@ -533,6 +533,7 @@ MonoBehaviour:
   publicApproval: 1000
   ecoScore: 1000
   cityEnergy: 1000
+  rps: 0
 --- !u!114 &832575522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -547,8 +548,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraSizeMin: 1
   CameraSizeMax: 10
-  SliderZoom: {fileID: 0}
   CameraMoveSpeed: 10
+  CameraZoomSpeed: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
