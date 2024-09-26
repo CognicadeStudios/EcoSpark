@@ -14,12 +14,9 @@ public class CameraPan : MonoBehaviour
     float CameraSizeMin = 1.0f;
     [SerializeField]
     float CameraSizeMax = 10.0f;
-  // The slider for zoom-in and zoom-out
+    // The slider for zoom-in and zoom-out
     [SerializeField]
-    public Slider SliderZoom;
-
-    [SerializeField]
-    float CameraMoveSpeed = 5.0f;
+    float CameraMoveSpeed = 5.0f, CameraZoomSpeed = 5.0f;
 
     // Some variables needed for dragging our 
     // camera to creae the pan control
@@ -27,7 +24,7 @@ public class CameraPan : MonoBehaviour
     private Vector3 mOriginalPosition;
     private bool mDragging = false;
     // The zoom factor
-    private float mZoomFactor = 0.0f;
+    private float mZoomFactor = 1.0f;
     // Save a reference to the Camera.main
     private Camera mCamera;
 
@@ -66,10 +63,6 @@ public class CameraPan : MonoBehaviour
           (CameraSizeMax - mCamera.orthographicSize) / 
           (CameraSizeMax - CameraSizeMin);
         
-        if (SliderZoom)
-        {
-            SliderZoom.value = mZoomFactor;
-        }
     }
 
     public void Zoom(float value)
@@ -77,10 +70,6 @@ public class CameraPan : MonoBehaviour
         mZoomFactor = value;
         // clamp the value between 0 and 1.
         mZoomFactor = Mathf.Clamp01(mZoomFactor);
-        if(SliderZoom)
-        {
-            SliderZoom.value = mZoomFactor;
-        }
         // set the camera size
         mCamera.orthographicSize = CameraSizeMax -
             mZoomFactor * 
@@ -132,5 +121,8 @@ public class CameraPan : MonoBehaviour
         {
             mDragging = false;
         }
+
+        float scrollAxis = Input.mouseScrollDelta.y * -1.0f;
+        Zoom(mZoomFactor + (scrollAxis * Time.deltaTime * CameraZoomSpeed));
     }
 }   

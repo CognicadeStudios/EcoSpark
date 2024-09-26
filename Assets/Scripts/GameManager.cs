@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
     public int cityEnergy;
     [SerializeField]
     private int rps;
-
-    
     public int ResearchPoints
     {
         get
