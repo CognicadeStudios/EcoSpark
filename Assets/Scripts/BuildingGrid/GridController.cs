@@ -69,9 +69,10 @@ public class GridController : MonoBehaviour
     public Vector2Int buildingPreviewPosition;
     BuildingController.BuildingType currentBuildingType;
 
-    public void EnableBuildingMode(BuildingController.BuildingType buildingType)
+    public void EnableBuildingMode(int buildingType)
     {
-        currentBuildingType = buildingType;
+        currentBuildingType = (BuildingController.BuildingType)buildingType;
+        Debug.Log("Starting Building: " + buildingType);
         isBuilding = true;
     }
 
@@ -79,6 +80,7 @@ public class GridController : MonoBehaviour
     {
         if(isBuilding)
         {
+            print("LOL");
             RaycastHit hit;
             if(!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f))
             {
@@ -104,7 +106,11 @@ public class GridController : MonoBehaviour
             {
                 SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingController.BuildingType.NONE, Quaternion.identity);
                 buildingPreviewPosition = gridPosition;
-                SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType, Quaternion.identity).transform.GetChild(0).GetComponent<MeshRenderer>().material.color = new Color(3, 3, 3, 0.5f);
+                GameObject g = SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType, Quaternion.identity);
+                for (int i = 0; i < g.transform.childCount; i++)
+                {
+                    g.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1.5f, 1.5f, 1.5f, 0.5f);
+                }
             }
         }
     }

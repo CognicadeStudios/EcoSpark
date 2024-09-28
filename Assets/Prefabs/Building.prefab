@@ -49,6 +49,7 @@ MonoBehaviour:
   buildingPrefabs:
   - {fileID: 5155408571550719870, guid: 61e9184e4dfea1b469f2f9834302f747, type: 3}
   - {fileID: 2320862109435408594, guid: 72c3783c20f3eb54a93e2b517123ba99, type: 3}
+  - {fileID: 754958622050744880, guid: fd3fba131220b4f0c879223fe31963ff, type: 3}
   buildingType: 0
   gridPosition: {x: 0, y: 0}
   currentBuilding: {fileID: 0}
