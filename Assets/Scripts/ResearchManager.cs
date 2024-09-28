@@ -1,4 +1,5 @@
 using CodeMonkey;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,13 +9,22 @@ public class ResearchManager : MonoBehaviour
 {
     public List<Upgrades> researchedUpgrades;
     public List<Upgrades> unlockableUpgrades;
-    private Dictionary<Upgrades, List<Upgrades>> nextUnlocks;
+    public Dictionary<Upgrades, List<Upgrades>> nextUnlocks;
 
-    public ResearchManager()
+    public event EventHandler<OnUpgradeResearchedArgs> OnUpgradeResearched;
+    public class OnUpgradeResearchedArgs : EventArgs
+    {
+        public Upgrades upgrade;
+    }
+
+    public UI_SkillTree skillTree;
+
+    void Start()
     {
         researchedUpgrades = new List<Upgrades>();
 
-        unlockableUpgrades = new List<Upgrades> { Upgrades.SolarLevel1 };
+        unlockableUpgrades = new List<Upgrades>();
+        unlockableUpgrades.Add(Upgrades.SolarLevel1);
 
 
         nextUnlocks = new Dictionary<Upgrades, List<Upgrades>> {
@@ -24,9 +34,13 @@ public class ResearchManager : MonoBehaviour
             { Upgrades.NuclearLevel1, new List<Upgrades> { Upgrades.NuclearLevel2 }},
             { Upgrades.WindLevel1, new List<Upgrades> { Upgrades.WindLevel2 }},
         };
-        
-        
+
+        OnUpgradeResearched += ResearchManager_OnUpgradeResearched;
+        skillTree.Initialize();
     }
+
+    
+
     public void UnlockUpgrade(Upgrades upgrade)
     {
         if (researchedUpgrades.Contains(upgrade))
@@ -36,27 +50,52 @@ public class ResearchManager : MonoBehaviour
         }
         if (!unlockableUpgrades.Contains(upgrade))
         {
+            unlockableUpgrades.ForEach(p => Debug.Log(p));
             Debug.Log("Upgrade Not Unlocked Yet");
             return;
         }
+
+
         researchedUpgrades.Add(upgrade);
-        Debug.Log("Upgrade Researched");
+        unlockableUpgrades.Remove(upgrade);
         
-        foreach (Upgrades u in nextUnlocks[upgrade])
-        {
-            if (!unlockableUpgrades.Contains(u))
+        if (nextUnlocks.ContainsKey(upgrade)) { 
+            foreach (Upgrades u in nextUnlocks[upgrade])
             {
-                unlockableUpgrades.Add(u);
+                if (!unlockableUpgrades.Contains(u))
+                {
+                    unlockableUpgrades.Add(u);
+                }
             }
+        }
+
+        OnUpgradeResearched?.Invoke(this, new OnUpgradeResearchedArgs { upgrade = upgrade });
+        Debug.Log("Upgrade Researched");
+    }
+
+    private void ResearchManager_OnUpgradeResearched(object sender, OnUpgradeResearchedArgs e)
+    {
+        switch (e.upgrade)
+        {
+            case Upgrades.SolarLevel1:
+                Debug.Log("Solar Level 1 Unlocked");
+                break;
+            case Upgrades.SolarLevel2:
+                Debug.Log("Solar Level 2 Unlocked");
+                break;
         }
     }
 
-    public bool IsUpgradeUnlocked(Upgrades upgrade)
+    public bool IsUpgradeResearched(Upgrades upgrade)
     {
         return researchedUpgrades.Contains(upgrade);
     }
+    public bool IsUpgradeResearchable(Upgrades upgrade)
+    {
+        return unlockableUpgrades.Contains(upgrade);
+    }
 
-    public bool BuildingUnlocked(BuildingController.BuildingType buildingType)
+    public bool IsBuildingUnlocked(BuildingController.BuildingType buildingType)
     {
         switch (buildingType)
         {
@@ -67,13 +106,13 @@ public class ResearchManager : MonoBehaviour
             case BuildingController.BuildingType.HOUSE:
                 return true;
             case BuildingController.BuildingType.SOLAR_PANEL:
-                return IsUpgradeUnlocked(Upgrades.SolarLevel1);
+                return IsUpgradeResearched(Upgrades.SolarLevel1);
             case BuildingController.BuildingType.WIND_TURBINE:
-                return IsUpgradeUnlocked(Upgrades.WindLevel1);
+                return IsUpgradeResearched(Upgrades.WindLevel1);
             case BuildingController.BuildingType.WATER_TURBINE:
-                return IsUpgradeUnlocked(Upgrades.HydroLevel1);
+                return IsUpgradeResearched(Upgrades.HydroLevel1);
             case BuildingController.BuildingType.NUCLEAR_PLANT:
-                return IsUpgradeUnlocked(Upgrades.NuclearLevel1);
+                return IsUpgradeResearched(Upgrades.NuclearLevel1);
         }
         return false;
     }

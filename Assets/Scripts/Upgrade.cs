@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public abstract class Upgrade
+public abstract class UpgradeOld
 {
     
     public static SolarUpgrade solar = new SolarUpgrade();
@@ -16,7 +16,7 @@ public abstract class Upgrade
     public abstract int GetCostToUpgrade();
 }
 
-public class SolarUpgrade : Upgrade
+public class SolarUpgrade : UpgradeOld
 {
     public int sun = 0;
     public int sunPer = 1;

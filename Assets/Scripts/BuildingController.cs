@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class BuildingController : MonoBehaviour
 {
+    public ResearchManager researchManager;
     public enum BuildingType : int {
         NONE,
         HOUSE,
@@ -29,6 +30,7 @@ public class BuildingController : MonoBehaviour
     {
         this.buildingType = buildingType;
         OnBuild(buildingType);
+        //I have no Idea how this works or how to implement logic in this so
         return currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, buildingRotation, transform);
     }
     public void DestroyBuilding()
@@ -53,5 +55,27 @@ public class BuildingController : MonoBehaviour
             case BuildingType.WIND_TURBINE:
                 break;
         }
+    }
+
+    public int GetCostToBuild(BuildingType type)
+    {
+        //money?
+        switch (type)
+        {
+            case BuildingType.NONE:
+                return 0;
+            case BuildingType.HOUSE:
+                return 10;
+            case BuildingType.TOWN_HALL:
+                return 100;
+            case BuildingType.SOLAR_PANEL:
+                return (researchManager.IsUpgradeResearched(Upgrades.SolarLevel2)) ? 10 : 20;
+            case BuildingType.NUCLEAR_PLANT:
+                return 50;
+            case BuildingType.WIND_TURBINE:
+                return 30;
+
+        }
+        return 0;
     }
 }
