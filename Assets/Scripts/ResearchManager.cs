@@ -4,49 +4,90 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-/// <summary>
-/// / Controls the level of each upgrade, and answers queries about what things are possible
-/// </summary>
 public class ResearchManager : MonoBehaviour
 {
-    public static ResearchManager Instance;
-    public TextMeshProUGUI sunText;
-    public TextMeshProUGUI rpText;
-    public GameManager gameManager;
+    public List<Upgrades> researchedUpgrades;
+    public List<Upgrades> unlockableUpgrades;
+    private Dictionary<Upgrades, List<Upgrades>> nextUnlocks;
 
-    void Awake()
+    public ResearchManager()
     {
-        Instance = this;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        InvokeRepeating("OneSecond", 1f, 1f);
-    }
+        researchedUpgrades = new List<Upgrades>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        sunText.SetText(Upgrade.solar.sun.ToString());
-        rpText.SetText(gameManager.ResearchPoints.ToString());
-    }
+        unlockableUpgrades = new List<Upgrades> { Upgrades.SolarLevel1 };
 
-    void OneSecond()
-    {
-        int x = Upgrade.solar.sun;
-        Upgrade.solar.Update();
-    }
 
-    public void UnlockUpgrade(Upgrade upgrade)
+        nextUnlocks = new Dictionary<Upgrades, List<Upgrades>> {
+            //for each upgrade, what other upgrades should it unlock?
+            { Upgrades.SolarLevel1, new List<Upgrades> { Upgrades.SolarLevel2 } },
+            { Upgrades.HydroLevel1, new List<Upgrades> { Upgrades.HydroLevel2 }},
+            { Upgrades.NuclearLevel1, new List<Upgrades> { Upgrades.NuclearLevel2 }},
+            { Upgrades.WindLevel1, new List<Upgrades> { Upgrades.WindLevel2 }},
+        };
+        
+        
+    }
+    public void UnlockUpgrade(Upgrades upgrade)
     {
-        Debug.Log("Upgrade Unlocking");
-        int rps = gameManager.ResearchPoints;
-        int cost = upgrade.GetCostToUpgrade();
-        if(rps >= cost)
+        if (researchedUpgrades.Contains(upgrade))
         {
-            gameManager.ResearchPoints -= cost;
-            Debug.Log("Upgraded for " + cost);
-            upgrade.LevelUp();
+            Debug.Log("Upgrade already reserached");
+            return;
+        }
+        if (!unlockableUpgrades.Contains(upgrade))
+        {
+            Debug.Log("Upgrade Not Unlocked Yet");
+            return;
+        }
+        researchedUpgrades.Add(upgrade);
+        Debug.Log("Upgrade Researched");
+        
+        foreach (Upgrades u in nextUnlocks[upgrade])
+        {
+            if (!unlockableUpgrades.Contains(u))
+            {
+                unlockableUpgrades.Add(u);
+            }
         }
     }
+
+    public bool IsUpgradeUnlocked(Upgrades upgrade)
+    {
+        return researchedUpgrades.Contains(upgrade);
+    }
+
+    public bool BuildingUnlocked(BuildingController.BuildingType buildingType)
+    {
+        switch (buildingType)
+        {
+            case BuildingController.BuildingType.NONE:
+            case BuildingController.BuildingType.TOWN_HALL:
+            case BuildingController.BuildingType.OIL_DRILL:
+            case BuildingController.BuildingType.COAL_FACTORY:
+            case BuildingController.BuildingType.HOUSE:
+                return true;
+            case BuildingController.BuildingType.SOLAR_PANEL:
+                return IsUpgradeUnlocked(Upgrades.SolarLevel1);
+            case BuildingController.BuildingType.WIND_TURBINE:
+                return IsUpgradeUnlocked(Upgrades.WindLevel1);
+            case BuildingController.BuildingType.WATER_TURBINE:
+                return IsUpgradeUnlocked(Upgrades.HydroLevel1);
+            case BuildingController.BuildingType.NUCLEAR_PLANT:
+                return IsUpgradeUnlocked(Upgrades.NuclearLevel1);
+        }
+        return false;
+    }
 }
+
+public enum Upgrades
+{
+    SolarLevel1,
+    SolarLevel2,
+    WindLevel1,
+    WindLevel2,
+    HydroLevel1,
+    HydroLevel2,
+    NuclearLevel1,
+    NuclearLevel2,
+};
+

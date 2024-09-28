@@ -4,11 +4,12 @@ using UnityEngine;
 using CodeMonkey.Utils;
 public class UI_SkillTree : MonoBehaviour
 {
+    public ResearchManager researchManager;
     private void Awake()
     {
-        transform.Find("SolarPanel").Find("Button").GetComponent<Button_UI>().ClickFunc = () =>
+        transform.Find("SolarButton").GetComponent<Button_UI>().ClickFunc = () =>
         {
-            ResearchManager.Instance.UnlockUpgrade(Upgrade.solar);
+            researchManager.UnlockUpgrade(Upgrades.SolarLevel1);
         };
     }
 }
