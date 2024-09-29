@@ -29,7 +29,7 @@ public class ResearchManager : MonoBehaviour
 
         nextUnlocks = new Dictionary<Upgrades, List<Upgrades>> {
             //for each upgrade, what other upgrades should it unlock?
-            { Upgrades.SolarLevel1, new List<Upgrades> { Upgrades.SolarLevel2 } },
+            { Upgrades.SolarLevel1, new List<Upgrades> { Upgrades.SolarLevel2, Upgrades.HydroLevel1 } },
             { Upgrades.HydroLevel1, new List<Upgrades> { Upgrades.HydroLevel2 }},
             { Upgrades.NuclearLevel1, new List<Upgrades> { Upgrades.NuclearLevel2 }},
             { Upgrades.WindLevel1, new List<Upgrades> { Upgrades.WindLevel2 }},

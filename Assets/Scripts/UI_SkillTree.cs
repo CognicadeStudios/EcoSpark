@@ -4,10 +4,12 @@ using UnityEngine;
 using CodeMonkey.Utils;
 using UnityEngine.UI;
 using UnityEditor;
+using System;
 public class UI_SkillTree : MonoBehaviour
 {
     public ResearchManager researchManager;
     private List<UpgradeButton> upgradeButtons;
+    public List<UpgradeConnection> upgradeConnections;
 
     public void Initialize()
     {
@@ -19,14 +21,7 @@ public class UI_SkillTree : MonoBehaviour
         upgradeButtons = new List<UpgradeButton>();
         upgradeButtons.Add(new UpgradeButton(transform.Find("SolarUpgrade1"), researchManager, Upgrades.SolarLevel1));
         upgradeButtons.Add(new UpgradeButton(transform.Find("SolarUpgrade2"), researchManager, Upgrades.SolarLevel2));
-        /*transform.Find("SolarUpgrade1").GetComponent<Button_UI>().ClickFunc = () =>
-        {
-            researchManager.UnlockUpgrade(Upgrades.SolarLevel1);
-        };
-        transform.Find("SolarUpgrade2").GetComponent<Button_UI>().ClickFunc = () =>
-        {
-            researchManager.UnlockUpgrade(Upgrades.SolarLevel2);
-        };*/
+        upgradeButtons.Add(new UpgradeButton(transform.Find("HydroLevel1"), researchManager, Upgrades.HydroLevel1));
     }
 
     private void UI_Skill_Tree_OnUpgradeResearched(object sender, ResearchManager.OnUpgradeResearchedArgs e)
@@ -39,43 +34,18 @@ public class UI_SkillTree : MonoBehaviour
     {
         foreach (UpgradeButton ub in upgradeButtons)
         {
-            if (ub.IsResearched())
-            {
-                ub.getImage().color = Color.green;
-            }
-            else if (ub.IsResearchable())
-            {
-                ub.getImage().color = Color.white;
-            }
-            else
-            {
-                ub.getImage().color = Color.red;
-            }
+            ub.UpdateVisual();
         }
-        //if (researchManager.IsUpgradeResearched(Upgrades.SolarLevel1))
-        //{
-        //    transform.Find("SolarUpgrade1").Find("image").GetComponent<Image>().color = Color.green;
-        //}
-        //else if (researchManager.IsUpgradeResearchable(Upgrades.SolarLevel1))
-        //{
-        //    transform.Find("SolarUpgrade1").Find("image").GetComponent<Image>().color = Color.white;
-        //}
-        //else
-        //{
-        //    transform.Find("SolarUpgrade1").Find("image").GetComponent<Image>().color = Color.red;
-        //}
-        //if (researchManager.IsUpgradeResearched(Upgrades.SolarLevel2))
-        //{
-        //    transform.Find("SolarUpgrade2").Find("image").GetComponent<Image>().color = Color.green;
-        //}
-        //else if (researchManager.IsUpgradeResearchable(Upgrades.SolarLevel2))
-        //{
-        //    transform.Find("SolarUpgrade2").Find("image").GetComponent<Image>().color = Color.white;
-        //}
-        //else
-        //{
-        //    transform.Find("SolarUpgrade2").Find("image").GetComponent<Image>().color = Color.red;
-        //}
+
+        foreach (UpgradeConnection uc in upgradeConnections)
+        {
+            Upgrades up = uc.GetUpgrade();
+            if(researchManager.IsUpgradeResearchable(up) || researchManager.IsUpgradeResearched(up))
+            {
+                uc.Unlock();
+            }
+            uc.UpdateVisual();
+        }
     }
 
     private class UpgradeButton
@@ -85,7 +55,7 @@ public class UI_SkillTree : MonoBehaviour
         private Image background;
         private Upgrades upgrade;
         private ResearchManager researchManager;
-
+        
         public UpgradeButton(Transform trans, ResearchManager rm, Upgrades up)
         {
             this.transform = trans;
@@ -113,5 +83,67 @@ public class UI_SkillTree : MonoBehaviour
         {
             return image;
         }
+
+        public void UpdateVisual()
+        {
+            if (IsResearched())
+            {
+                background.color = Color.green;
+            }
+            else if (IsResearchable())
+            {
+                background.color = Color.white;
+            }
+            else
+            {
+                background.color = Color.red;
+            }
+        }
+    }
+    [Serializable]
+    public class UpgradeConnection
+    {
+        private static Color offColor = new Color(.5f, .5f, .5f);
+        private static Color onColor = new Color(.95f, .95f, .95f);
+
+
+        public Upgrades upgrade;
+        public Image image;
+        private bool lit;
+
+        public UpgradeConnection(Upgrades up, Image im)
+        {
+            upgrade = up;
+            image = im;
+            lit = false;
+        }
+
+        public void UpdateVisual()
+        {
+            if (lit)
+            {
+                image.color = onColor;
+            }
+            else
+            {
+                image.color = offColor;
+            }
+        }
+
+        public void Unlock()
+        {
+            lit = true;
+        }
+
+        public Upgrades GetUpgrade()
+        {
+            return upgrade;
+        }
+        public Image getImage()
+        {
+            return image;
+        }
     }
 }
+//Video timestamp: 18:20
+//https://www.youtube.com/watch?v=_OQTTKkwZQY&t=1103s
