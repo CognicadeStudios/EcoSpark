@@ -10,6 +10,7 @@ public class Tooltip : MonoBehaviour
 
     public TextMeshProUGUI cont;
     public TextMeshProUGUI head;
+    public TextMeshProUGUI price;
 
     private RectTransform rect;
 
@@ -18,10 +19,11 @@ public class Tooltip : MonoBehaviour
         rect = GetComponent<RectTransform>();
     }
 
-    public void SetText(string header, string content)
+    public void SetText(string header, string content, string price)
     { 
         head.text = header;
         cont.text = content; 
+        this.price.text = price;
     }
 
     private void Update()

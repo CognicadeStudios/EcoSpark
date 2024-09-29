@@ -6,7 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; 
     public int money;
+    [Range(0,100)]
     public int publicApproval;
+    [Range(0,100)]
     public int ecoScore;
     public int cityEnergy;
     [SerializeField]
@@ -36,11 +38,13 @@ public class GameManager : MonoBehaviour
     public void SetApproval(int approval) 
     {
         publicApproval = approval;
+        UIManager.instance.UpdatePABar();
     }
 
     public void SetEcoScore(int score) 
     {
         ecoScore = score;
+        UIManager.instance.UpdateEcoBar();
     }
 
     public void SetEnergy(int energy) 

@@ -4,8 +4,42 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject buildMenuPanel, resButton, mailButton;
+    public GameObject buildMenuPanel, resButton, mailButton, PABar, EcoBar;
     private bool buildMenuOpen = false;
+    public static UIManager instance;
+
+    private void Awake()
+    {
+        LeanTween.init(800);
+        instance = this;
+    }
+
+    public void UpdatePABar()
+    {
+        LeanTween.scale(PABar, new Vector3(GameManager.Instance.GetPublicApproval() / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
+    }
+
+    public void UpdateEcoBar()
+    {
+        LeanTween.scale(EcoBar, new Vector3(GameManager.Instance.GetEcoScore() / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
+    }
+
+
+    public static string FormatNumberAsK(int n)
+    {
+        if (n > 999999)
+        {
+            return (n / 1000000).ToString("D") + "M";
+        }
+        if (n > 999)
+        {
+            return (n/1000).ToString("D") + "K";
+        }
+        else
+        {
+            return n.ToString();
+        }
+    }
 
     public void ToggleBuildMenu()
     { 

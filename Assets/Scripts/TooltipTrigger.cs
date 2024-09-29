@@ -8,12 +8,13 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     private LTDescr delay;
     public string header;
     public string content;
+    public int price;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        delay = LeanTween.delayedCall(1f, () =>
+        delay = LeanTween.delayedCall(0.5f, () =>
         {
-            TooltipSystem.Show(header, content);
+            TooltipSystem.Show(header, content, UIManager.FormatNumberAsK(price));
         });
     }
 
