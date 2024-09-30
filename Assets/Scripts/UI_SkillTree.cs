@@ -51,7 +51,7 @@ public class UI_SkillTree : MonoBehaviour
         foreach (UpgradeConnection uc in upgradeConnections)
         {
             Upgrades up = uc.GetUpgrade();
-            if(researchManager.IsUpgradeResearchable(up) || researchManager.IsUpgradeResearched(up))
+            if(researchManager.IsUpgradeResearched(up))
             {
                 uc.Unlock();
             }
@@ -119,25 +119,28 @@ public class UI_SkillTree : MonoBehaviour
 
 
         public Upgrades upgrade;
-        public Image image;
+        public List<Image> images;
         private bool lit;
 
-        public UpgradeConnection(Upgrades up, Image im)
+        public UpgradeConnection(Upgrades up, List<Image> im)
         {
             upgrade = up;
-            image = im;
+            images = im;
             lit = false;
         }
 
         public void UpdateVisual()
         {
-            if (lit)
+            foreach (Image image in images)
             {
-                image.color = onColor;
-            }
-            else
-            {
-                image.color = offColor;
+                if (lit)
+                {
+                    image.color = onColor;
+                }
+                else
+                {
+                    image.color = offColor;
+                }
             }
         }
 
@@ -150,9 +153,9 @@ public class UI_SkillTree : MonoBehaviour
         {
             return upgrade;
         }
-        public Image getImage()
+        public List<Image> getImages()
         {
-            return image;
+            return images;
         }
     }
 }

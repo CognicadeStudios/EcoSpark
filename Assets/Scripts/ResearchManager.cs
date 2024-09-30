@@ -8,8 +8,8 @@ using UnityEngine;
 public class ResearchManager : MonoBehaviour
 {
     public List<Upgrades> researchedUpgrades;
-    public List<Upgrades> unlockableUpgrades;
-    public Dictionary<Upgrades, List<Upgrades>> nextUnlocks;
+    public List<Upgrades> /*!TODO*/ unlockableUpgrades;
+    public Dictionary<Upgrades, List<Upgrades>> UnlockRequirements;
 
     public event EventHandler<OnUpgradeResearchedArgs> OnUpgradeResearched;
     public class OnUpgradeResearchedArgs : EventArgs
@@ -23,16 +23,8 @@ public class ResearchManager : MonoBehaviour
     {
         researchedUpgrades = new List<Upgrades>();
 
-        unlockableUpgrades = new List<Upgrades>();
-        unlockableUpgrades.Add(Upgrades.SolarLevel1);
-
-
-        nextUnlocks = new Dictionary<Upgrades, List<Upgrades>> {
-            //for each upgrade, what other upgrades should it unlock?
-            { Upgrades.SolarLevel1, new List<Upgrades> { Upgrades.SolarLevel2, Upgrades.HydroLevel1 } },
-            { Upgrades.HydroLevel1, new List<Upgrades> { Upgrades.HydroLevel2 }},
-            { Upgrades.NuclearLevel1, new List<Upgrades> { Upgrades.NuclearLevel2 }},
-            { Upgrades.WindLevel1, new List<Upgrades> { Upgrades.WindLevel2 }},
+        UnlockRequirements = new Dictionary<Upgrades, List<Upgrades>> {
+            {Upgrades.SolarLevel2, new List<Upgrades>{Upgrades.SolarLevel1} }
         };
 
         OnUpgradeResearched += ResearchManager_OnUpgradeResearched;
@@ -47,9 +39,9 @@ public class ResearchManager : MonoBehaviour
             Debug.Log("Upgrade already reserached");
             return;
         }
-        if (!unlockableUpgrades.Contains(upgrade))
+        if (!IsUpgradeResearchable(upgrade))
         {
-            Debug.Log("Upgrade Not Unlocked Yet");
+            Debug.Log("Upgrade not unlocked yet");
             return;
         }
         int cost = CostToResearch(upgrade);
@@ -63,20 +55,7 @@ public class ResearchManager : MonoBehaviour
     }
     private void UnlockUpgrade(Upgrades upgrade)
     {
-        
         researchedUpgrades.Add(upgrade);
-        unlockableUpgrades.Remove(upgrade);
-        
-        if (nextUnlocks.ContainsKey(upgrade)) { 
-            foreach (Upgrades u in nextUnlocks[upgrade])
-            {
-                if (!unlockableUpgrades.Contains(u))
-                {
-                    unlockableUpgrades.Add(u);
-                }
-            }
-        }
-
         OnUpgradeResearched?.Invoke(this, new OnUpgradeResearchedArgs { upgrade = upgrade });
         Debug.Log("Upgrade Researched");
     }
@@ -100,7 +79,20 @@ public class ResearchManager : MonoBehaviour
     }
     public bool IsUpgradeResearchable(Upgrades upgrade)
     {
-        return unlockableUpgrades.Contains(upgrade);
+        if (!UnlockRequirements.ContainsKey(upgrade))
+        {
+            return true;
+        }
+        bool unlockable = true;
+        foreach (Upgrades req in UnlockRequirements[upgrade])
+        {
+            unlockable = unlockable && researchedUpgrades.Contains(req);
+            if (!unlockable)
+            {
+                return false;
+            }
+        }
+        return true;
     }
     private int CostToResearch(Upgrades upgrade)
     {
@@ -142,6 +134,7 @@ public class ResearchManager : MonoBehaviour
 
 public enum Upgrades
 {
+    ResearchLab,
     SolarLevel1,
     SolarLevel2,
     WindLevel1,
