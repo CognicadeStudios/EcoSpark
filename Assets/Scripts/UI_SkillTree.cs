@@ -5,33 +5,44 @@ using CodeMonkey.Utils;
 using UnityEngine.UI;
 using UnityEditor;
 using System;
+using TMPro;
 public class UI_SkillTree : MonoBehaviour
 {
     public ResearchManager researchManager;
     private List<UpgradeButton> upgradeButtons;
     public List<UpgradeConnection> upgradeConnections;
+    public TextMeshProUGUI rpamounttext;
 
     public void Initialize()
     {
-        researchManager.OnUpgradeResearched += UI_Skill_Tree_OnUpgradeResearched;
+        researchManager.OnUpgradeResearched += OnUpgradeResearched;
+        GameManager.Instance.OnResearchPointsChanged += OnResearchPointsChanged;
         UpdateVisual();
     }
+
+    
+
     private void Awake()
     {
         upgradeButtons = new List<UpgradeButton>();
         upgradeButtons.Add(new UpgradeButton(transform.Find("SolarUpgrade1"), researchManager, Upgrades.SolarLevel1));
         upgradeButtons.Add(new UpgradeButton(transform.Find("SolarUpgrade2"), researchManager, Upgrades.SolarLevel2));
-        upgradeButtons.Add(new UpgradeButton(transform.Find("HydroLevel1"), researchManager, Upgrades.HydroLevel1));
+        upgradeButtons.Add(new UpgradeButton(transform.Find("HydroUpgrade1"), researchManager, Upgrades.HydroLevel1));
     }
 
-    private void UI_Skill_Tree_OnUpgradeResearched(object sender, ResearchManager.OnUpgradeResearchedArgs e)
+    private void OnUpgradeResearched(object sender, ResearchManager.OnUpgradeResearchedArgs e)
+    {
+        UpdateVisual();
+    }
+    private void OnResearchPointsChanged(object sender, EventArgs e)
     {
         UpdateVisual();
     }
 
 
-    private void UpdateVisual()
+    public void UpdateVisual()
     {
+        rpamounttext.SetText(GameManager.Instance.ResearchPoints.ToString());
         foreach (UpgradeButton ub in upgradeButtons)
         {
             ub.UpdateVisual();
@@ -64,7 +75,7 @@ public class UI_SkillTree : MonoBehaviour
 
             transform.GetComponent<Button_UI>().ClickFunc = () =>
             {
-                researchManager.UnlockUpgrade(up);
+                researchManager.TryUnlockUpgrade(up);
             };
             image = transform.Find("image").GetComponent<Image>();
             background = transform.Find("background").GetComponent<Image>();

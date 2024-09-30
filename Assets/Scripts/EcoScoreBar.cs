@@ -16,14 +16,12 @@ public class EcoScoreBar : MonoBehaviour
     void Start()
     {
         setMaxScore(100);
-        gameManager.SetEcoScore(100);
+        gameManager.EcoScore = 100;
 
     }
 
-
-
     void Update()
     {
-        slide.value = Mathf.Lerp(slide.value, gameManager.GetEcoScore(), 0.01f);
+        slide.value = Mathf.Lerp(slide.value, gameManager.EcoScore, 0.01f);
     }
 }

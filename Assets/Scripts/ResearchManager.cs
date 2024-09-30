@@ -40,8 +40,7 @@ public class ResearchManager : MonoBehaviour
     }
 
     
-
-    public void UnlockUpgrade(Upgrades upgrade)
+    public void TryUnlockUpgrade(Upgrades upgrade)
     {
         if (researchedUpgrades.Contains(upgrade))
         {
@@ -50,12 +49,21 @@ public class ResearchManager : MonoBehaviour
         }
         if (!unlockableUpgrades.Contains(upgrade))
         {
-            unlockableUpgrades.ForEach(p => Debug.Log(p));
             Debug.Log("Upgrade Not Unlocked Yet");
             return;
         }
-
-
+        int cost = CostToResearch(upgrade);
+        if (cost > GameManager.Instance.ResearchPoints)
+        {
+            Debug.Log("Cannot Afford Upgrade");
+            return;
+        }
+        GameManager.Instance.ResearchPoints -= cost;
+        UnlockUpgrade(upgrade);
+    }
+    private void UnlockUpgrade(Upgrades upgrade)
+    {
+        
         researchedUpgrades.Add(upgrade);
         unlockableUpgrades.Remove(upgrade);
         
@@ -93,6 +101,20 @@ public class ResearchManager : MonoBehaviour
     public bool IsUpgradeResearchable(Upgrades upgrade)
     {
         return unlockableUpgrades.Contains(upgrade);
+    }
+    private int CostToResearch(Upgrades upgrade)
+    {
+        switch (upgrade)
+        {
+            case Upgrades.SolarLevel1:
+                return 3;
+            case Upgrades.SolarLevel2:
+                return 5;
+            case Upgrades.HydroLevel1:
+                return 4;
+        }
+        Debug.Log("Unimplemented Cost");
+        return 0;
     }
 
     public bool IsBuildingUnlocked(BuildingController.BuildingType buildingType)

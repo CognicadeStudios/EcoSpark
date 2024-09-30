@@ -16,13 +16,13 @@ public class ApprovalBar : MonoBehaviour
     void Start()
     {
         setMaxApproval(100);
-        gameManager.SetApproval(100);
+        gameManager.PublicApproval = 100;
    
     }
 
 
     
     void Update() { 
-            slide.value = Mathf.Lerp(slide.value, gameManager.GetPublicApproval(), 0.01f);
+            slide.value = Mathf.Lerp(slide.value, gameManager.PublicApproval, 0.01f);
     }
 }

@@ -19,18 +19,18 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        moneyCounter.text = FormatNumberAsK(GameManager.Instance.GetMoney());
-        energyCounter.text = FormatNumberAsK(GameManager.Instance.GetCityEnergy());
+        moneyCounter.text = FormatNumberAsK(GameManager.Instance.Money);
+        energyCounter.text = FormatNumberAsK(GameManager.Instance.CityEnergy);
     }
 
     public void UpdatePABar()
     {
-        LeanTween.scale(PABar, new Vector3(GameManager.Instance.GetPublicApproval() / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
+        LeanTween.scale(PABar, new Vector3(GameManager.Instance.PublicApproval / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
     }
 
     public void UpdateEcoBar()
     {
-        LeanTween.scale(EcoBar, new Vector3(GameManager.Instance.GetEcoScore() / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
+        LeanTween.scale(EcoBar, new Vector3(GameManager.Instance.EcoScore / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
     }
 
 

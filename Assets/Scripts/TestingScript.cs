@@ -1,15 +1,23 @@
+using CodeMonkey.Utils;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TestingScript : MonoBehaviour
 {
     public ResearchManager researchManager;
     public BuildingController buildingController;
+    public Button_UI addRPButton;
+    public UI_SkillTree skillTree;
     // Start is called before the first frame update
     void Start()
     {
-        
+        addRPButton.ClickFunc = () =>
+        {
+            GameManager.Instance.ResearchPoints++;
+            skillTree.UpdateVisual();
+        };
     }
 
     // Update is called once per frame
