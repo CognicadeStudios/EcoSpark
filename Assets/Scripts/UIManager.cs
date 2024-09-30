@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
     public GameObject buildMenuPanel, resButton, mailButton, PABar, EcoBar;
+    public TextMeshProUGUI moneyCounter, energyCounter;
     private bool buildMenuOpen = false;
     public static UIManager instance;
 
@@ -12,6 +15,12 @@ public class UIManager : MonoBehaviour
     {
         LeanTween.init(800);
         instance = this;
+    }
+
+    private void Update()
+    {
+        moneyCounter.text = FormatNumberAsK(GameManager.Instance.GetMoney());
+        energyCounter.text = FormatNumberAsK(GameManager.Instance.GetCityEnergy());
     }
 
     public void UpdatePABar()
@@ -29,11 +38,15 @@ public class UIManager : MonoBehaviour
     {
         if (n > 999999)
         {
-            return (n / 1000000).ToString("D") + "M";
+            return (n / 1000000f).ToString("F2") + "M";
         }
-        if (n > 999)
+        else if(n > 99999)
         {
-            return (n/1000).ToString("D") + "K";
+            return (n / 1000).ToString("D") + "K";
+        }
+        else if (n > 9999)
+        {
+            return (n/1000f).ToString("F1") + "K";
         }
         else
         {
@@ -48,8 +61,8 @@ public class UIManager : MonoBehaviour
     }
     public void OpenBuildMenu()
     {
-        LeanTween.scale(buildMenuPanel, new Vector3(1f, 1f, 1f), 0.4f).setEase(LeanTweenType.easeOutExpo);
-        
+        LeanTween.scale(mailButton, new Vector3(0f, 0f, 1f), 0.2f).setEase(LeanTweenType.easeOutBounce);
+        LeanTween.scale(buildMenuPanel, new Vector3(1f, 1f, 1f), 0.4f).setEase(LeanTweenType.easeOutExpo);  
     }
 
     public void CloseBuildMenu()
@@ -58,6 +71,7 @@ public class UIManager : MonoBehaviour
         {
             buildMenuPanel.transform.localScale = new Vector3(0f, 1f, 1f);
         });
+        LeanTween.scale(mailButton, new Vector3(1f, 1f, 1f), 0.2f).setEase(LeanTweenType.easeOutBounce);
     }
 
     public static void CloseButton(GameObject g) {
