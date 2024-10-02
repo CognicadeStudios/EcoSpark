@@ -25,9 +25,9 @@ public class UI_SkillTree : MonoBehaviour
     private void Awake()
     {
         upgradeButtons = new List<UpgradeButton>();
-        upgradeButtons.Add(new UpgradeButton(transform.Find("SolarUpgrade1"), researchManager, Upgrades.SolarLevel1));
-        upgradeButtons.Add(new UpgradeButton(transform.Find("SolarUpgrade2"), researchManager, Upgrades.SolarLevel2));
-        upgradeButtons.Add(new UpgradeButton(transform.Find("HydroUpgrade1"), researchManager, Upgrades.HydroLevel1));
+        upgradeButtons.Add(new UpgradeButton(transform.Find("SolarUpgrade1"), researchManager, Upgrades.Solar1));
+        upgradeButtons.Add(new UpgradeButton(transform.Find("SolarUpgrade2"), researchManager, Upgrades.Geothermal1));
+        upgradeButtons.Add(new UpgradeButton(transform.Find("HydroUpgrade1"), researchManager, Upgrades.Hydro1));
     }
 
     private void OnUpgradeResearched(object sender, ResearchManager.OnUpgradeResearchedArgs e)

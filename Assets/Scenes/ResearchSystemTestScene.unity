@@ -1300,9 +1300,9 @@ MonoBehaviour:
   researchManager: {fileID: 1367958900}
   upgradeConnections:
   - upgrade: 1
-    image: {fileID: 710009102}
-  - upgrade: 4
-    image: {fileID: 2025163911}
+    images:
+    - {fileID: 710009102}
+    - {fileID: 2025163911}
   rpamounttext: {fileID: 879320003}
 --- !u!114 &1367958900
 MonoBehaviour:
@@ -1656,7 +1656,7 @@ PrefabInstance:
     - target: {fileID: 1870415880758055019, guid: 8589caa9b33b0e746a1327c8fbc82ef7,
         type: 3}
       propertyPath: m_Name
-      value: Hydro1
+      value: Solar1Hydro1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1892,7 +1892,7 @@ PrefabInstance:
     - target: {fileID: 1870415880758055019, guid: 8589caa9b33b0e746a1327c8fbc82ef7,
         type: 3}
       propertyPath: m_Name
-      value: Solar2
+      value: Solar1Solar2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
