@@ -19,8 +19,16 @@ public class Tooltip : MonoBehaviour
         rect = GetComponent<RectTransform>();
     }
 
+    public void SetText(string header, string content)
+    {
+        price.gameObject.SetActive(false);
+        head.text = header;
+        cont.text = content;
+    }
+
     public void SetText(string header, string content, string price)
-    { 
+    {
+        this.price.gameObject.SetActive(true);
         head.text = header;
         cont.text = content; 
         this.price.text = price;

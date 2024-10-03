@@ -13,6 +13,12 @@ public class TooltipSystem : MonoBehaviour
         instance = this;
     }
 
+    public static void Show(string header, string content)
+    {
+        instance.tooltip.SetText(header, content);
+        instance.tooltip.gameObject.SetActive(true);
+    }
+
     public static void Show(string header, string content, string price)
     {
         instance.tooltip.SetText(header, content, price);
