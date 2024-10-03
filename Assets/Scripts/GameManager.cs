@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         set
         {
             money = value;
-            OnMoneyChanged?.Invoke(this, null);
+            OnMoneyChanged?.Invoke(this, EventArgs.Empty);
         }
     }
     public event EventHandler OnMoneyChanged;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         set
         {
             publicApproval = value;
-            OnPublicApprovalChanged?.Invoke(this, null); 
+            OnPublicApprovalChanged?.Invoke(this, EventArgs.Empty); 
         }
     }
     public event EventHandler OnPublicApprovalChanged;
@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         set
         {
             ecoScore = value;
-            OnEcoScoreChanged?.Invoke(this, null);
+            OnEcoScoreChanged?.Invoke(this, EventArgs.Empty);
         }
     }
     public event EventHandler OnEcoScoreChanged;
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         set
         {
             researchPoints = value;
-            OnResearchPointsChanged?.Invoke(this, null);
+            OnResearchPointsChanged?.Invoke(this, EventArgs.Empty);
         }
     }
     public event EventHandler OnResearchPointsChanged;

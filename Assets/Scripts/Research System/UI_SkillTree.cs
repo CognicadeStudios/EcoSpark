@@ -8,26 +8,24 @@ using System;
 using TMPro;
 public class UI_SkillTree : MonoBehaviour
 {
-    public ResearchManager researchManager;
+    public static ResearchManager researchManager;
     private List<UpgradeButton> upgradeButtons;
+    public List<BasicUpgradeButton> basicUpgradeButtons;
     public List<UpgradeConnection> upgradeConnections;
     public TextMeshProUGUI rpamounttext;
 
     public void Initialize()
     {
+        researchManager = GetComponent<ResearchManager>();
         researchManager.OnUpgradeResearched += OnUpgradeResearched;
         GameManager.Instance.OnResearchPointsChanged += OnResearchPointsChanged;
-        UpdateVisual();
-    }
-
-    
-
-    private void Awake()
-    {
+        
         upgradeButtons = new List<UpgradeButton>();
-        upgradeButtons.Add(new UpgradeButton(transform.Find("SolarUpgrade1"), researchManager, Upgrades.SolarLevel1));
-        upgradeButtons.Add(new UpgradeButton(transform.Find("SolarUpgrade2"), researchManager, Upgrades.SolarLevel2));
-        upgradeButtons.Add(new UpgradeButton(transform.Find("HydroUpgrade1"), researchManager, Upgrades.HydroLevel1));
+        foreach (BasicUpgradeButton bu in basicUpgradeButtons)
+        {
+            upgradeButtons.Add(new UpgradeButton(bu.transform, bu.upgrade));
+        }
+        UpdateVisual();
     }
 
     private void OnUpgradeResearched(object sender, ResearchManager.OnUpgradeResearchedArgs e)
@@ -50,32 +48,39 @@ public class UI_SkillTree : MonoBehaviour
 
         foreach (UpgradeConnection uc in upgradeConnections)
         {
-            Upgrades up = uc.GetUpgrade();
-            if(researchManager.IsUpgradeResearchable(up) || researchManager.IsUpgradeResearched(up))
+            Upgrade up = uc.GetUpgrade();
+            if(researchManager.IsUpgradeResearched(up))
             {
                 uc.Unlock();
             }
             uc.UpdateVisual();
         }
     }
-
-    private class UpgradeButton
+    [Serializable]
+    public class BasicUpgradeButton
     {
-        private Transform transform;
+        public Transform transform;
+        public Upgrade upgrade;
+    }
+    [Serializable]
+    public class UpgradeButton
+    {
+        public Transform transform;
         private Image image;
         private Image background;
-        private Upgrades upgrade;
-        private ResearchManager researchManager;
+        private Upgrade upgrade;
         
-        public UpgradeButton(Transform trans, ResearchManager rm, Upgrades up)
+        public UpgradeButton(Transform trans, Upgrade up)
         {
             this.transform = trans;
             upgrade = up;
-            researchManager = rm;
-
             transform.GetComponent<Button_UI>().ClickFunc = () =>
             {
-                researchManager.TryUnlockUpgrade(up);
+                bool b = UI_SkillTree.researchManager.TryUnlockUpgrade(up);
+                if (!b)
+                {
+                    Debug.Log(UI_SkillTree.researchManager.ErrorMessage);
+                }
             };
             image = transform.Find("image").GetComponent<Image>();
             background = transform.Find("background").GetComponent<Image>();
@@ -83,11 +88,11 @@ public class UI_SkillTree : MonoBehaviour
 
         public bool IsResearched()
         {
-            return researchManager.IsUpgradeResearched(upgrade);
+            return UI_SkillTree.researchManager.IsUpgradeResearched(upgrade);
         }
         public bool IsResearchable()
         {
-            return researchManager.IsUpgradeResearchable(upgrade);
+            return UI_SkillTree.researchManager.IsUpgradeResearchable(upgrade);
         }
 
         public Image getImage()
@@ -118,26 +123,29 @@ public class UI_SkillTree : MonoBehaviour
         private static Color onColor = new Color(.95f, .95f, .95f);
 
 
-        public Upgrades upgrade;
-        public Image image;
+        public Upgrade SourceUpgrade;
+        public List<Image> images;
         private bool lit;
 
-        public UpgradeConnection(Upgrades up, Image im)
+        public UpgradeConnection(Upgrade up, List<Image> im)
         {
-            upgrade = up;
-            image = im;
+            SourceUpgrade = up;
+            images = im;
             lit = false;
         }
 
         public void UpdateVisual()
         {
-            if (lit)
+            foreach (Image image in images)
             {
-                image.color = onColor;
-            }
-            else
-            {
-                image.color = offColor;
+                if (lit)
+                {
+                    image.color = onColor;
+                }
+                else
+                {
+                    image.color = offColor;
+                }
             }
         }
 
@@ -146,13 +154,13 @@ public class UI_SkillTree : MonoBehaviour
             lit = true;
         }
 
-        public Upgrades GetUpgrade()
+        public Upgrade GetUpgrade()
         {
-            return upgrade;
+            return SourceUpgrade;
         }
-        public Image getImage()
+        public List<Image> getImages()
         {
-            return image;
+            return images;
         }
     }
 }
