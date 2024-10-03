@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5585697348306013660}
-  - component: {fileID: 8669227520257534141}
   m_Layer: 0
   m_Name: RoadNW
   m_TagString: Untagged
@@ -33,18 +32,6 @@ Transform:
   - {fileID: 5574835115244993110}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8669227520257534141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 262609670463354987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2ef8c6f71fbf04da472d93f1effb96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7748002685555801637
 GameObject:
   m_ObjectHideFlags: 0

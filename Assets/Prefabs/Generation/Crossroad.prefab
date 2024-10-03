@@ -94,7 +94,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7413120707991411163}
-  - component: {fileID: -4386259731923315424}
   m_Layer: 0
   m_Name: Crossroad
   m_TagString: Untagged
@@ -118,15 +117,3 @@ Transform:
   - {fileID: 4292205821192145308}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4386259731923315424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2682830242584675066}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2ef8c6f71fbf04da472d93f1effb96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
