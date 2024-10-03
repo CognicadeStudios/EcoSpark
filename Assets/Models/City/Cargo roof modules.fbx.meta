@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 4aa49d92112089c4d954509676ba2070
+guid: b9d504b28ed0c2a4d945020f4c58528e
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: spacebits_texture
-    second: {fileID: 2800000, guid: 5229a9f8318e2b2439752fdb259e5f57, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
