@@ -69,7 +69,7 @@ public class BuildingController : MonoBehaviour
             case BuildingType.TOWN_HALL:
                 return 100;
             case BuildingType.SOLAR_PANEL:
-                return (researchManager.IsUpgradeResearched(Upgrades.Geothermal1)) ? 10 : 20;
+                return (researchManager.IsUpgradeResearched(Upgrade.Geothermal1)) ? 10 : 20;
             case BuildingType.NUCLEAR_PLANT:
                 return 50;
             case BuildingType.WIND_TURBINE:
