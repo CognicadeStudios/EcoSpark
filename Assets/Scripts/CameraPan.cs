@@ -100,12 +100,12 @@ public class CameraPan : MonoBehaviour
             return;
         }
         // Save the position in worldspace.
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             mDragPos = Input.mousePosition;
             mDragging = true;
         }
-        if (Input.GetMouseButton(0) && mDragging)
+        if (Input.GetMouseButton(1) && mDragging)
         {
             Vector3 diff = mDragPos - Input.mousePosition;
             diff.z = diff.y;
@@ -117,7 +117,7 @@ public class CameraPan : MonoBehaviour
             mCamera.transform.position += rotatedDif * Time.deltaTime * CameraMoveSpeed;
             mDragPos = Input.mousePosition;
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(1))
         {
             mDragging = false;
         }

@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject buildMenuPanel, resButton, mailButton, PABar, EcoBar;
+    public GameObject buildMenuPanel, resButton, mailButton, PABar, EcoBar, researchDim, researchMenu;
     public TextMeshProUGUI moneyCounter, energyCounter;
     private bool buildMenuOpen = false;
     public static UIManager instance;
@@ -74,6 +74,21 @@ public class UIManager : MonoBehaviour
         LeanTween.scale(mailButton, new Vector3(1f, 1f, 1f), 0.2f).setEase(LeanTweenType.easeOutBounce);
     }
 
+    public void OpenResearchMenu()
+    {
+        researchDim.SetActive(true);
+        LeanTween.value(researchDim, 0, 0.85f, 0.2f).setOnUpdate(UpdateDimAlpha);
+        researchMenu.SetActive(true);
+        LeanTween.scale(researchMenu, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeOutBounce);
+    }
+
+    public void CloseResearchMenu()
+    {
+        LeanTween.scale(researchMenu, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeOutExpo);
+        LeanTween.value(researchDim, 0.85f, 0, 0.2f).setOnUpdate(UpdateDimAlpha);
+        researchDim.SetActive(false);
+    }
+
     public static void CloseButton(GameObject g) {
         LeanTween.scale(g, new Vector3(0f, 0f, 0f), 0.1f).setEase(LeanTweenType.easeOutElastic);
     }
@@ -81,5 +96,12 @@ public class UIManager : MonoBehaviour
     public static void OpenButton(GameObject g)
     {
         LeanTween.scale(g, new Vector3(1f, 1f, 1f), 0.1f).setEase(LeanTweenType.easeOutElastic);
+    }
+
+    private void UpdateDimAlpha(float alpha)
+    {
+        Color color = researchDim.GetComponent<Image>().color;
+        color.a = alpha;
+        researchDim.GetComponent<Image>().color = color;
     }
 }

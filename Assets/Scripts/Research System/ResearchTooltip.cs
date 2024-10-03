@@ -5,10 +5,9 @@ using UnityEngine.UI;
 using TMPro;
 
 
-public class Tooltip : MonoBehaviour
+public class ResearchTooltip : MonoBehaviour
 {
 
-    public TextMeshProUGUI cont;
     public TextMeshProUGUI head;
     public TextMeshProUGUI price;
 
@@ -19,18 +18,9 @@ public class Tooltip : MonoBehaviour
         rect = GetComponent<RectTransform>();
     }
 
-    public void SetText(string header, string content)
-    {
-        price.gameObject.SetActive(false);
+    public void SetText(string header, string price)
+    { 
         head.text = header;
-        cont.text = content;
-    }
-
-    public void SetText(string header, string content, string price)
-    {
-        this.price.gameObject.SetActive(true);
-        head.text = header;
-        cont.text = content; 
         this.price.text = price;
     }
 
