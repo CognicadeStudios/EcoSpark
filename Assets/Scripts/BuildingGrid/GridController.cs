@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
+using Unity.Mathematics;
+using System.Security.Cryptography.X509Certificates;
 
 public class GridController : MonoBehaviour
 {
@@ -56,6 +58,7 @@ public class GridController : MonoBehaviour
             return null;
         }
     }
+
     public Vector2Int GetGridPosition(Vector3 worldPosition)
     {
         return new Vector2Int(Mathf.RoundToInt((worldPosition.x - gridOffset.x) / gridScale), Mathf.RoundToInt((worldPosition.z - gridOffset.y) / gridScale));
@@ -80,7 +83,6 @@ public class GridController : MonoBehaviour
     {
         if(isBuilding)
         {
-            print("LOL");
             RaycastHit hit;
             if(!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f))
             {
@@ -95,9 +97,10 @@ public class GridController : MonoBehaviour
                 return;
             }
 
-            if(Input.GetMouseButtonDown(1))
+            if(Input.GetMouseButtonDown(0))
             {
                 isBuilding = false;
+                Debug.Log("Ending Building: " + currentBuildingType);
                 buildingPreviewPosition = new Vector2Int(-1, -1);
                 SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType, Quaternion.identity);
             }
