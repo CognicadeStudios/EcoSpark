@@ -18,6 +18,7 @@ public class BuildingController : MonoBehaviour
         OIL_DRILL, 
         COAL_FACTORY,
     };
+    
     public List<GameObject> buildingPrefabs;
     public BuildingType buildingType;
     public Vector2Int gridPosition;

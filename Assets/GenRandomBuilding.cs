@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class GenRandomBuilding : MonoBehaviour
 {
-    static int counter = 0;
     void Start()
     {
         int numChildren = transform.childCount;
-        int randomChild = counter % numChildren;
+        int randomChild = Random.Range(0, numChildren);
         transform.GetChild(randomChild).gameObject.SetActive(true);
     }
 
     void Update()
     {
-        if(Input.GetMouseButtonUp(0)) counter++;
+        
     }
 }
