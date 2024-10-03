@@ -2,20 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TooltipSystem : MonoBehaviour
+public class ResearchTooltipSystem : MonoBehaviour
 {
-    private static TooltipSystem instance;
+    private static ResearchTooltipSystem instance;
 
-    public Tooltip tooltip;
+    public ResearchTooltip tooltip;
 
     public void Awake()
     {
         instance = this;
     }
 
-    public static void Show(string header, string content, string price)
+    public static void Show(string header, string price)
     {
-        instance.tooltip.SetText(header, content, price);
+        instance.tooltip.SetText(header, price);
         instance.tooltip.gameObject.SetActive(true);
     }
 
