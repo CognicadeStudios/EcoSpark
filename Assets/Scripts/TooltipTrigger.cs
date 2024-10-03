@@ -9,12 +9,19 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public string header;
     public string content;
     public int price;
+    public bool isPriced;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         delay = LeanTween.delayedCall(0.2f, () =>
         {
-            TooltipSystem.Show(header, content, UIManager.FormatNumberAsK(price));
+            if (isPriced)
+            {
+                TooltipSystem.Show(header, content, UIManager.FormatNumberAsK(price));
+            }
+            else {
+                TooltipSystem.Show(header, content);
+            }
         });
     }
 
