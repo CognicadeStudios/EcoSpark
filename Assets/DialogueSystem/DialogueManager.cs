@@ -13,9 +13,17 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    private Dictionary<int, List<string>> dialogueDict;
+
     void Start()
     {
         sentences = new Queue<string>();
+        dialogueDict = new();
+    }
+
+    private void populateDictionary()
+    {
+        
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -24,10 +32,14 @@ public class DialogueManager : MonoBehaviour
         nameText.text = dialogue.name;
         npcImage.sprite = dialogue.image;
         sentences.Clear();
+        List<int> keys = new List<int>(dialogueDict.Keys);
+        int dialogueKey = keys[Random.Range(0, keys.Count)];
+        List<string> randSent = dialogueDict[dialogueKey];
 
-        foreach (string sentence in dialogue.sentences)
+        dialogueDict.Remove(dialogueKey);
+        foreach (string sentence in randSent)
         {
-            this.sentences.Enqueue(sentence);
+            sentences.Enqueue(sentence);
         }
 
         DisplayNextSentence();
