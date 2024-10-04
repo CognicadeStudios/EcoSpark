@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
 using Unity.Mathematics;
-using System.Security.Cryptography.X509Certificates;
 
 public class GridController : MonoBehaviour
 {
@@ -12,6 +11,7 @@ public class GridController : MonoBehaviour
     public Vector3 gridOffset;
     public BuildingController [,] buildingsGrid;
     public GameObject buildingPrefab;
+    public ProdecuralGenerator generator;
     public static GridController instance;
     public void Awake()
     {
@@ -27,6 +27,9 @@ public class GridController : MonoBehaviour
                 buildingsGrid[x, y].GetComponent<BoxCollider>().size = new Vector3(gridScale, gridScale, 1);
             }
         }
+
+        generator = GetComponent<ProdecuralGenerator>();
+        generator.Initialize(gridWidth);
     }
 
     public BuildingController GetBuilding(int x, int y)
@@ -42,15 +45,15 @@ public class GridController : MonoBehaviour
         }
     }
 
-    public GameObject SetBuilding(int x, int y, BuildingController.BuildingType buildingType, Quaternion buildingRotation)
+    public GameObject SetBuilding(int x, int y, BuildingController.BuildingType buildingType)
     {
         if (x >= 0 && y >= 0 && x < gridWidth && y < gridHeight)
         {
-            if(buildingsGrid[x, y].buildingType != BuildingController.BuildingType.NONE)
+            if(buildingsGrid[x, y].buildingType != BuildingController.BuildingType.Empty)
             {
                 buildingsGrid[x, y].DestroyBuilding();
             }
-            return buildingsGrid[x, y].BuildBuilding(buildingType, buildingRotation);
+            return buildingsGrid[x, y].BuildBuilding(buildingType);
         }
         else
         {
@@ -78,9 +81,11 @@ public class GridController : MonoBehaviour
         Debug.Log("Starting Building: " + buildingType);
         isBuilding = true;
     }
-
+    
     public void Update()
     {
+        generator.GenerateNextTile();
+
         if(isBuilding)
         {
             RaycastHit hit;
@@ -102,14 +107,14 @@ public class GridController : MonoBehaviour
                 isBuilding = false;
                 Debug.Log("Ending Building: " + currentBuildingType);
                 buildingPreviewPosition = new Vector2Int(-1, -1);
-                SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType, Quaternion.identity);
+                SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
             }
             
-            if(buildingsGrid[gridPosition.x, gridPosition.y].buildingType == BuildingController.BuildingType.NONE && buildingPreviewPosition != gridPosition)
+            if(buildingsGrid[gridPosition.x, gridPosition.y].buildingType == BuildingController.BuildingType.Empty && buildingPreviewPosition != gridPosition)
             {
-                SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingController.BuildingType.NONE, Quaternion.identity);
+                SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingController.BuildingType.Empty);
                 buildingPreviewPosition = gridPosition;
-                GameObject g = SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType, Quaternion.identity);
+                GameObject g = SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
                 for (int i = 0; i < g.transform.childCount; i++)
                 {
                     g.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1.5f, 1.5f, 1.5f, 0.5f);

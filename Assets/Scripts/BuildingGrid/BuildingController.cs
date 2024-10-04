@@ -8,9 +8,16 @@ public class BuildingController : MonoBehaviour
 {
     public ResearchManager researchManager;
     public enum BuildingType : int {
-        NONE,
+        Undeveloped,
+        Empty,
+        Crossroad,
+        StraightX,
+        StraightY,
+        RoadNE,
+        RoadNW,
+        RoadSE,
+        RoadSW,
         HOUSE,
-        TOWN_HALL,
         SOLAR_PANEL,
         WIND_TURBINE,
         WATER_TURBINE,
@@ -18,36 +25,34 @@ public class BuildingController : MonoBehaviour
         OIL_DRILL, 
         COAL_FACTORY,
     };
-    
+
     public List<GameObject> buildingPrefabs;
     public BuildingType buildingType;
     public Vector2Int gridPosition;
-    public GameObject currentBuilding;
-    void Start() 
+    public GameObject currentBuilding;    void Start() 
     {
         currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, Quaternion.identity, transform);
     }
-    public GameObject BuildBuilding(BuildingType buildingType, Quaternion buildingRotation)
+    public GameObject BuildBuilding(BuildingType buildingType)
     {
         this.buildingType = buildingType;
         OnBuild(buildingType);
         //I have no Idea how this works or how to implement logic in this so
-        return currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, buildingRotation, transform);
+        return currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, buildingPrefabs[(int)buildingType].transform.rotation, transform);
     }
     public void DestroyBuilding()
     {
         Destroy(currentBuilding);
-        this.buildingType = BuildingType.NONE;
+        this.buildingType = BuildingType.Empty;
     }
     
     public void OnBuild(BuildingType type)
     {
         switch(type)
         {
-            case BuildingType.NONE:
+            case BuildingType.Empty:
                 return;
             case BuildingType.HOUSE:
-            case BuildingType.TOWN_HALL:
             case BuildingType.SOLAR_PANEL:
             case BuildingType.NUCLEAR_PLANT:
             case BuildingType.COAL_FACTORY:
@@ -63,12 +68,10 @@ public class BuildingController : MonoBehaviour
         //money?
         switch (type)
         {
-            case BuildingType.NONE:
+            case BuildingType.Empty:
                 return 0;
             case BuildingType.HOUSE:
                 return 10;
-            case BuildingType.TOWN_HALL:
-                return 100;
             case BuildingType.SOLAR_PANEL:
                 return (researchManager.IsUpgradeResearched(Upgrade.Geothermal1)) ? 10 : 20;
             case BuildingType.NUCLEAR_PLANT:

@@ -49,9 +49,15 @@ MonoBehaviour:
   researchManager: {fileID: 0}
   buildingPrefabs:
   - {fileID: 5155408571550719870, guid: 61e9184e4dfea1b469f2f9834302f747, type: 3}
+  - {fileID: 5585146150844376858, guid: fbe1d0c00f9ad724594748b851a7e2c7, type: 3}
+  - {fileID: 2682830242584675066, guid: fab7573cce0775c449897ad0c0856ca5, type: 3}
+  - {fileID: 643192265460516376, guid: 9ad27b4f56199124a8de7e87fb3b4252, type: 3}
+  - {fileID: 4894944579787469382, guid: e3efeef40e854b3499695db533e1c0ec, type: 3}
+  - {fileID: 2872671297031722875, guid: ab28c8ae0b3b5c14eaabdb4101e0e48c, type: 3}
+  - {fileID: 262609670463354987, guid: c147664450a30304dac9ce4f7128f459, type: 3}
+  - {fileID: 5830304264044569946, guid: 1cd8c8e4cd6a1ad4089fac384315b416, type: 3}
+  - {fileID: 5778032574416207109, guid: ca38eeb5bc51ea143a340b87e29503df, type: 3}
   - {fileID: 6510570404494326812, guid: 01662c02b363416a69b3068f952c83c7, type: 3}
-  - {fileID: 2320862109435408594, guid: 72c3783c20f3eb54a93e2b517123ba99, type: 3}
-  - {fileID: 754958622050744880, guid: fd3fba131220b4f0c879223fe31963ff, type: 3}
   buildingType: 0
   gridPosition: {x: 0, y: 0}
   currentBuilding: {fileID: 0}
