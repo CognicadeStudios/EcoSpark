@@ -16,7 +16,7 @@ public class GenRandomBuilding : MonoBehaviour
             var dist = Vector2.Distance(centerPosition, position);
 
             if(dist > 8.0f) return;
-            if(dist > 5.0f)
+            if(dist > 5.5f && UnityEngine.Random.Range(0.0f, 1.0f) < 0.8)
             {
                 toChild = transform.GetChild(1);
             }
