@@ -48,13 +48,13 @@ public class ProdecuralGenerator : MonoBehaviour
         this.probabilities = new float[]
         {
             1.5f,
-            0.75f,
+            0.6f,
             1.0f,
             0.5f,
-            0.02f,
-            0.02f,
-            0.02f,
-            0.02f
+            0.03f,
+            0.03f,
+            0.03f,
+            0.03f
         };
 
         this.n = n;
