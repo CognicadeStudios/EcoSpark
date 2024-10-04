@@ -18,10 +18,45 @@ public class ProdecuralGenerator : MonoBehaviour
     };
 
     public List<RoadTypes>[,] entropies;
+    public bool[,] built;
     public int n;
+    public float[] probabilities;    
+    public RoadTypes GetRandomRoad(List<RoadTypes> entropy)
+    {
+        float totalProb = 0.0f;
+        foreach(RoadTypes r in entropy) 
+        {
+            totalProb += probabilities[(int)r];
+        }
+
+        float randVal = UnityEngine.Random.Range(0.0f, totalProb);
+        float cur = 0;
+        foreach(RoadTypes r in entropy) 
+        {
+            cur += probabilities[(int)r];
+            if(cur >= randVal)
+            {
+                return r;
+            }
+        }
+
+        return entropy[0];
+    }
 
     public void Initialize(int n)
     {
+        this.probabilities = new float[]
+        {
+            1.5f,
+            0.75f,
+            1.0f,
+            0.5f,
+            0.02f,
+            0.02f,
+            0.02f,
+            0.02f
+        };
+
         this.n = n;
         prefabsData = new List<GenerationRules>{
             //Empty Tiles can be surrounded by other empty tiles, turns, and sides of roads
@@ -89,15 +124,16 @@ public class ProdecuralGenerator : MonoBehaviour
         )
         };
 
-        print(prefabsData.Count);
         //generates a n*n grid
 
         entropies = new List<RoadTypes>[n, n];
+        built = new bool[n, n];
 
         for(int i = 0; i < n; i++)
         {
             for(int j = 0; j < n; j++)
             {
+                built[i, j] = false;
                 entropies[i, j] = new List<RoadTypes> {
                     RoadTypes.Crossroad,
                     RoadTypes.Empty,
@@ -119,23 +155,25 @@ public class ProdecuralGenerator : MonoBehaviour
         {
             for(int j = 0; j < n; j++)
             {
-                if((foundR == -1 || entropies[i, j].Count < entropies[foundC, foundR].Count) && entropies[i, j].Count > 1)
+                if((foundR == -1 || entropies[i, j].Count < entropies[foundC, foundR].Count) && !built[i, j])
                 {
                     foundR = i;
                     foundC = j;
                 }
             }
         }
+
         //All entropies are 1
         if(foundR == -1) return false;
+
         //For the current found tile, randomly pick a roadtype and place it
-        RoadTypes randomTile = entropies[foundR, foundC][UnityEngine.Random.Range(0, entropies[foundR, foundC].Count)];
+        RoadTypes randomTile = GetRandomRoad(entropies[foundR, foundC]);
         if(entropies[foundR, foundC].Contains(RoadTypes.Empty) && UnityEngine.Random.Range(0, 10) > 5)
         {
             randomTile = RoadTypes.Empty;
         }
 
-        /*
+        
         Debug.Log(foundR + ", " + foundC);
         String l = "";
         foreach(var v in entropies[foundR, foundC])
@@ -143,18 +181,17 @@ public class ProdecuralGenerator : MonoBehaviour
             l += (int)v + ", ";
         }
         Debug.Log(l);
-        */
+        
 
-        entropies[foundR, foundC].Clear();
-        entropies[foundR, foundC].Add(randomTile);
         int tileInd = (int)(randomTile);
+        print(tileInd);
         //Update the entropies of the surrounding tiles
         int[] rDirs = {1, -1, 0, 0};
         int[] cDirs = {0, 0, 1, -1};
         for(int k = 0; k < 4; k++)
         {
             int nr = foundR + rDirs[k], nc = foundC + cDirs[k];
-            if(nr < 0 || nc < 0 || nr >= n || nc >= n)
+            if(nr < 0 || nc < 0 || nr >= n || nc >= n || built[nr, nc])
             {
                 continue;
             }
@@ -196,6 +233,7 @@ public class ProdecuralGenerator : MonoBehaviour
 
         //Spawn in the tile in world space :)
         GridController.instance.SetBuilding(foundR, foundC, (BuildingController.BuildingType)(tileInd + 1));
+        built[foundR, foundC] = true;
 
         return true;
     }

@@ -2544,8 +2544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a933c5017be5eeb4bacd2ab82b8d064f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridWidth: 10
-  gridHeight: 10
+  gridWidth: 20
+  gridHeight: 20
   gridScale: 3
   gridOffset: {x: 0, y: 0, z: 0}
   buildingPrefab: {fileID: 6512959986631814516, guid: 1d64193033a94d54a868cee1522055aa,
@@ -2595,6 +2595,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   n: 0
+  probabilities:
+  - 0.5
+  - 0.125
+  - 0.125
 --- !u!1 &862080567
 GameObject:
   m_ObjectHideFlags: 0
@@ -3365,7 +3369,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 9
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0

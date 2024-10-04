@@ -11,7 +11,7 @@ public class CameraPan : MonoBehaviour
     // camera so that we can fix the limits
     // of our zoom in and zoom out.
     [SerializeField]
-    float CameraSizeMin = 1.0f;
+    float CameraSizeMin = 0.5f;
     [SerializeField]
     float CameraSizeMax = 10.0f;
     // The slider for zoom-in and zoom-out

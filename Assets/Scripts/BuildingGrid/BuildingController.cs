@@ -8,11 +8,14 @@ public class BuildingController : MonoBehaviour
 {
     public ResearchManager researchManager;
     public enum BuildingType : int {
-        Undeveloped,
         Empty,
         Crossroad,
         StraightX,
         StraightY,
+        RoadU,
+        RoadD,
+        RoadR,
+        RoadL,
         RoadNE,
         RoadNW,
         RoadSE,
@@ -29,9 +32,10 @@ public class BuildingController : MonoBehaviour
     public List<GameObject> buildingPrefabs;
     public BuildingType buildingType;
     public Vector2Int gridPosition;
-    public GameObject currentBuilding;    void Start() 
+    public GameObject currentBuilding;    
+    void Start() 
     {
-        currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, Quaternion.identity, transform);
+        currentBuilding = null;
     }
     public GameObject BuildBuilding(BuildingType buildingType)
     {
