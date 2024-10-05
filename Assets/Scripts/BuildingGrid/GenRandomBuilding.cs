@@ -17,7 +17,6 @@ public class GenRandomBuilding : MonoBehaviour
 
             if(dist > 8.0f) 
             {
-                transform.GetChild(2).gameObject.SetActive(false); 
                 return;
             }
             if(dist > 5.5f && UnityEngine.Random.Range(0.0f, 1.0f) < 0.8)
