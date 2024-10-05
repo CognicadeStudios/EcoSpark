@@ -13,7 +13,7 @@ public class CameraPan : MonoBehaviour
     [SerializeField]
     float CameraSizeMin = 0.5f;
     [SerializeField]
-    float CameraSizeMax = 10.0f;
+    float CameraSizeMax = 20.0f;
     // The slider for zoom-in and zoom-out
     [SerializeField]
     float CameraMoveSpeed = 5.0f, CameraZoomSpeed = 5.0f;

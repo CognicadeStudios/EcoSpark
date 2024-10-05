@@ -15,7 +15,11 @@ public class GenRandomBuilding : MonoBehaviour
             var centerPosition = new Vector2(GridController.instance.gridWidth / 2, GridController.instance.gridHeight / 2);
             var dist = Vector2.Distance(centerPosition, position);
 
-            if(dist > 8.0f) return;
+            if(dist > 8.0f) 
+            {
+                transform.GetChild(2).gameObject.SetActive(false); 
+                return;
+            }
             if(dist > 5.5f && UnityEngine.Random.Range(0.0f, 1.0f) < 0.8)
             {
                 toChild = transform.GetChild(1);
