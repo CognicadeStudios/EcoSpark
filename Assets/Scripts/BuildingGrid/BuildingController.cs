@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class BuildingController : MonoBehaviour
@@ -33,16 +34,41 @@ public class BuildingController : MonoBehaviour
     public BuildingType buildingType;
     public Vector2Int gridPosition;
     public GameObject currentBuilding;    
+    public GameObject redPlane, redPlanePrefab;
+    public bool displayingRedPlane;
+    
     void Start() 
     {
         currentBuilding = null;
+        displayingRedPlane = false;
     }
+
+    void Update()
+    { 
+        if(GridController.instance.isBuilding && buildingType == BuildingType.Empty && !displayingRedPlane)
+        {
+            displayingRedPlane = true;
+            redPlane = Instantiate(redPlanePrefab, transform.position + redPlanePrefab.transform.position, redPlanePrefab.transform.rotation, transform);
+        }
+        
+        if(displayingRedPlane && !(GridController.instance.isBuilding && buildingType == BuildingType.Empty))
+        {
+            displayingRedPlane = false;
+            Destroy(redPlane);
+        }
+    }
+
     public GameObject BuildBuilding(BuildingType buildingType)
     {
+        if(this.currentBuilding != null)
+        {
+            DestroyBuilding();
+        }
+
         this.buildingType = buildingType;
         OnBuild(buildingType);
         //I have no Idea how this works or how to implement logic in this so
-        return currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position, buildingPrefabs[(int)buildingType].transform.rotation, transform);
+        return currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position + buildingPrefabs[(int)buildingType].transform.position, buildingPrefabs[(int)buildingType].transform.rotation, transform);
     }
     public void DestroyBuilding()
     {

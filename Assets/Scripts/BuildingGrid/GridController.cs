@@ -49,10 +49,7 @@ public class GridController : MonoBehaviour
     {
         if (x >= 0 && y >= 0 && x < gridWidth && y < gridHeight)
         {
-            if(buildingsGrid[x, y].buildingType != BuildingController.BuildingType.Empty)
-            {
-                buildingsGrid[x, y].DestroyBuilding();
-            }
+            buildingsGrid[x, y].DestroyBuilding();
             return buildingsGrid[x, y].BuildBuilding(buildingType);
         }
         else
@@ -93,6 +90,8 @@ public class GridController : MonoBehaviour
             {
                 return;
             }
+            // Draw a ray from the camera to the world position
+            Debug.DrawRay(Camera.main.transform.position, hit.point - Camera.main.transform.position, Color.red);
 
             Vector3 worldPosition = hit.point;
             Vector2Int gridPosition = GetGridPosition(worldPosition);
@@ -115,7 +114,7 @@ public class GridController : MonoBehaviour
                 SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingController.BuildingType.Empty);
                 buildingPreviewPosition = gridPosition;
                 GameObject g = SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
-                for (int i = 0; i < g.transform.childCount; i++)
+                for(int i = 0; i < g.transform.childCount; i++)
                 {
                     g.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1.5f, 1.5f, 1.5f, 0.5f);
                 }

@@ -48,7 +48,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   researchManager: {fileID: 0}
   buildingPrefabs:
-  - {fileID: 5155408571550719870, guid: 61e9184e4dfea1b469f2f9834302f747, type: 3}
   - {fileID: 6892387069130419943, guid: 01662c02b363416a69b3068f952c83c7, type: 3}
   - {fileID: 2682830242584675066, guid: fab7573cce0775c449897ad0c0856ca5, type: 3}
   - {fileID: 643192265460516376, guid: 9ad27b4f56199124a8de7e87fb3b4252, type: 3}
@@ -62,6 +61,10 @@ MonoBehaviour:
   buildingType: 0
   gridPosition: {x: 0, y: 0}
   currentBuilding: {fileID: 0}
+  redPlane: {fileID: 0}
+  redPlanePrefab: {fileID: 725377008642111293, guid: 227a2a1df7cfe6fb9bad5263edd601dd,
+    type: 3}
+  displayingRedPlane: 0
 --- !u!23 &2492192814000118914
 MeshRenderer:
   m_ObjectHideFlags: 0

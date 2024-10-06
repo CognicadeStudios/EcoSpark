@@ -173,7 +173,7 @@ public class ProdecuralGenerator : MonoBehaviour
             randomTile = RoadTypes.Empty;
         }
 
-        
+        /*
         Debug.Log(foundR + ", " + foundC);
         String l = "";
         foreach(var v in entropies[foundR, foundC])
@@ -181,10 +181,10 @@ public class ProdecuralGenerator : MonoBehaviour
             l += (int)v + ", ";
         }
         Debug.Log(l);
-        
+        */
 
         int tileInd = (int)(randomTile);
-        print(tileInd);
+        //print(tileInd);
         //Update the entropies of the surrounding tiles
         int[] rDirs = {1, -1, 0, 0};
         int[] cDirs = {0, 0, 1, -1};
@@ -232,7 +232,7 @@ public class ProdecuralGenerator : MonoBehaviour
         }
 
         //Spawn in the tile in world space :)
-        GridController.instance.SetBuilding(foundR, foundC, (BuildingController.BuildingType)(tileInd + 1));
+        GridController.instance.SetBuilding(foundR, foundC, (BuildingController.BuildingType)(tileInd));
         built[foundR, foundC] = true;
 
         return true;

@@ -32,10 +32,16 @@ public class GenRandomBuilding : MonoBehaviour
         int numChildren = toChild.childCount;
         int randomChild = Random.Range(0, numChildren);
         toChild.GetChild(randomChild).gameObject.SetActive(true);
+
+        if(isBuilding)
+        {
+            BuildingController controller = transform.parent.parent.GetComponent<BuildingController>();
+            controller.buildingType = BuildingController.BuildingType.HOUSE;
+        }
     }
 
     void Update()
     {
-        
+    
     }
 }

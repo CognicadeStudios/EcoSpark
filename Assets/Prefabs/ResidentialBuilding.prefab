@@ -563,6 +563,7 @@ GameObject:
   - component: {fileID: 4116656112868452836}
   - component: {fileID: 6137709176677881603}
   - component: {fileID: 1837249374233844624}
+  - component: {fileID: 8661603075368195963}
   m_Layer: 0
   m_Name: low_buildingA
   m_TagString: Untagged
@@ -636,6 +637,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8661603075368195963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635057157329313884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcf3273334e625fa9da1baf2c5ac8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {x: 0, y: 0, z: 0}
+  isRandom: 1
+  isNightOnly: 1
 --- !u!1 &3647342314456755595
 GameObject:
   m_ObjectHideFlags: 0
@@ -734,6 +750,7 @@ GameObject:
   - component: {fileID: 8833390488516618818}
   - component: {fileID: 3780683244670403023}
   - component: {fileID: 4250182897428797}
+  - component: {fileID: 1160061114784574279}
   m_Layer: 0
   m_Name: low_buildingC
   m_TagString: Untagged
@@ -807,6 +824,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1160061114784574279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4926051933480045580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcf3273334e625fa9da1baf2c5ac8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {x: 0, y: 0, z: 0}
+  isRandom: 1
+  isNightOnly: 1
 --- !u!1 &4979985014141680166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1023,6 +1055,7 @@ GameObject:
   - component: {fileID: 2323254876808037435}
   - component: {fileID: 329617576199038730}
   - component: {fileID: 2522767257177806003}
+  - component: {fileID: 7295780814726864535}
   m_Layer: 0
   m_Name: low_buildingD
   m_TagString: Untagged
@@ -1096,6 +1129,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7295780814726864535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6399994132907306413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcf3273334e625fa9da1baf2c5ac8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {x: 0, y: 0, z: 0}
+  isRandom: 1
+  isNightOnly: 1
 --- !u!1 &6581322184165967935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1155,7 @@ GameObject:
   - component: {fileID: 969150450837156962}
   - component: {fileID: 3693243644481200737}
   - component: {fileID: 9208278627556538080}
+  - component: {fileID: 6255412634673535339}
   m_Layer: 0
   m_Name: low_buildingE
   m_TagString: Untagged
@@ -1180,6 +1229,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6255412634673535339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6581322184165967935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcf3273334e625fa9da1baf2c5ac8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {x: 0, y: 0, z: 0}
+  isRandom: 1
+  isNightOnly: 1
 --- !u!1 &6892387069130419943
 GameObject:
   m_ObjectHideFlags: 0
@@ -1224,6 +1288,7 @@ GameObject:
   - component: {fileID: 8840115406251190846}
   - component: {fileID: 1842131673171792463}
   - component: {fileID: 2409546838615436959}
+  - component: {fileID: 4914891351191194285}
   m_Layer: 0
   m_Name: low_buildingB
   m_TagString: Untagged
@@ -1297,6 +1362,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4914891351191194285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7079385244296902228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcf3273334e625fa9da1baf2c5ac8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {x: 0, y: 0, z: 0}
+  isRandom: 1
+  isNightOnly: 1
 --- !u!1 &8201516408816027910
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1561,7 @@ GameObject:
   - component: {fileID: 1916116628653322095}
   - component: {fileID: 1171708767715273081}
   - component: {fileID: 3321634933625090340}
+  - component: {fileID: 1630093175001216633}
   m_Layer: 0
   m_Name: low_buildingF
   m_TagString: Untagged
@@ -1554,3 +1635,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1630093175001216633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8602468840795093298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcf3273334e625fa9da1baf2c5ac8ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emissionColor: {x: 0, y: 0, z: 0}
+  isRandom: 1
+  isNightOnly: 1

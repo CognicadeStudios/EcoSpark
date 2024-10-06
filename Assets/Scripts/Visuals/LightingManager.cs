@@ -7,9 +7,17 @@ public class LightingManager : MonoBehaviour
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
     //Variables
-    [SerializeField, Range(0, 24)] private float TimeOfDay;
+    [SerializeField, Range(0, 24)] public float TimeOfDay;
+    public float TimeElapsed = 0.0f;
 
     [SerializeField, Range(0.0f, 1.0f)] private float TimeSpeed;
+
+    public static LightingManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Update()
     {
@@ -20,6 +28,7 @@ public class LightingManager : MonoBehaviour
         {
             //(Replace with a reference to the game time)
             TimeOfDay += Time.deltaTime * TimeSpeed;
+            TimeElapsed += Time.deltaTime * TimeSpeed;
             TimeOfDay %= 24; //Modulus to ensure always between 0-24
             UpdateLighting(TimeOfDay / 24f);
         }
