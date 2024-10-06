@@ -56,6 +56,13 @@ public class BuildingController : MonoBehaviour
             displayingRedPlane = false;
             Destroy(redPlane);
         }
+
+        //Do building specific stuff...
+        switch(buildingType)
+        {
+            case BuildingType.SOLAR_PANEL:
+              break;  
+        }
     }
 
     public GameObject BuildBuilding(BuildingType buildingType)
@@ -81,7 +88,6 @@ public class BuildingController : MonoBehaviour
         switch(type)
         {
             case BuildingType.Empty:
-                return;
             case BuildingType.HOUSE:
             case BuildingType.SOLAR_PANEL:
             case BuildingType.NUCLEAR_PLANT:
@@ -96,20 +102,13 @@ public class BuildingController : MonoBehaviour
     public int GetCostToBuild(BuildingType type)
     {
         //money?
-        switch (type)
+        return type switch
         {
-            case BuildingType.Empty:
-                return 0;
-            case BuildingType.HOUSE:
-                return 10;
-            case BuildingType.SOLAR_PANEL:
-                return (researchManager.IsUpgradeResearched(Upgrade.Geothermal1)) ? 10 : 20;
-            case BuildingType.NUCLEAR_PLANT:
-                return 50;
-            case BuildingType.WIND_TURBINE:
-                return 30;
-
-        }
-        return 0;
+            BuildingType.HOUSE => 10,
+            BuildingType.SOLAR_PANEL => (researchManager.IsUpgradeResearched(Upgrade.Geothermal1)) ? 10 : 20,
+            BuildingType.NUCLEAR_PLANT => 50,
+            BuildingType.WIND_TURBINE => 30,
+            _ => 0,
+        };
     }
 }

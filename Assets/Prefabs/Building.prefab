@@ -58,6 +58,11 @@ MonoBehaviour:
   - {fileID: 5778032574416207109, guid: ca38eeb5bc51ea143a340b87e29503df, type: 3}
   - {fileID: 6892387069130419943, guid: 01662c02b363416a69b3068f952c83c7, type: 3}
   - {fileID: 754958622050744880, guid: fd3fba131220b4f0c879223fe31963ff, type: 3}
+  - {fileID: 754958622050744880, guid: 634cd85fe5e56f453a8acc4cab2513b0, type: 3}
+  - {fileID: 754958622050744880, guid: ba17e71ef9201aac89bff19ee72dfa1a, type: 3}
+  - {fileID: 754958622050744880, guid: 212cae04fce70706b9585d18577acc77, type: 3}
+  - {fileID: 754958622050744880, guid: 10e4fa1db790b7d1a81e408771b3aacb, type: 3}
+  - {fileID: 754958622050744880, guid: ff262d5b387f1587aa88a2ba7f065ee7, type: 3}
   buildingType: 0
   gridPosition: {x: 0, y: 0}
   currentBuilding: {fileID: 0}

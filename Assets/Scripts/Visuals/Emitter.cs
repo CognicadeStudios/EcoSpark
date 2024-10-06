@@ -14,6 +14,15 @@ public class Emitter : MonoBehaviour
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
+        if(meshRenderer == null)
+        {
+            for(int i = 0; i < transform.childCount; i++)
+            {
+                meshRenderer = transform.GetChild(i).GetComponent<MeshRenderer>();
+                if(meshRenderer != null) break;
+            }
+        }
+        
         if(isRandom)
         {
             emissionColor.x = UnityEngine.Random.Range(1.0f, 3.7f);
