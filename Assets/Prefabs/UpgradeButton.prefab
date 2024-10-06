@@ -85,8 +85,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3468974224486607853}
   - component: {fileID: 7402431769354284555}
-  - component: {fileID: 9167808329947844257}
   - component: {fileID: 6198726615671506486}
+  - component: {fileID: 4477619828859360487}
   m_Layer: 5
   m_Name: UpgradeButton
   m_TagString: Untagged
@@ -137,20 +137,6 @@ MonoBehaviour:
   hoverBehaviour_Move: 0
   hoverBehaviour_Move_Amount: {x: 0, y: 0}
   triggerMouseOutFuncOnClick: 0
---- !u!114 &9167808329947844257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2573979779500346856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e19e25c93618b3341964e355f016ad12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  header: Storage and Research Upgrades
-  price: 0
 --- !u!114 &6198726615671506486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +152,21 @@ MonoBehaviour:
   tweenTime: 1
   ease: 30
   scaleTo: {x: 1.1, y: 1.1, z: 0}
+--- !u!114 &4477619828859360487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2573979779500346856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66c30ee7006a46943a1968e729d7d8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  background: {fileID: 0}
+  upgrade: 0
 --- !u!1 &7275147686137792246
 GameObject:
   m_ObjectHideFlags: 0

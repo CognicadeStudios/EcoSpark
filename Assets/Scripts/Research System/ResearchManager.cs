@@ -8,7 +8,11 @@ using UnityEngine;
 
 public class ResearchManager : MonoBehaviour
 {
-    
+    public static ResearchManager Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
     public class OnUpgradeResearchedArgs : EventArgs { public Upgrade upgrade; }
     public event EventHandler<OnUpgradeResearchedArgs> OnUpgradeResearched;
 
@@ -52,6 +56,7 @@ public class ResearchManager : MonoBehaviour
     private void UnlockUpgrade(Upgrade upgrade)
     {
         UpgradeInfo.researchedUpgrades.Add(upgrade);
+        UpgradeInfo.TierAmounts[UpgradeInfo.UpgradeTiers[upgrade]]++;
         OnUpgradeResearched?.Invoke(this, new OnUpgradeResearchedArgs { upgrade = upgrade });
         Debug.Log("Upgrade Researched");
     }
@@ -63,6 +68,10 @@ public class ResearchManager : MonoBehaviour
     {
         if (!UpgradeInfo.UnlockRequirements.ContainsKey(upgrade))
         {
+            if (UpgradeInfo.UpgradeTiers[upgrade] > 0)
+            {
+                ErrorMessage = "Upgrade not in requirements: " + upgrade;
+            }
             return true;
         }
         switch (UpgradeInfo.UpgradeTiers[upgrade])
@@ -76,14 +85,14 @@ public class ResearchManager : MonoBehaviour
                     ErrorMessage = "Not Enough Tier 1 Upgrades Unlocked (required: 5)";
                     return false;
                 }
-                return true;
+                break;
             case 3:
                 if (UpgradeInfo.TierAmounts[2] < 6)
                 {
                     ErrorMessage = "Not Enough Tier 2 Upgrades Unlocked (required: 6)";
                     return false;
                 }
-                return true;
+                break;
         }
         foreach (Upgrade req in UpgradeInfo.UnlockRequirements[upgrade])
         {
@@ -297,6 +306,7 @@ public class UpgradeInfo
         { Upgrade.HousingAndBusiness, 0},
         { Upgrade.RenewableEnergy, 0},
         { Upgrade.NonrenewableEnergy, 0 },
+        { Upgrade.StorageAndResearch, 0 },
         { Upgrade.Battery1, 1},
         { Upgrade.Business1, 1},
         { Upgrade.Housing1, 1},
