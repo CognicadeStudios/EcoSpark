@@ -14,6 +14,7 @@ public class UI_UpgradeButton : MonoBehaviour
     {
         transform.GetComponent<Button_UI>().ClickFunc = () =>
         {
+            Debug.Log("Clickevent");
             bool b = ResearchManager.Instance.TryUnlockUpgrade(upgrade);
             if (!b)
             {

@@ -11,7 +11,6 @@ public class UI_SkillTree : MonoBehaviour
     public static ResearchManager researchManager;
     public List<UI_UpgradeButton> upgradeButtons;
     public List<UI_UpgradeConnection> upgradeConnections;
-    public TextMeshProUGUI rpamounttext;
 
     public void Awake()
     {
@@ -39,7 +38,6 @@ public class UI_SkillTree : MonoBehaviour
 
     public void UpdateVisual()
     {
-        rpamounttext.SetText(GameManager.Instance.ResearchPoints.ToString());
         foreach (UI_UpgradeButton ub in upgradeButtons)
         {
             ub.UpdateVisual();
@@ -56,5 +54,3 @@ public class UI_SkillTree : MonoBehaviour
         }
     }
 }
-//Video timestamp: 18:20
-//https://www.youtube.com/watch?v=_OQTTKkwZQY&t=1103s

@@ -6,7 +6,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance; 
+    public static GameManager Instance;
+
+    public class OnValueUpdatedArgs : EventArgs{ 
+        public int newValue; 
+        public OnValueUpdatedArgs(int n) { newValue = n; } 
+    }
+
     private int money;
     public int Money
     {
@@ -17,10 +23,10 @@ public class GameManager : MonoBehaviour
         set
         {
             money = value;
-            OnMoneyChanged?.Invoke(this, EventArgs.Empty);
+            OnMoneyChanged?.Invoke(this, new(value));
         }
     }
-    public event EventHandler OnMoneyChanged;
+    public event EventHandler<OnValueUpdatedArgs> OnMoneyChanged;
 
     [Range(0,100)]
     private int publicApproval;
@@ -33,10 +39,10 @@ public class GameManager : MonoBehaviour
         set
         {
             publicApproval = value;
-            OnPublicApprovalChanged?.Invoke(this, EventArgs.Empty); 
+            OnPublicApprovalChanged?.Invoke(this, new(value)); 
         }
     }
-    public event EventHandler OnPublicApprovalChanged;
+    public event EventHandler<OnValueUpdatedArgs> OnPublicApprovalChanged;
 
     [Range(0,100)]
     private int ecoScore;
@@ -49,10 +55,10 @@ public class GameManager : MonoBehaviour
         set
         {
             ecoScore = value;
-            OnEcoScoreChanged?.Invoke(this, EventArgs.Empty);
+            OnEcoScoreChanged?.Invoke(this, new(value));
         }
     }
-    public event EventHandler OnEcoScoreChanged;
+    public event EventHandler<OnValueUpdatedArgs> OnEcoScoreChanged;
 
     private int cityEnergy;
     public int CityEnergy
@@ -77,10 +83,10 @@ public class GameManager : MonoBehaviour
         set
         {
             researchPoints = value;
-            OnResearchPointsChanged?.Invoke(this, EventArgs.Empty);
+            OnResearchPointsChanged?.Invoke(this, new(value));
         }
     }
-    public event EventHandler OnResearchPointsChanged;
+    public event EventHandler<OnValueUpdatedArgs> OnResearchPointsChanged;
 
     void Awake()
     {
