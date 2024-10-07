@@ -17,6 +17,11 @@ public class UIManager : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        researchMenu.transform.LeanScale(new(0, 0, 0), 0);
+    }
+
     private void Update()
     {
         moneyCounter.text = FormatNumberAsK(GameManager.Instance.Money);

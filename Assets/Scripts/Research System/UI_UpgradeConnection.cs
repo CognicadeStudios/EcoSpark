@@ -36,7 +36,8 @@ public class UI_UpgradeConnection : MonoBehaviour
         transform.eulerAngles = new Vector3(0, 0, theta + 90);
 
         Vector2 dist = new(positions[1].x - positions[0].x, positions[1].y - positions[0].y);
-        float len = dist.magnitude; 
+        float mult = sourceUpgrade == Upgrade.NonrenewableEnergy ? 1f : sourceUpgrade == Upgrade.Battery2? 1.3f : 1.2f;
+        float len = dist.magnitude * mult; 
         rectTransform.sizeDelta = new Vector2(connectionWidth, len);
     }
 
