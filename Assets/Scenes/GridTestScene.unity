@@ -1179,6 +1179,7 @@ MonoBehaviour:
   - {fileID: 1138347182}
   - {fileID: 695127515}
   - {fileID: 1045031791}
+  - {fileID: 0}
 --- !u!1 &406121703
 GameObject:
   m_ObjectHideFlags: 0
@@ -2822,8 +2823,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   money: 0
-  publicApproval: 0
-  ecoScore: 0
+  publicApproval: 49
+  ecoScore: 50
   cityEnergy: 0
   researchPoints: 0
 --- !u!114 &832575522

@@ -65,6 +65,10 @@ public class BuildingController : MonoBehaviour
                 if(LightingManager.instance.isNight) solarSpeed *= 0.2f;
                 GameManager.Instance.CityEnergy += Time.deltaTime * solarSpeed;
                 break;
+            case BuildingType.HOUSE:
+                float rand = Random.Range(0.0f, 0.5f) * Time.deltaTime * (GameManager.Instance.PublicApproval/100.0f);
+                GameManager.Instance.Money += rand;
+                break;
         }
     }
 
@@ -107,11 +111,19 @@ public class BuildingController : MonoBehaviour
         //money?
         return type switch
         {
-            BuildingType.HOUSE => 10,
-            BuildingType.SOLAR_PANEL => 10, //ResearchManager.Instance.IsUpgradeResearched(Upgrade.Geothermal1) ? 10 : 20,
-            BuildingType.NUCLEAR_PLANT => 50,
-            BuildingType.WIND_TURBINE => 30,
+            BuildingType.HOUSE => 35,
+            BuildingType.SOLAR_PANEL => 120, //ResearchManager.Instance.IsUpgradeResearched(Upgrade.Geothermal1) ? 10 : 20,
+            BuildingType.WIND_TURBINE => 100,
+            BuildingType.WATER_TURBINE => 175,
+            BuildingType.NUCLEAR_PLANT => 200,
+            BuildingType.OIL_DRILL => 50,
+            BuildingType.COAL_FACTORY => 65,
             _ => 0,
         };
     }
 }
+
+/*
+todo:
+1. add mechanics for other buildings lol
+*/

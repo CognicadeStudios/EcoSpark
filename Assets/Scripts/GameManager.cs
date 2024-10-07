@@ -9,13 +9,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public class OnValueUpdatedArgs : EventArgs{ 
-        public int newValue; 
-        public OnValueUpdatedArgs(int n) { newValue = n; } 
+        public float newValue; 
+        public OnValueUpdatedArgs(float n) { newValue = n; } 
     }
 
     [SerializeField]
-    private int money;
-    public int Money
+    private float money;
+    public float Money
     {
         get
         {
