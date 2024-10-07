@@ -1172,6 +1172,13 @@ MonoBehaviour:
   researchMenu: {fileID: 0}
   moneyCounter: {fileID: 44309003}
   energyCounter: {fileID: 580193875}
+  buildButtons:
+  - {fileID: 1221517732}
+  - {fileID: 1551896002}
+  - {fileID: 1907947472}
+  - {fileID: 1138347182}
+  - {fileID: 695127515}
+  - {fileID: 1045031791}
 --- !u!1 &406121703
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,6 +1464,7 @@ MonoBehaviour:
   TimeOfDay: 0
   TimeElapsed: 0
   TimeSpeed: 0.1
+  isNight: 1
 --- !u!1 &446180347
 GameObject:
   m_ObjectHideFlags: 0
@@ -2586,83 +2594,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695127515}
   m_CullTransparentMesh: 1
---- !u!1001 &775650270
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 100002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_Name
-      value: Ground
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 752
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 727
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c3b178be414d79b6187670251f34f0d0, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: c69fd66ac98ac7e458b9b289bd91a74f, type: 3}
 --- !u!1 &779967605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2890,6 +2821,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31839641c712f1488ff6d03106aa006, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  money: 0
+  publicApproval: 0
+  ecoScore: 0
+  cityEnergy: 0
   researchPoints: 0
 --- !u!114 &832575522
 MonoBehaviour:
@@ -6517,4 +6452,3 @@ SceneRoots:
   - {fileID: 673275409}
   - {fileID: 1415974274}
   - {fileID: 1952250940}
-  - {fileID: 775650270}

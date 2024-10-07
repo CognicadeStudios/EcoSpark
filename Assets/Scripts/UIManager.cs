@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI moneyCounter, energyCounter;
     private bool buildMenuOpen = false;
     public static UIManager instance;
-
+    public List<GameObject> buildButtons;
     private void Awake()
     {
         LeanTween.init(800);
@@ -25,7 +25,14 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         moneyCounter.text = FormatNumberAsK(GameManager.Instance.Money);
-        energyCounter.text = FormatNumberAsK(GameManager.Instance.CityEnergy);
+        energyCounter.text = FormatNumberAsK(Mathf.RoundToInt(GameManager.Instance.CityEnergy));
+
+        buildButtons[0].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.SOLAR_PANEL) <= GameManager.Instance.Money;
+        buildButtons[1].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.SOLAR_PANEL) <= GameManager.Instance.Money;
+        buildButtons[2].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.SOLAR_PANEL) <= GameManager.Instance.Money;
+        buildButtons[3].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.SOLAR_PANEL) <= GameManager.Instance.Money;
+        buildButtons[4].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.SOLAR_PANEL) <= GameManager.Instance.Money;
+        buildButtons[5].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.SOLAR_PANEL) <= GameManager.Instance.Money;
     }
 
     public void UpdatePABar()

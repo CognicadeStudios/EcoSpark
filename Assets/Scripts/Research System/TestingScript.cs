@@ -7,7 +7,6 @@ using UnityEngine;
 public class TestingScript : MonoBehaviour
 {
     public ResearchManager researchManager;
-    public BuildingController buildingController;
     public Button_UI addRPButton;
     public UI_SkillTree skillTree;
     // Start is called before the first frame update
@@ -25,7 +24,7 @@ public class TestingScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log(buildingController.GetCostToBuild(BuildingController.BuildingType.SOLAR_PANEL));
+            Debug.Log(BuildingController.GetCostToBuild(BuildingController.BuildingType.SOLAR_PANEL));
         }
     }
 }

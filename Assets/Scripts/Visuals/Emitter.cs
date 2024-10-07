@@ -34,7 +34,7 @@ public class Emitter : MonoBehaviour
     void Update()
     {
         Vector3 cur = emissionColor;
-        if(isNightOnly && LightingManager.instance.TimeOfDay > 6f && LightingManager.instance.TimeOfDay < 18f) cur = new Vector3(1.0f, 1.0f, 1.0f);
+        if(isNightOnly && LightingManager.instance.isNight) cur = new Vector3(1.0f, 1.0f, 1.0f);
         meshRenderer.material.color = new Color(cur.x, cur.y, cur.z, 1.0f);
     }
 }

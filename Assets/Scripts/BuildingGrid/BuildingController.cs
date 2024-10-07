@@ -13,10 +13,6 @@ public class BuildingController : MonoBehaviour
         Crossroad,
         StraightX,
         StraightY,
-        RoadU,
-        RoadD,
-        RoadR,
-        RoadL,
         RoadNE,
         RoadNW,
         RoadSE,
@@ -36,11 +32,13 @@ public class BuildingController : MonoBehaviour
     public GameObject currentBuilding;    
     public GameObject redPlane, redPlanePrefab;
     public bool displayingRedPlane;
+    public bool isBuildingMode;
     
     void Start() 
     {
         currentBuilding = null;
         displayingRedPlane = false;
+        isBuildingMode = true;
     }
 
     void Update()
@@ -57,11 +55,16 @@ public class BuildingController : MonoBehaviour
             Destroy(redPlane);
         }
 
+        if(isBuildingMode) return;
+
         //Do building specific stuff...
         switch(buildingType)
         {
             case BuildingType.SOLAR_PANEL:
-              break;  
+                float solarSpeed = 100.0f;
+                if(LightingManager.instance.isNight) solarSpeed *= 0.2f;
+                GameManager.Instance.CityEnergy += Time.deltaTime * solarSpeed;
+                break;
         }
     }
 
@@ -99,13 +102,13 @@ public class BuildingController : MonoBehaviour
         }
     }
 
-    public int GetCostToBuild(BuildingType type)
+    public static int GetCostToBuild(BuildingType type)
     {
         //money?
         return type switch
         {
             BuildingType.HOUSE => 10,
-            BuildingType.SOLAR_PANEL => (researchManager.IsUpgradeResearched(Upgrade.Geothermal1)) ? 10 : 20,
+            BuildingType.SOLAR_PANEL => 10, //ResearchManager.Instance.IsUpgradeResearched(Upgrade.Geothermal1) ? 10 : 20,
             BuildingType.NUCLEAR_PLANT => 50,
             BuildingType.WIND_TURBINE => 30,
             _ => 0,
