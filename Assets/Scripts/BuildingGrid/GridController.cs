@@ -74,6 +74,19 @@ public class GridController : MonoBehaviour
 
     public void EnableBuildingMode(int buildingType)
     {
+        //check if we can buy this type of building first lol
+
+        int cost = BuildingController.GetCostToBuild((BuildingController.BuildingType)buildingType) ;
+        if(cost <= GameManager.Instance.Money)
+        {
+            GameManager.Instance.Money -= cost;
+        }
+        else 
+        {
+            Debug.Log("Not Enough Money to Build Building: " + buildingType);
+            return;
+        }
+
         currentBuildingType = (BuildingController.BuildingType)buildingType;
         Debug.Log("Starting Building: " + buildingType);
         isBuilding = true;
@@ -107,6 +120,7 @@ public class GridController : MonoBehaviour
                 Debug.Log("Ending Building: " + currentBuildingType);
                 buildingPreviewPosition = new Vector2Int(-1, -1);
                 SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
+                buildingsGrid[gridPosition.x, gridPosition.y].isBuildingMode = false;
             }
             
             if(buildingsGrid[gridPosition.x, gridPosition.y].buildingType == BuildingController.BuildingType.Empty && buildingPreviewPosition != gridPosition)

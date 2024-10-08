@@ -13,6 +13,7 @@ public class LightingManager : MonoBehaviour
     [SerializeField, Range(0.0f, 1.0f)] private float TimeSpeed;
 
     public static LightingManager instance;
+    public bool isNight;
 
     private void Awake()
     {
@@ -36,6 +37,8 @@ public class LightingManager : MonoBehaviour
         {
             UpdateLighting(TimeOfDay / 24f);
         }
+
+        isNight = TimeOfDay is not (> 6f and < 18f);
     }
 
 

@@ -9,12 +9,13 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public class OnValueUpdatedArgs : EventArgs{ 
-        public int newValue; 
-        public OnValueUpdatedArgs(int n) { newValue = n; } 
+        public float newValue; 
+        public OnValueUpdatedArgs(float n) { newValue = n; } 
     }
 
-    private int money;
-    public int Money
+    [SerializeField]
+    private float money;
+    public float Money
     {
         get
         {
@@ -28,7 +29,7 @@ public class GameManager : MonoBehaviour
     }
     public event EventHandler<OnValueUpdatedArgs> OnMoneyChanged;
 
-    [Range(0,100)]
+    [Range(0,100), SerializeField]
     private int publicApproval;
     public int PublicApproval
     {
@@ -44,7 +45,7 @@ public class GameManager : MonoBehaviour
     }
     public event EventHandler<OnValueUpdatedArgs> OnPublicApprovalChanged;
 
-    [Range(0,100)]
+    [Range(0,100), SerializeField]
     private int ecoScore;
     public int EcoScore
     {
@@ -60,8 +61,9 @@ public class GameManager : MonoBehaviour
     }
     public event EventHandler<OnValueUpdatedArgs> OnEcoScoreChanged;
 
-    private int cityEnergy;
-    public int CityEnergy
+    [SerializeField]
+    private float cityEnergy;
+    public float CityEnergy
     {
         get
         {
