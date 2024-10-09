@@ -12,6 +12,7 @@ public class ResearchManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        Debug.Log(Instance);
     }
     public class OnUpgradeResearchedArgs : EventArgs { public Upgrade upgrade; }
     public event EventHandler<OnUpgradeResearchedArgs> OnUpgradeResearched;
