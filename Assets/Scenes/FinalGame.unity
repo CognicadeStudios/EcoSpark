@@ -2884,6 +2884,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -1668528958, guid: febad35a26b369e4fbdb03e1dee235b8,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Innovation
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Unlocks energy storage and research point production
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: isPriced
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2573979779500346856, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: m_Name
@@ -5868,6 +5883,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1667207213, guid: febad35a26b369e4fbdb03e1dee235b8,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Renewable Energy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Unlocks renewable energy sources
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: isPriced
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2573979779500346856, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: m_Name
@@ -7250,6 +7280,21 @@ PrefabInstance:
     - target: {fileID: 538446333440462598, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Geosolar Station
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Upgrade geothermal plants with solar panels
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: isPriced
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2573979779500346856, guid: 171bbbacf4fbe8440ac887d23596f6f8,
@@ -9679,6 +9724,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -187775161, guid: febad35a26b369e4fbdb03e1dee235b8,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Housing
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Unlocks upgrades related to housing and business buildings
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: isPriced
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2573979779500346856, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: m_Name

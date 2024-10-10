@@ -9,13 +9,14 @@ public class UI_UpgradeButton : MonoBehaviour
     public Image image;
     public GameObject lockcover;
     public GameObject border;
+    public TooltipTrigger trigger;
     public Upgrade upgrade;
 
     void Awake()
     {
         transform.GetComponent<Button_UI>().ClickFunc = () =>
         {
-            Debug.Log("Clickevent");
+            //Debug.Log("Clickevent");
             bool b = ResearchManager.Instance.TryUnlockUpgrade(upgrade);
             if (!b)
             {
@@ -25,6 +26,8 @@ public class UI_UpgradeButton : MonoBehaviour
         image = transform.Find("image").GetComponent<Image>();
         lockcover = transform.Find("lock").gameObject;
         border = transform.Find("border").gameObject;
+        trigger = GetComponent<TooltipTrigger>();
+        trigger.price = UpgradeInfo.ResearchCosts[upgrade];
     }
 
     void Start()
@@ -51,7 +54,7 @@ public class UI_UpgradeButton : MonoBehaviour
         
         if (IsResearched())
         {
-            LeanTween.scale(border, new Vector3(1f,1f,0), 1f).setEase(LeanTweenType.easeOutExpo); ;
+            LeanTween.scale(border, new Vector3(1f,1f,0), 1f).setEase(LeanTweenType.easeOutExpo);
             lockcover.SetActive(false);
         }
         else if (IsResearchable()) {
