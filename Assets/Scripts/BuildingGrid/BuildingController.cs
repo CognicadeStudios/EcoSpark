@@ -69,6 +69,26 @@ public class BuildingController : MonoBehaviour
                 float rand = Random.Range(0.0f, 0.5f) * Time.deltaTime * (GameManager.Instance.PublicApproval/100.0f);
                 GameManager.Instance.Money += rand;
                 break;
+            case BuildingType.WIND_TURBINE:
+                float windSpeed = 10.0f + Random.Range(-10.0f, 10.0f);
+                GameManager.Instance.CityEnergy += Time.deltaTime * windSpeed;
+                break;
+            case BuildingType.WATER_TURBINE:
+                float waterSpeed = 15.0f;
+                GameManager.Instance.CityEnergy += Time.deltaTime * waterSpeed;
+                break;
+            case BuildingType.NUCLEAR_PLANT:
+                float nuclearPlantSpeed = 15.0f;
+                GameManager.Instance.CityEnergy += Time.deltaTime * nuclearPlantSpeed;
+                break;
+            case BuildingType.OIL_DRILL:
+                float oilSpeed = 15.0f;
+                GameManager.Instance.CityEnergy += Time.deltaTime * oilSpeed;
+                break;
+            case BuildingType.COAL_FACTORY:
+                float coalFactorySpeed = 15.0f;
+                GameManager.Instance.CityEnergy += Time.deltaTime * coalFactorySpeed;
+                break;
         }
     }
 
