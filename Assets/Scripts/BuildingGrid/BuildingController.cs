@@ -129,13 +129,33 @@ public class BuildingInfo
 {
     public static Dictionary<BuildingType, List<int>> BuildCosts = new()
     {
-        
+        { BuildingType.HOUSE,            new(){0, 35 , 45 , 55 } },
+        { BuildingType.BUSINESS,         new(){0, 50 , 50 , 60 } },
+        { BuildingType.SOLAR_PANEL,      new(){0, 120, 0  , 0  } },
+        { BuildingType.WIND_TURBINE ,    new(){0, 100, 95 , 85 } },
+        { BuildingType.GEOTHERMAL_PLANT, new(){0, 150, 120, 0  } },
+        { BuildingType.WATER_TURBINE,    new(){0, 120, 140, 130} },
+        { BuildingType.NUCLEAR_PLANT,    new(){0, 200, 185, 160} },
+        { BuildingType.COAL_MINE,        new(){0, 70 , 90 , 110} },
+        { BuildingType.ENERGY_STORAGE,   new(){0, 50 , 60 , 70 } },
+        { BuildingType.RESEARCH_LAB,     new(){0, 30 , 65 , 90 } },
     };
 }
 
 public enum BuildingType : int
 {
     Empty,
+    HOUSE,
+    BUSINESS,
+    SOLAR_PANEL,
+    WIND_TURBINE,
+    GEOTHERMAL_PLANT,
+    WATER_TURBINE,
+    NUCLEAR_PLANT,
+    COAL_MINE,
+    ENERGY_STORAGE,
+    RESEARCH_LAB,
+    
     Crossroad,
     StraightX,
     StraightY,
@@ -143,17 +163,6 @@ public enum BuildingType : int
     RoadNW,
     RoadSE,
     RoadSW,
-    HOUSE,
-    BUSINESS,
-    SOLAR_PANEL,
-    WIND_TURBINE,
-    WATER_TURBINE,
-    NUCLEAR_PLANT,
-    COAL_MINE,
-    OIL_DRILL,
-    ENERGY_STORAGE,
-    RESEARCH_LAB,
-
 };
 
 /*

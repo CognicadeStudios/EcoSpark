@@ -20,7 +20,7 @@ public class UI_UpgradeConnection : MonoBehaviour
 
     private Upgrade sourceUpgrade;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         startButton = start.GetComponent<UI_UpgradeButton>();
         image = GetComponent<Image>();
