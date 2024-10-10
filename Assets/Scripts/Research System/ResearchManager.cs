@@ -21,7 +21,12 @@ public class ResearchManager : MonoBehaviour
 
     void Start()
     {
-        UpgradeInfo.researchedUpgrades = new List<Upgrade>();
+        UpgradeInfo.researchedUpgrades = new List<Upgrade>() {
+            Upgrade.RenewableEnergy,
+            Upgrade.NonrenewableEnergy,
+            Upgrade.StorageAndResearch,
+            Upgrade.HousingAndBusiness
+        };
 
         OnUpgradeResearched += ResearchManager_OnUpgradeResearched;
         skillTree.Initialize();
@@ -275,10 +280,10 @@ public class UpgradeInfo
         { Upgrade.Research3, new List<Upgrade>{ Upgrade.Research2 } },
         { Upgrade.Battery1, new List<Upgrade>{ Upgrade.StorageAndResearch } },
         { Upgrade.Battery2, new List<Upgrade>{ Upgrade.Battery1 } },
-        { Upgrade.Battery3, new List<Upgrade>{ Upgrade.Battery2, Upgrade.Solar1 } },
+        { Upgrade.Battery3, new List<Upgrade>{ Upgrade.Battery2} },
         { Upgrade.Housing1, new List<Upgrade>{ Upgrade.HousingAndBusiness } },
-        { Upgrade.Housing2, new List<Upgrade>{ Upgrade.Housing1, Upgrade.Business1, Upgrade.Research2 } },
-        { Upgrade.Housing3, new List<Upgrade>{ Upgrade.Housing2, Upgrade.Battery2 } },
+        { Upgrade.Housing2, new List<Upgrade>{ Upgrade.Housing1, Upgrade.Business1 } },
+        { Upgrade.Housing3, new List<Upgrade>{ Upgrade.Housing2} },
         { Upgrade.Business1, new List<Upgrade>{ Upgrade.HousingAndBusiness} },
         { Upgrade.Business2, new List<Upgrade>{ Upgrade.Business1 } },
         { Upgrade.Business3, new List<Upgrade>{ Upgrade.Business2, Upgrade.Housing2 } },

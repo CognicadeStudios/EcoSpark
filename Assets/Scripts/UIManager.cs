@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     private bool buildMenuOpen = false;
     public static UIManager instance;
     public List<GameObject> buildButtons;
+    public UI_SkillTree skillTree;
     private void Awake()
     {
         LeanTween.init(800);
@@ -88,6 +89,7 @@ public class UIManager : MonoBehaviour
 
     public void OpenResearchMenu()
     {
+        skillTree.UpdateVisual();
         researchDim.SetActive(true);
         LeanTween.value(researchDim, 0, 0.85f, 0.2f).setOnUpdate(UpdateDimAlpha);
         researchMenu.SetActive(true);
