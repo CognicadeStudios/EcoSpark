@@ -18,12 +18,16 @@ public class BuildingController : MonoBehaviour
         RoadSE,
         RoadSW,
         HOUSE,
+        BUSINESS,
         SOLAR_PANEL,
         WIND_TURBINE,
         WATER_TURBINE,
         NUCLEAR_PLANT,
+        COAL_MINE,
         OIL_DRILL, 
-        COAL_FACTORY,
+        ENERGY_STORAGE,
+        RESEARCH_LAB,
+        
     };
 
     public List<GameObject> buildingPrefabs;
@@ -81,11 +85,11 @@ public class BuildingController : MonoBehaviour
                 float nuclearPlantSpeed = 15.0f;
                 GameManager.Instance.CityEnergy += Time.deltaTime * nuclearPlantSpeed;
                 break;
-            case BuildingType.OIL_DRILL:
-                float oilSpeed = 15.0f;
-                GameManager.Instance.CityEnergy += Time.deltaTime * oilSpeed;
-                break;
-            case BuildingType.COAL_FACTORY:
+            //case BuildingType.OIL_DRILL:
+            //    float oilSpeed = 15.0f;
+            //    GameManager.Instance.CityEnergy += Time.deltaTime * oilSpeed;
+            //    break;
+            case BuildingType.COAL_MINE:
                 float coalFactorySpeed = 15.0f;
                 GameManager.Instance.CityEnergy += Time.deltaTime * coalFactorySpeed;
                 break;
@@ -118,9 +122,8 @@ public class BuildingController : MonoBehaviour
             case BuildingType.HOUSE:
             case BuildingType.SOLAR_PANEL:
             case BuildingType.NUCLEAR_PLANT:
-            case BuildingType.COAL_FACTORY:
+            case BuildingType.COAL_MINE:
             case BuildingType.WATER_TURBINE:
-            case BuildingType.OIL_DRILL:
             case BuildingType.WIND_TURBINE:
                 break;
         }
@@ -136,11 +139,19 @@ public class BuildingController : MonoBehaviour
             BuildingType.WIND_TURBINE => 100,
             BuildingType.WATER_TURBINE => 175,
             BuildingType.NUCLEAR_PLANT => 200,
-            BuildingType.OIL_DRILL => 50,
-            BuildingType.COAL_FACTORY => 65,
+            //BuildingType.OIL_DRILL => 50,
+            BuildingType.COAL_MINE => 65,
             _ => 0,
         };
     }
+}
+
+public class BuildingInfo
+{
+    public static Dictionary<BuildingController.BuildingType, List<int>> BuildCosts = new()
+    {
+
+    };
 }
 
 /*
