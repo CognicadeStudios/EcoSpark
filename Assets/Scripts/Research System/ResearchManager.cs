@@ -62,7 +62,7 @@ public class ResearchManager : MonoBehaviour
     private void UnlockUpgrade(Upgrade upgrade)
     {
         UpgradeInfo.researchedUpgrades.Add(upgrade);
-        UpgradeInfo.TierAmounts[UpgradeInfo.UpgradeTiers[upgrade]]++;
+        //UpgradeInfo.TierAmounts[UpgradeInfo.UpgradeTiers[upgrade]]++;
         OnUpgradeResearched?.Invoke(this, new OnUpgradeResearchedArgs { upgrade = upgrade });
         Debug.Log("Upgrade Researched");
     }
@@ -71,35 +71,27 @@ public class ResearchManager : MonoBehaviour
         return UpgradeInfo.researchedUpgrades.Contains(upgrade);
     }
     public bool IsUpgradeResearchable(Upgrade upgrade)
-    {
-        if (!UpgradeInfo.UnlockRequirements.ContainsKey(upgrade))
-        {
-            if (UpgradeInfo.UpgradeTiers[upgrade] > 0)
-            {
-                ErrorMessage = "Upgrade not in requirements: " + upgrade;
-            }
-            return true;
-        }
-        switch (UpgradeInfo.UpgradeTiers[upgrade])
-        {
-            case 0:
-            case 1:
-                break;
-            case 2:
-                if (UpgradeInfo.TierAmounts[1] < 5)
-                {
-                    ErrorMessage = "Not Enough Tier 1 Upgrades Unlocked (required: 5)";
-                    return false;
-                }
-                break;
-            case 3:
-                if (UpgradeInfo.TierAmounts[2] < 6)
-                {
-                    ErrorMessage = "Not Enough Tier 2 Upgrades Unlocked (required: 6)";
-                    return false;
-                }
-                break;
-        }
+    { 
+        //switch (UpgradeInfo.UpgradeTiers[upgrade])
+        //{
+        //    case 0:
+        //    case 1:
+        //        break;
+        //    case 2:
+        //        if (UpgradeInfo.TierAmounts[1] < 5)
+        //        {
+        //            ErrorMessage = "Not Enough Tier 1 Upgrades Unlocked (required: 5)";
+        //            return false;
+        //        }
+        //        break;
+        //    case 3:
+        //        if (UpgradeInfo.TierAmounts[2] < 6)
+        //        {
+        //            ErrorMessage = "Not Enough Tier 2 Upgrades Unlocked (required: 6)";
+        //            return false;
+        //        }
+        //        break;
+        //}
         foreach (Upgrade req in UpgradeInfo.UnlockRequirements[upgrade])
         {
             if (!IsUpgradeResearched(req))
@@ -304,9 +296,9 @@ public class UpgradeInfo
         { Upgrade.Nuclear3, new List<Upgrade>{ Upgrade.Nuclear2 } },
     };
 
-    public static List<int> TierAmounts = new() { 0, 0, 0, 0 };
+    private static List<int> TierAmounts = new() { 0, 0, 0, 0 };
 
-    public static readonly Dictionary<Upgrade, int> UpgradeTiers = new()
+    private static readonly Dictionary<Upgrade, int> UpgradeTiers = new()
     {
         { Upgrade.None, 0},
         { Upgrade.HousingAndBusiness, 0},

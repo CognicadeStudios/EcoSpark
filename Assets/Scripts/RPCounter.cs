@@ -11,6 +11,7 @@ public class RPCounter : MonoBehaviour
     void Start()
     {
         GameManager.Instance.OnResearchPointsChanged += UpdateCounter;
+        UpdateCounter(this, new GameManager.OnValueUpdatedArgs(GameManager.Instance.ResearchPoints));
     }
 
     void UpdateCounter(object sender, GameManager.OnValueUpdatedArgs e)
