@@ -7,7 +7,8 @@ using CodeMonkey.Utils;
 public class UI_UpgradeButton : MonoBehaviour
 {
     public Image image;
-    public Image background;
+    public GameObject background;
+    public GameObject border;
     public Upgrade upgrade;
 
     void Awake()
@@ -22,7 +23,13 @@ public class UI_UpgradeButton : MonoBehaviour
             }
         };
         image = transform.Find("image").GetComponent<Image>();
-        background = transform.Find("background").GetComponent<Image>();
+        background = transform.Find("lock").gameObject;
+        border = transform.Find("border").gameObject;
+    }
+
+    void Start()
+    {
+        UpdateVisual();
     }
 
     public bool IsResearched()
@@ -44,15 +51,15 @@ public class UI_UpgradeButton : MonoBehaviour
         
         if (IsResearched())
         {
-            background.color = Color.green;
+            LeanTween.scale(border, new Vector3(1f,1f,0), 1f).setEase(LeanTweenType.easeOutExpo); ;
         }
-        else if (IsResearchable())
-        {
-            background.color = Color.white;
+        else if (IsResearchable()) {
+
+            LeanTween.scale(background, Vector3.zero, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(delegate () { background.SetActive(false); });
         }
         else
         {
-            background.color = Color.red;
+            return;
         }
     }
 }
