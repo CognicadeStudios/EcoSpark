@@ -140,6 +140,14 @@ public class BuildingInfo
         { BuildingType.ENERGY_STORAGE,   new(){0, 50 , 60 , 70 } },
         { BuildingType.RESEARCH_LAB,     new(){0, 30 , 65 , 90 } },
     };
+    public static Dictionary<BuildingType, List<Cost>> productions = new()
+    {
+
+    };
+    public static Dictionary<BuildingType, List<Cost>> consumptions = new()
+    {
+
+    };
 }
 
 public enum BuildingType : int

@@ -96,15 +96,46 @@ public class GameManager : MonoBehaviour
     }
 }
 
+/// <example>
+/// Cost c = new() {ResearchPoints = 1, CityEnergy = 0};
+/// Cost cTotal = 5.5f * c;
+/// Cost d = new() {CityEnergy = 5f, Money = 2.3f};
+/// cTotal += d;
+/// GameManager.Instance += cTotal;
+/// </example>
 public class Cost
 {
     public int ResearchPoints, PublicApproval, EcoScore;
     public float CityEnergy, Money;
-    public Cost(){
+    public Cost() {
         ResearchPoints = 0;
         PublicApproval = 0;
         EcoScore = 0;
         CityEnergy = 0f;
         Money = 0f;
     }
+
+    public static Cost operator *(float a, Cost b)
+    {
+        return new Cost()
+        {
+            ResearchPoints = (int)(b.ResearchPoints * a),
+            PublicApproval = (int)Mathf.Clamp(b.PublicApproval * a, 0, 100),
+            EcoScore = (int)Mathf.Clamp(b.EcoScore * a, 0, 100),
+            CityEnergy = b.CityEnergy * a,
+            Money = b.Money * a
+        };
+    }
+    public static Cost operator +(Cost a, Cost b)
+    {
+        return new Cost()
+        {
+            ResearchPoints = a.ResearchPoints + b.ResearchPoints,
+            PublicApproval = Math.Clamp(a.PublicApproval + b.PublicApproval, 0, 100),
+            EcoScore = Math.Clamp(a.EcoScore + b.EcoScore, 0, 100),
+            CityEnergy = a.CityEnergy + b.CityEnergy,
+            Money = a.Money + b.Money
+        };
+    }
 };
+
