@@ -7,17 +7,19 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 {
     private LTDescr delay;
     public string header;
+    [TextArea(3, 5)]
     public string content;
     public int price;
     public bool isPriced;
+    public CurrencyType currencyType;
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        delay = LeanTween.delayedCall(0.2f, () =>
+        delay = LeanTween.delayedCall(0.5f, () =>
         {
             if (isPriced)
             {
-                TooltipSystem.Show(header, content, UIManager.FormatNumberAsK(price));
+                TooltipSystem.Show(header, content, UIManager.FormatNumberAsK(price),currencyType);
             }
             else {
                 TooltipSystem.Show(header, content);
