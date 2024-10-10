@@ -27,12 +27,12 @@ public class UIManager : MonoBehaviour
         moneyCounter.text = FormatNumberAsK(Mathf.RoundToInt(GameManager.Instance.Money));
         energyCounter.text = FormatNumberAsK(Mathf.RoundToInt(GameManager.Instance.CityEnergy));
 
-        buildButtons[0].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.SOLAR_PANEL) <= GameManager.Instance.Money;
-        buildButtons[1].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.WIND_TURBINE) <= GameManager.Instance.Money;
-        buildButtons[2].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.WATER_TURBINE) <= GameManager.Instance.Money;
-        buildButtons[3].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.NUCLEAR_PLANT) <= GameManager.Instance.Money;
-        //buildButtons[4].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.OIL_DRILL) <= GameManager.Instance.Money;
-        buildButtons[4].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingController.BuildingType.COAL_MINE) <= GameManager.Instance.Money;
+        buildButtons[0].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.SOLAR_PANEL) <= GameManager.Instance.Money;
+        buildButtons[1].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.WIND_TURBINE) <= GameManager.Instance.Money;
+        buildButtons[2].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.WATER_TURBINE) <= GameManager.Instance.Money;
+        buildButtons[3].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.NUCLEAR_PLANT) <= GameManager.Instance.Money;
+        //buildButtons[4].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.OIL_DRILL) <= GameManager.Instance.Money;
+        buildButtons[4].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.COAL_MINE) <= GameManager.Instance.Money;
     }
 
     public void UpdatePABar()

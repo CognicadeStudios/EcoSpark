@@ -36,7 +36,7 @@ public class GenRandomBuilding : MonoBehaviour
         if(isBuilding)
         {
             BuildingController controller = transform.parent.parent.GetComponent<BuildingController>();
-            controller.buildingType = BuildingController.BuildingType.HOUSE;
+            controller.buildingType = BuildingType.HOUSE;
         }
     }
 

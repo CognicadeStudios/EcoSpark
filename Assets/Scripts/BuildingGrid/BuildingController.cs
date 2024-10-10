@@ -8,27 +8,6 @@ using UnityEngine;
 public class BuildingController : MonoBehaviour
 {
     public ResearchManager researchManager;
-    public enum BuildingType : int {
-        Empty,
-        Crossroad,
-        StraightX,
-        StraightY,
-        RoadNE,
-        RoadNW,
-        RoadSE,
-        RoadSW,
-        HOUSE,
-        BUSINESS,
-        SOLAR_PANEL,
-        WIND_TURBINE,
-        WATER_TURBINE,
-        NUCLEAR_PLANT,
-        COAL_MINE,
-        OIL_DRILL, 
-        ENERGY_STORAGE,
-        RESEARCH_LAB,
-        
-    };
 
     public List<GameObject> buildingPrefabs;
     public BuildingType buildingType;
@@ -148,11 +127,34 @@ public class BuildingController : MonoBehaviour
 
 public class BuildingInfo
 {
-    public static Dictionary<BuildingController.BuildingType, List<int>> BuildCosts = new()
+    public static Dictionary<BuildingType, List<int>> BuildCosts = new()
     {
-
+        
     };
 }
+
+public enum BuildingType : int
+{
+    Empty,
+    Crossroad,
+    StraightX,
+    StraightY,
+    RoadNE,
+    RoadNW,
+    RoadSE,
+    RoadSW,
+    HOUSE,
+    BUSINESS,
+    SOLAR_PANEL,
+    WIND_TURBINE,
+    WATER_TURBINE,
+    NUCLEAR_PLANT,
+    COAL_MINE,
+    OIL_DRILL,
+    ENERGY_STORAGE,
+    RESEARCH_LAB,
+
+};
 
 /*
 todo:
