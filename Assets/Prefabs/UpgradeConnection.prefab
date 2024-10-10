@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {fileID: 0}
   end: {fileID: 0}
-  offColor: {r: 1, g: 1, b: 1, a: 1}
+  offColor: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
   onColor: {r: 0.7490196, g: 0, b: 1, a: 1}
 --- !u!114 &2020756413391146602
 MonoBehaviour:
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.87843144, g: 0.87843144, b: 0.87843144, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
