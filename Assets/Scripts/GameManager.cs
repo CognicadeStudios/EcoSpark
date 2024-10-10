@@ -95,3 +95,16 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 }
+
+public class Cost
+{
+    public int ResearchPoints, PublicApproval, EcoScore;
+    public float CityEnergy, Money;
+    public Cost(){
+        ResearchPoints = 0;
+        PublicApproval = 0;
+        EcoScore = 0;
+        CityEnergy = 0f;
+        Money = 0f;
+    }
+};

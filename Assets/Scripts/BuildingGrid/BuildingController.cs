@@ -8,23 +8,6 @@ using UnityEngine;
 public class BuildingController : MonoBehaviour
 {
     public ResearchManager researchManager;
-    public enum BuildingType : int {
-        Empty,
-        Crossroad,
-        StraightX,
-        StraightY,
-        RoadNE,
-        RoadNW,
-        RoadSE,
-        RoadSW,
-        HOUSE,
-        SOLAR_PANEL,
-        WIND_TURBINE,
-        WATER_TURBINE,
-        NUCLEAR_PLANT,
-        OIL_DRILL, 
-        COAL_FACTORY,
-    };
 
     public List<GameObject> buildingPrefabs;
     public BuildingType buildingType;
@@ -81,11 +64,11 @@ public class BuildingController : MonoBehaviour
                 float nuclearPlantSpeed = 15.0f;
                 GameManager.Instance.CityEnergy += Time.deltaTime * nuclearPlantSpeed;
                 break;
-            case BuildingType.OIL_DRILL:
-                float oilSpeed = 15.0f;
-                GameManager.Instance.CityEnergy += Time.deltaTime * oilSpeed;
-                break;
-            case BuildingType.COAL_FACTORY:
+            //case BuildingType.OIL_DRILL:
+            //    float oilSpeed = 15.0f;
+            //    GameManager.Instance.CityEnergy += Time.deltaTime * oilSpeed;
+            //    break;
+            case BuildingType.COAL_MINE:
                 float coalFactorySpeed = 15.0f;
                 GameManager.Instance.CityEnergy += Time.deltaTime * coalFactorySpeed;
                 break;
@@ -118,9 +101,8 @@ public class BuildingController : MonoBehaviour
             case BuildingType.HOUSE:
             case BuildingType.SOLAR_PANEL:
             case BuildingType.NUCLEAR_PLANT:
-            case BuildingType.COAL_FACTORY:
+            case BuildingType.COAL_MINE:
             case BuildingType.WATER_TURBINE:
-            case BuildingType.OIL_DRILL:
             case BuildingType.WIND_TURBINE:
                 break;
         }
@@ -136,12 +118,52 @@ public class BuildingController : MonoBehaviour
             BuildingType.WIND_TURBINE => 100,
             BuildingType.WATER_TURBINE => 175,
             BuildingType.NUCLEAR_PLANT => 200,
-            BuildingType.OIL_DRILL => 50,
-            BuildingType.COAL_FACTORY => 65,
+            //BuildingType.OIL_DRILL => 50,
+            BuildingType.COAL_MINE => 65,
             _ => 0,
         };
     }
 }
+
+public class BuildingInfo
+{
+    public static Dictionary<BuildingType, List<int>> BuildCosts = new()
+    {
+        { BuildingType.HOUSE,            new(){0, 35 , 45 , 55 } },
+        { BuildingType.BUSINESS,         new(){0, 50 , 50 , 60 } },
+        { BuildingType.SOLAR_PANEL,      new(){0, 120, 0  , 0  } },
+        { BuildingType.WIND_TURBINE ,    new(){0, 100, 95 , 85 } },
+        { BuildingType.GEOTHERMAL_PLANT, new(){0, 150, 120, 0  } },
+        { BuildingType.WATER_TURBINE,    new(){0, 120, 140, 130} },
+        { BuildingType.NUCLEAR_PLANT,    new(){0, 200, 185, 160} },
+        { BuildingType.COAL_MINE,        new(){0, 70 , 90 , 110} },
+        { BuildingType.ENERGY_STORAGE,   new(){0, 50 , 60 , 70 } },
+        { BuildingType.RESEARCH_LAB,     new(){0, 30 , 65 , 90 } },
+    };
+}
+
+public enum BuildingType : int
+{
+    Empty,
+    HOUSE,
+    BUSINESS,
+    SOLAR_PANEL,
+    WIND_TURBINE,
+    GEOTHERMAL_PLANT,
+    WATER_TURBINE,
+    NUCLEAR_PLANT,
+    COAL_MINE,
+    ENERGY_STORAGE,
+    RESEARCH_LAB,
+    
+    Crossroad,
+    StraightX,
+    StraightY,
+    RoadNE,
+    RoadNW,
+    RoadSE,
+    RoadSW,
+};
 
 /*
 todo:

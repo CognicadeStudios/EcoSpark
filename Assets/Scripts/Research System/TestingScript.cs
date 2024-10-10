@@ -24,7 +24,7 @@ public class TestingScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log(BuildingController.GetCostToBuild(BuildingController.BuildingType.SOLAR_PANEL));
+            Debug.Log(BuildingController.GetCostToBuild(BuildingType.SOLAR_PANEL));
         }
     }
 }

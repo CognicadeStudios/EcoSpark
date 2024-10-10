@@ -179,12 +179,12 @@ public class ResearchManager : MonoBehaviour
 
     
     //TODO: Move To BuildingController
-    public bool IsBuildingUnlocked(BuildingController.BuildingType buildingType)
+    public bool IsBuildingUnlocked(BuildingType buildingType)
     {
         switch (buildingType)
         {
 
-            case BuildingController.BuildingType.SOLAR_PANEL:
+            case BuildingType.SOLAR_PANEL:
                 return IsUpgradeResearched(Upgrade.Solar1);
             default:
                 return true;

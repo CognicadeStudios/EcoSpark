@@ -45,7 +45,7 @@ public class GridController : MonoBehaviour
         }
     }
 
-    public GameObject SetBuilding(int x, int y, BuildingController.BuildingType buildingType)
+    public GameObject SetBuilding(int x, int y, BuildingType buildingType)
     {
         if (x >= 0 && y >= 0 && x < gridWidth && y < gridHeight)
         {
@@ -70,13 +70,13 @@ public class GridController : MonoBehaviour
     }
     public bool isBuilding = false;
     public Vector2Int buildingPreviewPosition;
-    BuildingController.BuildingType currentBuildingType;
+    BuildingType currentBuildingType;
 
     public void EnableBuildingMode(int buildingType)
     {
         //check if we can buy this type of building first lol
 
-        int cost = BuildingController.GetCostToBuild((BuildingController.BuildingType)buildingType) ;
+        int cost = BuildingController.GetCostToBuild((BuildingType)buildingType) ;
         if(cost <= GameManager.Instance.Money)
         {
             GameManager.Instance.Money -= cost;
@@ -87,7 +87,7 @@ public class GridController : MonoBehaviour
             return;
         }
 
-        currentBuildingType = (BuildingController.BuildingType)buildingType;
+        currentBuildingType = (BuildingType)buildingType;
         Debug.Log("Starting Building: " + buildingType);
         isBuilding = true;
     }
@@ -123,9 +123,9 @@ public class GridController : MonoBehaviour
                 buildingsGrid[gridPosition.x, gridPosition.y].isBuildingMode = false;
             }
             
-            if(buildingsGrid[gridPosition.x, gridPosition.y].buildingType == BuildingController.BuildingType.Empty && buildingPreviewPosition != gridPosition)
+            if(buildingsGrid[gridPosition.x, gridPosition.y].buildingType == BuildingType.Empty && buildingPreviewPosition != gridPosition)
             {
-                SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingController.BuildingType.Empty);
+                SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingType.Empty);
                 buildingPreviewPosition = gridPosition;
                 GameObject g = SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
                 for(int i = 0; i < g.transform.childCount; i++)
