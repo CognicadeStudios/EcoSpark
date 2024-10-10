@@ -7,7 +7,7 @@ using CodeMonkey.Utils;
 public class UI_UpgradeButton : MonoBehaviour
 {
     public Image image;
-    public GameObject background;
+    public GameObject lockcover;
     public GameObject border;
     public Upgrade upgrade;
 
@@ -23,7 +23,7 @@ public class UI_UpgradeButton : MonoBehaviour
             }
         };
         image = transform.Find("image").GetComponent<Image>();
-        background = transform.Find("lock").gameObject;
+        lockcover = transform.Find("lock").gameObject;
         border = transform.Find("border").gameObject;
     }
 
@@ -52,10 +52,11 @@ public class UI_UpgradeButton : MonoBehaviour
         if (IsResearched())
         {
             LeanTween.scale(border, new Vector3(1f,1f,0), 1f).setEase(LeanTweenType.easeOutExpo); ;
+            lockcover.SetActive(false);
         }
         else if (IsResearchable()) {
 
-            LeanTween.scale(background, Vector3.zero, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(delegate () { background.SetActive(false); });
+            LeanTween.scale(lockcover, Vector3.zero, 1f).setEase(LeanTweenType.easeOutExpo).setOnComplete(delegate () { lockcover.SetActive(false); });
         }
         else
         {
