@@ -15,6 +15,7 @@ public class DialogueManager : MonoBehaviour
 
     private Dictionary<int, List<string>> dialogueDict;
 
+
     void Start()
     {
         sentences = new Queue<string>();
@@ -155,8 +156,14 @@ public class DialogueManager : MonoBehaviour
         nameText.text = dialogue.name;
         npcImage.sprite = dialogue.image;
         sentences.Clear();
+
         List<int> keys = new List<int>(dialogueDict.Keys);
-        int dialogueKey = keys[Random.Range(0, keys.Count)];
+        int dialogueKey = 0;
+        while (EventManager.Instance.isCompleted(dialogueKey))
+        {
+            dialogueKey = keys[Random.Range(0, keys.Count)];
+
+        }
         List<string> randSent = dialogueDict[dialogueKey];
 
         dialogueDict.Remove(dialogueKey);
@@ -164,7 +171,7 @@ public class DialogueManager : MonoBehaviour
         {
             sentences.Enqueue(sentence);
         }
-
+        EventManager.Instance.StartEvent(dialogueKey);
         DisplayNextSentence();
     }
 
@@ -179,7 +186,7 @@ public class DialogueManager : MonoBehaviour
         string sentence = sentences.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
-        
+
     }
 
     IEnumerator TypeSentence(string sentence)
