@@ -1018,6 +1018,7 @@ MonoBehaviour:
   content: Converts solar energy to electricity.
   price: 2000304
   isPriced: 0
+  currencyType: 0
 --- !u!1 &260171252
 GameObject:
   m_ObjectHideFlags: 0
@@ -1180,6 +1181,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1305,6 +1307,22 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93e847fe747d9a4ca5d0f670c9f7e5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraSizeMin: 1
+  CameraSizeMax: 20
+  CameraMoveSpeed: 2
+  CameraZoomSpeed: 2
 --- !u!1 &346559042
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,6 +1519,7 @@ MonoBehaviour:
   - {fileID: 32791511}
   - {fileID: 1145715633}
   - {fileID: 0}
+  skillTree: {fileID: 0}
 --- !u!224 &373762555
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2426,7 +2445,6 @@ GameObject:
   - component: {fileID: 832575518}
   - component: {fileID: 832575520}
   - component: {fileID: 832575521}
-  - component: {fileID: 832575522}
   - component: {fileID: 832575523}
   m_Layer: 0
   m_Name: Global Volume
@@ -2505,22 +2523,6 @@ MonoBehaviour:
   ecoScore: 50
   cityEnergy: 0
   researchPoints: 0
---- !u!114 &832575522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 832575517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e93e847fe747d9a4ca5d0f670c9f7e5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CameraSizeMin: 1
-  CameraSizeMax: 20
-  CameraMoveSpeed: 2
-  CameraZoomSpeed: 2
 --- !u!114 &832575523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4096,6 +4098,7 @@ MonoBehaviour:
   content: Converts solar energy to electricity.
   price: 2000304
   isPriced: 0
+  currencyType: 0
 --- !u!114 &1307329724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4520,6 +4523,7 @@ MonoBehaviour:
   content: Converts solar energy to electricity.
   price: 2000304
   isPriced: 0
+  currencyType: 0
 --- !u!114 &1427796908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4852,6 +4856,10 @@ MonoBehaviour:
   cont: {fileID: 1999577680}
   head: {fileID: 1158222766}
   price: {fileID: 973528857}
+  currencyImg: {fileID: 0}
+  moneyCurrency: {fileID: 0}
+  researchCurrency: {fileID: 0}
+  energyCurrency: {fileID: 0}
 --- !u!224 &1515545039
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5757,6 +5765,7 @@ MonoBehaviour:
   content: Converts wind energy to electricity.
   price: 2000304
   isPriced: 0
+  currencyType: 0
 --- !u!1 &1862528294
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,6 @@ using UnityEngine;
 public class BuildingController : MonoBehaviour
 {
     public ResearchManager researchManager;
-
     public List<GameObject> buildingPrefabs;
     public BuildingType buildingType;
     public Vector2Int gridPosition;
@@ -154,7 +153,6 @@ public enum BuildingType : int
 {
     Empty,
     HOUSE,
-    BUSINESS,
     SOLAR_PANEL,
     WIND_TURBINE,
     GEOTHERMAL_PLANT,
@@ -163,7 +161,7 @@ public enum BuildingType : int
     COAL_MINE,
     ENERGY_STORAGE,
     RESEARCH_LAB,
-    
+    BUSINESS,
     Crossroad,
     StraightX,
     StraightY,
