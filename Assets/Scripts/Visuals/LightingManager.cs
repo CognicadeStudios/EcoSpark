@@ -17,6 +17,7 @@ public class LightingManager : MonoBehaviour
 
     private void Awake()
     {
+        TimeElapsed = TimeOfDay;
         instance = this;
     }
 
