@@ -1857,8 +1857,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b783b8bb9ea69444cb6a8d5eca4a39f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundEffects: []
+  soundNames: []
   audioSource: {fileID: 874017993}
-  backgroundMusic: {fileID: 0}
+  backgroundMusic: {fileID: 8300000, guid: a569207cae9e3284e9cb933046dd8828, type: 3}
 --- !u!1001 &1298212952
 PrefabInstance:
   m_ObjectHideFlags: 0
