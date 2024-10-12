@@ -1435,9 +1435,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 63a4c672c4a4aaa4fb0c518f5197aed5, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.662
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1860,7 +1860,7 @@ MonoBehaviour:
   soundEffects: []
   soundNames: []
   audioSource: {fileID: 874017993}
-  backgroundMusic: {fileID: 8300000, guid: a569207cae9e3284e9cb933046dd8828, type: 3}
+  backgroundMusic: {fileID: 8300000, guid: 63a4c672c4a4aaa4fb0c518f5197aed5, type: 3}
 --- !u!1001 &1298212952
 PrefabInstance:
   m_ObjectHideFlags: 0
