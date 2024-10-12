@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Random = System.Random;
 public class ProdecuralGenerator : MonoBehaviour
 {
     public List<GenerationRules> prefabsData;
@@ -21,6 +22,15 @@ public class ProdecuralGenerator : MonoBehaviour
     public bool[,] built;
     public int n;
     public float[] probabilities;    
+    public int randomSeed;
+    public Random random;
+    public List<int> goodSeeds;
+    /// <summary>
+    /// Given a list of road types, randomly selects one of the types
+    /// using the probabilities given in the probabilities array.
+    /// </summary>
+    /// <param name="entropy">A list of road types to randomly select from</param>
+    /// <returns>The randomly selected road type</returns>
     public RoadTypes GetRandomRoad(List<RoadTypes> entropy)
     {
         float totalProb = 0.0f;
@@ -29,7 +39,7 @@ public class ProdecuralGenerator : MonoBehaviour
             totalProb += probabilities[(int)r];
         }
 
-        float randVal = UnityEngine.Random.Range(0.0f, totalProb);
+        float randVal = (float)random.NextDouble() * totalProb;
         float cur = 0;
         foreach(RoadTypes r in entropy) 
         {
@@ -43,8 +53,18 @@ public class ProdecuralGenerator : MonoBehaviour
         return entropy[0];
     }
 
+        /// <summary>
+        /// Initializes the Prodecural Generator with the given grid size n
+        /// </summary>
+        /// <param name="n">The size of the grid to generate</param>
+        /// <remarks>
+        /// After calling this method, the Prodecural Generator is ready to generate
+        /// roads. To generate roads, simply call the GenerateRoads method.
+        /// </remarks>
     public void Initialize(int n)
     {
+        //this.randomSeed = goodSeeds[UnityEngine.Random.Range(0, goodSeeds.Count - 1)];
+        this.random = new Random(randomSeed);
         this.probabilities = new float[]
         {
             1.5f,
@@ -148,6 +168,10 @@ public class ProdecuralGenerator : MonoBehaviour
         }
     }
 
+        /// <summary>
+        /// Generates the next tile in the grid by finding the tile with the most entropy, randomly selecting a roadtype from that tile, and then updating the entropies of the surrounding tiles.
+        /// </summary>
+        /// <returns>True if a tile was successfully generated, false if all tiles have been generated.</returns>
     public bool GenerateNextTile()
     {
         int foundR = -1, foundC = -1;
@@ -168,7 +192,7 @@ public class ProdecuralGenerator : MonoBehaviour
 
         //For the current found tile, randomly pick a roadtype and place it
         RoadTypes randomTile = GetRandomRoad(entropies[foundR, foundC]);
-        if(entropies[foundR, foundC].Contains(RoadTypes.Empty) && UnityEngine.Random.Range(0, 10) > 5)
+        if(entropies[foundR, foundC].Contains(RoadTypes.Empty) && random.Next(0, 10) > 5)
         {
             randomTile = RoadTypes.Empty;
         }

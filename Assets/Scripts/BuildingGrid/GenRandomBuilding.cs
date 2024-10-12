@@ -32,6 +32,12 @@ public class GenRandomBuilding : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Triggers the UpdateBuildingGeneration function for all currently active
+    /// GenRandomBuilding objects with the given new radius.
+    /// </summary>
+    /// <param name="newRadius">The new radius to pass to
+    /// UpdateBuildingGeneration.</param>
     static void TriggerRadiusUpdate(float newRadius)
     {
         foreach(GenRandomBuilding obj in objects)

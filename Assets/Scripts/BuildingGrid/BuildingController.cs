@@ -74,6 +74,12 @@ public class BuildingController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Builds the specified building type on this building controller.
+    /// If there is already a building on this controller, it will be destroyed first.
+    /// </summary>
+    /// <param name="buildingType">Type of building to build.</param>
+    /// <returns>The newly built building.</returns>
     public GameObject BuildBuilding(BuildingType buildingType)
     {
         if(this.currentBuilding != null)
