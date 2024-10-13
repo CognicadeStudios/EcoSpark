@@ -13,10 +13,16 @@ public class GridController : MonoBehaviour
     public GameObject buildingPrefab;
     public ProdecuralGenerator generator;
     public static GridController instance;
+    public List<int> BuildingsBuilt;
     public void Awake()
     {
         instance = this;
         buildingsGrid = new BuildingController[gridWidth, gridHeight];
+
+        for (int i = 0; i < System.Enum.GetValues(typeof(BuildingType)).Length; i++)
+        {
+            BuildingsBuilt.Add(0);
+        }
 
         for (int x = 0; x < gridWidth; x++)
         {
@@ -50,6 +56,7 @@ public class GridController : MonoBehaviour
         if (x >= 0 && y >= 0 && x < gridWidth && y < gridHeight)
         {
             buildingsGrid[x, y].DestroyBuilding();
+            BuildingsBuilt[(int)buildingType]++;
             return buildingsGrid[x, y].BuildBuilding(buildingType);
         }
         else
