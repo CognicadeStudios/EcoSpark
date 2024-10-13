@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class QuestSystem : MonoBehaviour
 {
-    public float minInterval = 0.5f;
-    public float maxInterval = 1.0f;
 
-    private List<QuestGoal> AvailableTasks;
-    private List<QuestGoal> CurrentTask;
+    private int probabilityOfTask;
+    public List<QuestGoal> AvailableTasks;
+    public List<QuestGoal> CurrentTask;
     private GridController gridController;
+    private int timeElapsed;
+    private int baseProbability = 20;
+    private int timeThreshold = 10;
+    private LightingManager lightManager;
 
     void Start()
     {
@@ -17,11 +20,25 @@ public class QuestSystem : MonoBehaviour
         AvailableTasks = new List<QuestGoal>();
         gridController = FindObjectOfType<GridController>();
         PopulateAvailableTasks();
+        probabilityOfTask = 0;
+        timeElapsed = 0;
+        lightManager = FindObjectOfType<LightingManager>();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        timeElapsed = lightManager.timeTracker;
+        if(timeElapsed > timeThreshold)
+        {
+            probabilityOfTask += (timeElapsed / timeThreshold) * 10;
+            if(probabilityOfTask > 100)
+            {
+                probabilityOfTask = 100;
+            }
+        }
         foreach (QuestGoal ts in AvailableTasks)
         {
             ts.Evaluate();
@@ -31,12 +48,17 @@ public class QuestSystem : MonoBehaviour
             }
         }
     }
-    public void AssignTaskForDialogue(int key)
-    {
-        //Assign Task to CurentTask based on the key
-        CurrentTask.Add(AvailableTasks[key]);
-        AvailableTasks.RemoveAt(key);
-
+    public bool AssignTaskForDialogue(int key)
+    {   //Assign Task to CurentTask based on the key
+        int val = Random.Range(0, 100);
+        if (val < probabilityOfTask)
+        {
+            CurrentTask.Add(AvailableTasks[key]);
+            AvailableTasks.RemoveAt(key);
+            probabilityOfTask = baseProbability;
+            return true;
+        }
+        return false;
     }
 
     public void PopulateAvailableTasks()

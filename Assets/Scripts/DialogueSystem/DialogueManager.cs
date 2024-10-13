@@ -162,23 +162,33 @@ public class DialogueManager : MonoBehaviour
         sentences.Clear();
 
         List<int> keys = new List<int>(dialogueDict.Keys);
-        int dialogueKey = 0;
-        while (EventManager.Instance.isCompleted(dialogueKey))
+        int dialogueKey = -1;
+        while (dialogueKey == -1 || EventManager.Instance.isCompleted(dialogueKey))
         {
             dialogueKey = keys[Random.Range(0, keys.Count)];
 
         }
-        List<string> randSent = dialogueDict[dialogueKey];
 
-        dialogueDict.Remove(dialogueKey);
-        foreach (string sentence in randSent)
+        bool taskAssigned = taskManager.AssignTaskForDialogue(dialogueKey);
+        if (taskAssigned)
         {
-            sentences.Enqueue(sentence);
-        }
-        EventManager.Instance.StartEvent(dialogueKey);
-        DisplayNextSentence();
 
-        taskManager.AssignTaskForDialogue(dialogueKey);
+
+            List<string> randSent = dialogueDict[dialogueKey];
+
+            dialogueDict.Remove(dialogueKey);
+            foreach (string sentence in randSent)
+            {
+                sentences.Enqueue(sentence);
+            }
+
+            EventManager.Instance.StartEvent(dialogueKey);
+            DisplayNextSentence();
+        }
+        else
+        {
+            anim.SetBool("isOpen", false);
+        }
     }
 
     public void DisplayNextSentence()
