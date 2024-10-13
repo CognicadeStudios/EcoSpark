@@ -19,7 +19,7 @@ public class SceneSwitcher : MonoBehaviour
         CirclePanel.transform.position = Input.mousePosition;
         transitionAnim.SetTrigger("LeaveScene");
         yield return new WaitForSeconds(1.5f);
-        //SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName);
         yield return new WaitForEndOfFrame();
         CirclePanel.transform.localPosition = Vector3.zero;
     }
