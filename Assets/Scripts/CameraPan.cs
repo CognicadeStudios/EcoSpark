@@ -122,7 +122,7 @@ public class CameraPan : MonoBehaviour
             mDragging = false;
         }
 
-        float scrollAxis = Input.mouseScrollDelta.y * -1.0f;
+        float scrollAxis = Input.mouseScrollDelta.y * 1.0f;
         Zoom(mZoomFactor + (scrollAxis * Time.deltaTime * CameraZoomSpeed));
     }
 }   
