@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI moneyCounter, energyCounter;
     private bool buildMenuOpen = false;
     public static UIManager instance;
-    public List<GameObject> buildButtons;
+    public List<BuildButton> buildButtons;
     public UI_SkillTree skillTree;
     private void Awake()
     {
@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         researchMenu.transform.LeanScale(new(0, 0, 0), 0);
+        buildButtons = new(GetComponentsInChildren<BuildButton>());
     }
 
     private void Update()
@@ -28,12 +29,10 @@ public class UIManager : MonoBehaviour
         moneyCounter.text = FormatNumberAsK(Mathf.RoundToInt(GameManager.Instance.Money));
         energyCounter.text = FormatNumberAsK(Mathf.RoundToInt(GameManager.Instance.CityEnergy));
 
-        buildButtons[0].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.SOLAR_PANEL) <= GameManager.Instance.Money;
-        buildButtons[1].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.WIND_TURBINE) <= GameManager.Instance.Money;
-        buildButtons[2].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.WATER_TURBINE) <= GameManager.Instance.Money;
-        buildButtons[3].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.NUCLEAR_PLANT) <= GameManager.Instance.Money;
-        //buildButtons[4].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.OIL_DRILL) <= GameManager.Instance.Money;
-        buildButtons[4].GetComponent<Button>().enabled = BuildingController.GetCostToBuild(BuildingType.COAL_MINE) <= GameManager.Instance.Money;
+        foreach (BuildButton b in buildButtons)
+        {
+            b.GetComponent<Button>().enabled = BuildingController.GetCostToBuild(b.buildingType) <= GameManager.Instance.Money;
+        }
     }
 
     public void UpdatePABar()

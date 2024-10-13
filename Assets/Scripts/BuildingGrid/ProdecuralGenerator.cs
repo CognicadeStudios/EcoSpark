@@ -7,7 +7,7 @@ using Random = System.Random;
 public class ProdecuralGenerator : MonoBehaviour
 {
     public List<GenerationRules> prefabsData;
-    public enum RoadTypes {
+    public enum RoadTypes : int {
         Empty,
         Crossroad,
         StraightX,
@@ -255,8 +255,9 @@ public class ProdecuralGenerator : MonoBehaviour
             }
         }
 
+        int tileIndAsBuildingType = (tileInd == 0 ? 0 : tileInd + 10);
         //Spawn in the tile in world space :)
-        GameObject building = GridController.instance.SetBuilding(foundR, foundC, (BuildingType)(tileInd));
+        GameObject building = GridController.instance.SetBuilding(foundR, foundC, (BuildingType)(tileIndAsBuildingType));
         BuildingController controller = building.transform.parent.GetComponent<BuildingController>();
         controller.isBuildingMode = false;
         built[foundR, foundC] = true;

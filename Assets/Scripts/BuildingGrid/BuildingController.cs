@@ -90,7 +90,8 @@ public class BuildingController : MonoBehaviour
         this.buildingType = buildingType;
         OnBuild(buildingType);
         //I have no Idea how this works or how to implement logic in this so
-        return currentBuilding = Instantiate(buildingPrefabs[(int)buildingType], transform.position + buildingPrefabs[(int)buildingType].transform.position, buildingPrefabs[(int)buildingType].transform.rotation, transform);
+        GameObject buildprefab = buildingPrefabs[(int)buildingType];
+        return currentBuilding = Instantiate(buildprefab, transform.position + buildprefab.transform.position, buildprefab.transform.rotation, transform);
     }
     public void DestroyBuilding()
     {
@@ -159,6 +160,7 @@ public enum BuildingType : int
 {
     Empty,
     HOUSE,
+    BUSINESS,
     SOLAR_PANEL,
     WIND_TURBINE,
     GEOTHERMAL_PLANT,
@@ -167,7 +169,7 @@ public enum BuildingType : int
     COAL_MINE,
     ENERGY_STORAGE,
     RESEARCH_LAB,
-    BUSINESS,
+
     Crossroad,
     StraightX,
     StraightY,
