@@ -6,38 +6,73 @@ using UnityEngine;
 public class QuestGoal : Task
 {
     // Start is called before the first frame
-    public int BuildingID { get; set; }
     public int ecoBoost { get; set; }
     public int approvalBoost { get; set; }
     public int moneyBoost { get; set; }
+    public string type { get; set; }
 
-    public QuestGoal(int id, bool Completed, int CurrentAmount, int RequiredAmount, int ecoBoost, int approvalBoost, int moneyBoost)
+
+    public QuestGoal(int id, bool Completed, int CurrentAmount, int RequiredAmount, int ecoBoost, int approvalBoost, int moneyBoost, string type)
     {
-        this.BuildingID = id;
+        this.ID = id;
         this.Completed = Completed;
         this.CurrentAmount = CurrentAmount;
         this.RequiredAmount = RequiredAmount;
         this.ecoBoost = ecoBoost;
         this.approvalBoost = approvalBoost;
         this.moneyBoost = moneyBoost;
+        this.type = type;
 
+    }
+
+    public QuestGoal(int id, bool Completed, int ecoBoost, int approvalBoost, int moneyBoost, string type)
+    {
+        this.ID = id;
+        this.Completed = Completed;
+        this.ecoBoost = ecoBoost;   
+        this.approvalBoost= approvalBoost;  
+        this.moneyBoost = moneyBoost;
+        this.type = type;
+        ResearchManager.Instance.OnUpgradeResearched += ResearchManager_OnUpgradeResearched;
     }
 
     public override void Init()
     {
         base.Init();
-        //Make an event when a building is set down
     }
 
-    void BuildingBuilt(int id)
+    public void Check()
     {
-        if(id == this.BuildingID)
-        {
-            this.CurrentAmount++;
             Evaluate();
             if (Completed)
             {
                 GiveReward();
+            }
+    }
+
+    private void ResearchManager_OnUpgradeResearched(object sender, ResearchManager.OnUpgradeResearchedArgs e)
+    {
+        if((int) e.upgrade == this.ID)
+        {
+            Complete();
+        }
+    }
+
+    public void Evaluate()
+    {
+        if (this.type.Equals("Build"))
+        {
+            CurrentAmount = gridController.BuildingsBuilt[this.ID];
+            if (CurrentAmount >= RequiredAmount)
+            {
+                Complete();
+            }
+        }
+        else if (this.type.Equals("Upgrade"))
+        {
+            if (ResearchManager.Instance.IsUpgradeResearched((Upgrade)ID))
+            {
+                Complete();
             }
         }
     }
@@ -47,6 +82,10 @@ public class QuestGoal : Task
         GameManager.Instance.Money += moneyBoost;
         GameManager.Instance.PublicApproval += approvalBoost;
         GameManager.Instance.EcoScore += ecoBoost;
+        if (this.type.Equals("Upgrade"))
+        {
+            ResearchManager.Instance.OnUpgradeResearched -= ResearchManager_OnUpgradeResearched;
+        }
     }
 
 }

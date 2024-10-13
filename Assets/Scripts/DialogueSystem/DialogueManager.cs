@@ -15,14 +15,14 @@ public class DialogueManager : MonoBehaviour
 
     private Dictionary<int, List<string>> dialogueDict;
 
-    // fix thisprivate TaskManager taskManager;
+    private QuestSystem taskManager;
 
 
     void Start()
     {
         sentences = new Queue<string>();
         dialogueDict = new();
-        // fix this taskManager = FindObjectOfType<TaskManager>();
+        taskManager = FindObjectOfType<QuestSystem>();
         PopulateDictionary();
     }
 
@@ -178,7 +178,7 @@ public class DialogueManager : MonoBehaviour
         EventManager.Instance.StartEvent(dialogueKey);
         DisplayNextSentence();
 
-        // fix this taskManager.AssignTaskForDialogue(dialogueKey);
+        taskManager.AssignTaskForDialogue(dialogueKey);
     }
 
     public void DisplayNextSentence()
