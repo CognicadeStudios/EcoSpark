@@ -11,10 +11,9 @@ public class QuestGoal : Task
     public int approvalBoost { get; set; }
     public int moneyBoost { get; set; }
 
-    public QuestGoal(int id, string Description, bool Completed, int CurrentAmount, int RequiredAmount, int ecoBoost, int approvalBoost, int moneyBoost)
+    public QuestGoal(int id, bool Completed, int CurrentAmount, int RequiredAmount, int ecoBoost, int approvalBoost, int moneyBoost)
     {
         this.BuildingID = id;
-        this.Description = Description;
         this.Completed = Completed;
         this.CurrentAmount = CurrentAmount;
         this.RequiredAmount = RequiredAmount;
