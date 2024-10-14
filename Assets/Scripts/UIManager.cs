@@ -12,6 +12,23 @@ public class UIManager : MonoBehaviour
     public static UIManager instance;
     public List<BuildButton> buildButtons;
     public UI_SkillTree skillTree;
+
+    [Header("Sprites")]
+    public Sprite money;
+    public Sprite energy;
+    public Sprite ecoScore;
+    public Sprite publicScore;
+    public Sprite researchPoints;
+
+    [Header("Mailbox Quest Panel")]
+    public GameObject rewardPrefab;
+    public Transform rewardsHolder;
+    public TextMeshProUGUI charName;
+    public TextMeshProUGUI questDesc;
+    public TextMeshProUGUI questProgress;
+    public Image characterImage;
+
+
     private void Awake()
     {
         LeanTween.init(800);
@@ -21,6 +38,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         researchMenu.transform.LeanScale(new(0, 0, 0), 0);
+        mailboxMenu.transform.LeanScale(new(0, 0, 0), 0);
         buildButtons = new(GetComponentsInChildren<BuildButton>());
     }
 
@@ -71,6 +89,7 @@ public class UIManager : MonoBehaviour
         buildMenuOpen = !buildMenuOpen;
         if (buildMenuOpen) { OpenBuildMenu(); } else { CloseBuildMenu(); }
     }
+
     public void OpenBuildMenu()
     {
         LeanTween.scale(mailButton, new Vector3(0f, 0f, 1f), 0.2f).setEase(LeanTweenType.easeOutBounce);
@@ -125,11 +144,26 @@ public class UIManager : MonoBehaviour
     {
         LeanTween.scale(g, new Vector3(1f, 1f, 1f), 0.1f).setEase(LeanTweenType.easeOutElastic);
     }
-
+    
     private void UpdateDimAlpha(float alpha)
     {
         Color color = researchDim.GetComponent<Image>().color;
         color.a = alpha;
         researchDim.GetComponent<Image>().color = color;
+    }
+
+    private void UpdateQuestList()
+    { 
+    
+    }
+
+    private void DisplayQuest(QuestGoal q)
+    {
+        charName.text = q.name;
+        characterImage.sprite = q.image;
+        // display description
+        // display rewards
+        // display progress and sentence
+
     }
 }
