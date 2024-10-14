@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject buildMenuPanel, resButton, mailButton, PABar, EcoBar, researchDim, researchMenu;
+    public GameObject buildMenuPanel, resButton, mailButton, PABar, EcoBar, researchDim, researchMenu, mailboxMenu;
     public TextMeshProUGUI moneyCounter, energyCounter;
     private bool buildMenuOpen = false;
     public static UIManager instance;
@@ -98,6 +98,21 @@ public class UIManager : MonoBehaviour
     public void CloseResearchMenu()
     {
         LeanTween.scale(researchMenu, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeOutExpo);
+        LeanTween.value(researchDim, 0.85f, 0, 0.2f).setOnUpdate(UpdateDimAlpha);
+        researchDim.SetActive(false);
+    }
+
+    public void OpenMailboxMenu()
+    {
+        researchDim.SetActive(true);
+        LeanTween.value(researchDim, 0, 0.85f, 0.2f).setOnUpdate(UpdateDimAlpha);
+        mailboxMenu.SetActive(true);
+        LeanTween.scale(mailboxMenu, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeOutBounce);
+    }
+
+    public void CloseMailboxMenu()
+    {
+        LeanTween.scale(mailboxMenu, new Vector3(0f, 0f, 0f), 0.3f).setEase(LeanTweenType.easeOutExpo);
         LeanTween.value(researchDim, 0.85f, 0, 0.2f).setOnUpdate(UpdateDimAlpha);
         researchDim.SetActive(false);
     }
