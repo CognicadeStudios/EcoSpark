@@ -115,6 +115,15 @@ public class Cost
         Money = 0f;
     }
 
+    public Cost(int research, int pub, int score, float money, float energy)
+    {
+        this.ResearchPoints = research;
+        this.PublicApproval = pub;
+        this.EcoScore = score;
+        this.CityEnergy = energy;    
+        this.Money = money;    
+    }
+
     public static Cost operator *(float a, Cost b)
     {
         return new Cost()

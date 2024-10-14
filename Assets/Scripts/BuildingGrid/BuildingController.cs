@@ -147,9 +147,18 @@ public class BuildingInfo
         { BuildingType.RESEARCH_LAB,     new(){0, 30 , 65 , 90 } },
     };
     public static Dictionary<BuildingType, List<Cost>> productions = new()
-    {
-
-    };
+{
+    {BuildingType.HOUSE, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
+    {BuildingType.BUSINESS, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
+    {BuildingType.SOLAR_PANEL, new List<Cost> { new Cost(1, 2, 3, 4, 5 ), new Cost(), new Cost(), new Cost() }},
+    {BuildingType.WIND_TURBINE, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
+    {BuildingType.GEOTHERMAL_PLANT, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
+    {BuildingType.WATER_TURBINE, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
+    {BuildingType.NUCLEAR_PLANT, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
+    {BuildingType.COAL_MINE, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
+    {BuildingType.ENERGY_STORAGE, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
+    {BuildingType.RESEARCH_LAB, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }}
+};
     public static Dictionary<BuildingType, List<Cost>> consumptions = new()
     {
 
