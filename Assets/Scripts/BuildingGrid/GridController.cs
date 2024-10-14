@@ -18,7 +18,8 @@ public class GridController : MonoBehaviour
     {
         instance = this;
         buildingsGrid = new BuildingController[gridWidth, gridHeight];
-
+        
+        BuildingsBuilt = new List<int>();
         for (int i = 0; i < System.Enum.GetValues(typeof(BuildingType)).Length; i++)
         {
             BuildingsBuilt.Add(0);
@@ -56,7 +57,6 @@ public class GridController : MonoBehaviour
         if (x >= 0 && y >= 0 && x < gridWidth && y < gridHeight)
         {
             buildingsGrid[x, y].DestroyBuilding();
-            BuildingsBuilt[(int)buildingType]++;
             return buildingsGrid[x, y].BuildBuilding(buildingType);
         }
         else
@@ -105,6 +105,14 @@ public class GridController : MonoBehaviour
 
         if(isBuilding)
         {
+            if(Input.GetKeyDown(KeyCode.Escape))
+            {
+                isBuilding = false;
+                Debug.Log("Ending Building: " + currentBuildingType);
+                SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingType.Empty);
+                buildingPreviewPosition = new Vector2Int(-1, -1);
+            }
+
             RaycastHit hit;
             if(!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f))
             {
@@ -124,10 +132,11 @@ public class GridController : MonoBehaviour
             if(Input.GetMouseButtonDown(0))
             {
                 isBuilding = false;
-                Debug.Log("Ending Building: " + currentBuildingType);
+                Debug.Log("Completing Building: " + currentBuildingType);
                 buildingPreviewPosition = new Vector2Int(-1, -1);
                 SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
                 buildingsGrid[gridPosition.x, gridPosition.y].isBuildingMode = false;
+                BuildingsBuilt[(int)currentBuildingType]++;
             }
             
             if(buildingsGrid[gridPosition.x, gridPosition.y].buildingType == BuildingType.Empty && buildingPreviewPosition != gridPosition)

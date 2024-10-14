@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   researchManager: {fileID: 0}
   buildingPrefabs:
-  - {fileID: 5585146150844376858, guid: fbe1d0c00f9ad724594748b851a7e2c7, type: 3}
+  - {fileID: 6892387069130419943, guid: 01662c02b363416a69b3068f952c83c7, type: 3}
   - {fileID: 6892387069130419943, guid: 01662c02b363416a69b3068f952c83c7, type: 3}
   - {fileID: 6892387069130419943, guid: fdab159f9b93aad4185f601632ba3866, type: 3}
   - {fileID: 754958622050744880, guid: fd3fba131220b4f0c879223fe31963ff, type: 3}

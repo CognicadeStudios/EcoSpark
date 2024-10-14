@@ -10,7 +10,6 @@ public class LightingManager : MonoBehaviour
     //Variables
     [SerializeField, Range(0, 24)] public float TimeOfDay;
     public float TimeElapsed = 0.0f;
-    public int timeTracker = 0;
 
     [SerializeField, Range(0.0f, 1.0f)] private float TimeSpeed;
 
@@ -20,7 +19,6 @@ public class LightingManager : MonoBehaviour
     private void Awake()
     {
         TimeElapsed = TimeOfDay;
-        timeTracker += (int) TimeElapsed; 
         instance = this;
     }
 
@@ -34,7 +32,6 @@ public class LightingManager : MonoBehaviour
             //(Replace with a reference to the game time)
             TimeOfDay += Time.deltaTime * TimeSpeed;
             TimeElapsed += Time.deltaTime * TimeSpeed;
-            timeTracker += (int) TimeElapsed; 
             TimeOfDay %= 24; //Modulus to ensure always between 0-24
             UpdateLighting(TimeOfDay / 24f);
         }
