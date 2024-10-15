@@ -94,6 +94,15 @@ public class GameManager : MonoBehaviour
     {
         Instance = this;
     }
+
+    public void Transaction(Cost c)
+    {
+        money += c.Money;
+        publicApproval += c.PublicApproval;
+        ecoScore += c.EcoScore;
+        cityEnergy += c.CityEnergy;
+        researchPoints += c.ResearchPoints;
+    }
 }
 
 /// <example>
@@ -115,11 +124,11 @@ public class Cost
         Money = 0f;
     }
 
-    public Cost(int research, int pub, int score, float money, float energy)
+    public Cost(int research, int PublicApproval, int EcoScore, float money, float energy)
     {
         this.ResearchPoints = research;
-        this.PublicApproval = pub;
-        this.EcoScore = score;
+        this.PublicApproval = PublicApproval;
+        this.EcoScore = EcoScore;
         this.CityEnergy = energy;    
         this.Money = money;    
     }

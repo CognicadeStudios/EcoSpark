@@ -10,25 +10,28 @@ public class QuestSystem : MonoBehaviour
     private float probabilityOfTask;
     public List<QuestGoal> AvailableTasks;
     public List<QuestGoal> CurrentTasks;
-    public GridController gridController;
-    public float timeElapsed;
-    public float baseProbability = 0.2f;
-    public float timeThreshold = 4.0f;
-    public LightingManager lightManager;
+    public const float baseProbability = 0.2f;
+    public const float timeThreshold = 4.0f;
+    private LightingManager lightManager;
 
-    //Dialogue Management 
-    public TextMeshProUGUI nameText;
-    public Image npcImage;
-    public TextMeshProUGUI dialogueText;
+    //Misc
+    public QuestUI questUI;
+    public static QuestSystem instance;
+    
     //TODO: Uncomment Animator Commands
     public Animator anim;
     private Queue<string> sentences;
     private QuestSystem taskManager;
+
+    public void Awake()
+    {    
+        instance = this;
+    }
+
     public void Start()
     {
         CurrentTasks = new List<QuestGoal>();
         AvailableTasks = new List<QuestGoal>();
-        gridController = GridController.instance;
         
         probabilityOfTask = baseProbability;
         lightManager = LightingManager.instance;
@@ -36,6 +39,8 @@ public class QuestSystem : MonoBehaviour
         sentences = new Queue<string>();
         taskManager = FindObjectOfType<QuestSystem>();
         PopulateTaskList();
+
+        StartRandomDialogue();
     }
 
      private void PopulateTaskList()
@@ -45,16 +50,12 @@ public class QuestSystem : MonoBehaviour
             new QuestGoal(
                 (int)BuildingType.SOLAR_PANEL,
                 "Build", 
-                69,
-                420, 
-                10000,
+                new Cost(0, 10, 0, 10, 0),
                 2,
-                new List<string>
-                {
-                        "Governor: 'Our renewable energy output is lagging behind other cities.'",
-                        "Governor: 'I need you to build 2 solar panels to help meet our sustainability goals.'"
-                },
-                "Governor Glen Youngkin",
+                "Our renewable energy output is lagging behind! "+
+                "Build 2 solar panels to help meet our sustainability goals.",
+                "Build 2 Level 1 Solar Panels",
+                "Glen Youngkin",
                 null
             )
         };
@@ -64,7 +65,7 @@ public class QuestSystem : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        timeElapsed = lightManager.TimeElapsed;
+        float timeElapsed = lightManager.TimeElapsed;
         if(timeElapsed > timeThreshold)
         {
             probabilityOfTask += timeElapsed / (timeThreshold * 100.0f);
@@ -95,53 +96,11 @@ public class QuestSystem : MonoBehaviour
         probabilityOfTask = baseProbability;
     }
 
-    public void DisplayNextSentence()
-    {
-        if (sentences.Count == 0)
-        {
-            EndDialogue();
-            return;
-        }
-
-        string sentence = sentences.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
-
-    }
-
-    IEnumerator TypeSentence(string sentence)
-    {
-        dialogueText.text = "";
-        foreach (char c in sentence.ToCharArray())
-        {
-            dialogueText.text += c;
-            yield return new WaitForSeconds(0.01f);
-        }
-    }
-
-    void EndDialogue()
-    {
-        //anim.SetBool("isOpen", false);
-    }
-
     public void StartRandomDialogue()
     {
         //TODO: Randomly assign the key
         int dialogueKey = 0;
-
-        //anim.SetBool("isOpen", true);
-        nameText.text = AvailableTasks[dialogueKey].name;
-        npcImage.sprite = AvailableTasks[dialogueKey].image;
-        sentences.Clear();
-
-        List<string> randSent = AvailableTasks[dialogueKey].sentences;
         AssignTask(dialogueKey);
-
-        foreach (string sentence in randSent)
-        {
-            sentences.Enqueue(sentence);
-        }
-
-        DisplayNextSentence();
+        questUI.AddNewQuest();
     }
 }
