@@ -40,7 +40,6 @@ public class GameManager : MonoBehaviour
         set
         {
             publicApproval = value;
-            UIManager.instance.UpdatePABar();
             OnPublicApprovalChanged?.Invoke(this, new(value)); 
         }
     }
@@ -57,7 +56,6 @@ public class GameManager : MonoBehaviour
         set
         {
             ecoScore = value;
-            UIManager.instance.UpdateEcoBar();
             OnEcoScoreChanged?.Invoke(this, new(value));
         }
     }
@@ -76,6 +74,8 @@ public class GameManager : MonoBehaviour
             cityEnergy = value;
         }
     }
+    public event EventHandler<OnValueUpdatedArgs> OnCityEnergyChanged;
+
     [SerializeField]
     private int researchPoints;
     public int ResearchPoints

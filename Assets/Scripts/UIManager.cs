@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+//using static System.Net.Mime.MediaTypeNames;
 
 public class UIManager : MonoBehaviour
 {
     public GameObject buildMenuPanel, resButton, mailButton, PABar, EcoBar, researchDim, researchMenu, mailboxMenu;
     public TextMeshProUGUI moneyCounter, energyCounter;
     private bool buildMenuOpen = false;
-    public static UIManager instance;
+    public static UIManager Instance;
     public List<BuildButton> buildButtons;
     public UI_SkillTree skillTree;
 
@@ -24,7 +25,7 @@ public class UIManager : MonoBehaviour
     private void Awake()
     {
         LeanTween.init(800);
-        instance = this;
+        Instance = this;
     }
 
     private void Start()
@@ -32,24 +33,35 @@ public class UIManager : MonoBehaviour
         researchMenu.transform.LeanScale(new(0, 0, 0), 0);
         mailboxMenu.transform.LeanScale(new(0, 0, 0), 0);
         buildButtons = new(GetComponentsInChildren<BuildButton>());
+        GameManager.Instance.OnMoneyChanged += MoneyChanged;
+        GameManager.Instance.OnCityEnergyChanged += EnergyChanged;
+        GameManager.Instance.OnEcoScoreChanged += UpdateEcoBar;
+        GameManager.Instance.OnPublicApprovalChanged += UpdatePABar;
+
     }
 
-    private void Update()
+    private void MoneyChanged(object sender, GameManager.OnValueUpdatedArgs e)
     {
-        moneyCounter.text = FormatNumberAsK(Mathf.RoundToInt(GameManager.Instance.Money));
-        energyCounter.text = FormatNumberAsK(Mathf.RoundToInt(GameManager.Instance.CityEnergy));
-
-            UpdatePABar();
-            UpdateEcoBar();
-
+        moneyCounter.text = FormatNumberAsK(Mathf.RoundToInt(e.newValue));
         foreach (BuildButton b in buildButtons)
         {
             b.GetComponent<Button>().enabled = BuildingController.GetCostToBuild(b.buildingType) <= GameManager.Instance.Money;
         }
     }
 
+    private void EnergyChanged(object sender, GameManager.OnValueUpdatedArgs e)
+    {
+        energyCounter.text = FormatNumberAsK(Mathf.RoundToInt(GameManager.Instance.CityEnergy));
+    }
+
+    private void Update()
+    {
+        UpdateEcoBar(null, null);
+        UpdatePABar(null, null);
+    }
+
     float pt,et = 0;
-    public void UpdatePABar()
+    public void UpdatePABar(object sender, GameManager.OnValueUpdatedArgs e)
     {
         pt += Time.deltaTime;
         //LeanTween.scale(PABar, new Vector3(GameManager.Instance.PublicApproval / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
@@ -60,7 +72,7 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void UpdateEcoBar()
+    public void UpdateEcoBar(object sender, GameManager.OnValueUpdatedArgs e)
     {
         et += Time.deltaTime;
         //LeanTween.scale(EcoBar, new Vector3(GameManager.Instance.EcoScore / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
