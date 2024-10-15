@@ -33,15 +33,6 @@ public class QuestGoal
         this.name = name;
         this.image = image;
     }
-    public void Check()
-    {
-            Evaluate();
-            if (Completed)
-            {
-                Debug.Log("Quest Completed");
-                GiveReward();
-            }
-    }
 
     public void Evaluate()
     {
@@ -62,7 +53,7 @@ public class QuestGoal
         }
     }
     
-    void GiveReward()
+    public void GiveReward()
     {
         GameManager.Instance.Transaction(cost);
     }

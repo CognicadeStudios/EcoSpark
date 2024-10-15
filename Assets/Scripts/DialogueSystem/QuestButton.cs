@@ -12,4 +12,9 @@ public class QuestButton : MonoBehaviour
     {
         QuestSystem.instance.questUI.HighlightQuest(index);
     }
+
+    public void SendCollectRequest()
+    {
+        QuestSystem.instance.questUI.FinishQuest(index);
+    }
 }

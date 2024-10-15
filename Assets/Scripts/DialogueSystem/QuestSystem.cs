@@ -75,10 +75,11 @@ public class QuestSystem : MonoBehaviour
         for(int i = CurrentTasks.Count - 1; i >= 0; i--)
         {
             QuestGoal ts = CurrentTasks[i];
-            ts.Check();
+            ts.Evaluate();
             if (ts.Completed)
             {
-                CurrentTasks.RemoveAt(i);
+                Debug.Log(ts.name + " has been completed");
+                questUI.EnableCollectButton(i);
             }
         }
         

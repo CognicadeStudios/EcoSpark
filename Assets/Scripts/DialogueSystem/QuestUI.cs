@@ -37,6 +37,21 @@ public class QuestUI : MonoBehaviour
         }
     }
 
+    public void EnableCollectButton(int key)
+    {
+        Transform entry = entries[key];
+        entry.Find("ClaimButton").gameObject.SetActive(true);
+        entry.Find("Progress").gameObject.SetActive(false);
+    }
+
+    public void FinishQuest(int key)
+    {
+        Destroy(entries[key].gameObject);
+        QuestSystem.instance.CurrentTasks[key].GiveReward();
+        QuestSystem.instance.CurrentTasks.RemoveAt(key);
+        entries.RemoveAt(key);
+    }
+
     public void HighlightQuest(int key)
     {
         QuestGoal quest = QuestSystem.instance.CurrentTasks[key];
@@ -45,6 +60,5 @@ public class QuestUI : MonoBehaviour
         sidebar.transform.Find("QuestDialogue").GetComponent<TextMeshProUGUI>().text = quest.dialogue;
         sidebar.transform.Find("Quest Info").Find("Quest Statement").GetComponent<TextMeshProUGUI>().text = quest.mission;
         sidebar.transform.Find("Quest Info").Find("QuestProgress").GetComponent<TextMeshProUGUI>().text = quest.CurrentAmount + "/" + quest.RequiredAmount;
-
     }
 }
