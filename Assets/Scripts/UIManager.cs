@@ -20,14 +20,6 @@ public class UIManager : MonoBehaviour
     public Sprite publicScore;
     public Sprite researchPoints;
 
-    [Header("Mailbox Quest Panel")]
-    public GameObject rewardPrefab;
-    public Transform rewardsHolder;
-    public TextMeshProUGUI charName;
-    public TextMeshProUGUI questDesc;
-    public TextMeshProUGUI questProgress;
-    public Image characterImage;
-
 
     private void Awake()
     {
@@ -47,20 +39,36 @@ public class UIManager : MonoBehaviour
         moneyCounter.text = FormatNumberAsK(Mathf.RoundToInt(GameManager.Instance.Money));
         energyCounter.text = FormatNumberAsK(Mathf.RoundToInt(GameManager.Instance.CityEnergy));
 
+            UpdatePABar();
+            UpdateEcoBar();
+
         foreach (BuildButton b in buildButtons)
         {
             b.GetComponent<Button>().enabled = BuildingController.GetCostToBuild(b.buildingType) <= GameManager.Instance.Money;
         }
     }
 
+    float pt,et = 0;
     public void UpdatePABar()
     {
-        LeanTween.scale(PABar, new Vector3(GameManager.Instance.PublicApproval / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
+        pt += Time.deltaTime;
+        //LeanTween.scale(PABar, new Vector3(GameManager.Instance.PublicApproval / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
+        PABar.transform.localScale = Vector3.Lerp(PABar.transform.localScale, new Vector3(GameManager.Instance.PublicApproval / 100f, 1, 0), pt);
+        if (PABar.transform.localScale.Equals(new Vector3(GameManager.Instance.PublicApproval / 100f, 1, 0)))
+        {
+            pt = 0;
+        }
     }
 
     public void UpdateEcoBar()
     {
-        LeanTween.scale(EcoBar, new Vector3(GameManager.Instance.EcoScore / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
+        et += Time.deltaTime;
+        //LeanTween.scale(EcoBar, new Vector3(GameManager.Instance.EcoScore / 100f, 1, 0), 1f).setEase(LeanTweenType.easeOutExpo);
+        EcoBar.transform.localScale = Vector3.Lerp(EcoBar.transform.localScale, new Vector3(GameManager.Instance.EcoScore / 100f, 1, 0), et);
+        if (EcoBar.transform.localScale.Equals(new Vector3(GameManager.Instance.EcoScore / 100f, 1, 0)))
+        {
+            et = 0;
+        }
     }
 
 
@@ -150,20 +158,5 @@ public class UIManager : MonoBehaviour
         Color color = researchDim.GetComponent<Image>().color;
         color.a = alpha;
         researchDim.GetComponent<Image>().color = color;
-    }
-
-    private void UpdateQuestList()
-    { 
-    
-    }
-
-    private void DisplayQuest(QuestGoal q)
-    {
-        charName.text = q.name;
-        characterImage.sprite = q.image;
-        // display description
-        // display rewards
-        // display progress and sentence
-
     }
 }

@@ -56,7 +56,7 @@ public class QuestUI : MonoBehaviour
     {
         QuestGoal quest = QuestSystem.instance.CurrentTasks[key];
         sidebar.transform.Find("Character").Find("CharacterIcon").GetComponent<Image>().sprite = quest.image;
-        sidebar.transform.Find("Quest Title").GetComponent<TextMeshProUGUI>().text = quest.name;
+        sidebar.transform.Find("Quest Title").GetComponent<TextMeshProUGUI>().text = quest.name;    
         sidebar.transform.Find("QuestDialogue").GetComponent<TextMeshProUGUI>().text = quest.dialogue;
         sidebar.transform.Find("Quest Info").Find("Quest Statement").GetComponent<TextMeshProUGUI>().text = quest.mission;
         sidebar.transform.Find("Quest Info").Find("QuestProgress").GetComponent<TextMeshProUGUI>().text = quest.CurrentAmount + "/" + quest.RequiredAmount;

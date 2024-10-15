@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         set
         {
             publicApproval = value;
+            UIManager.instance.UpdatePABar();
             OnPublicApprovalChanged?.Invoke(this, new(value)); 
         }
     }
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
         set
         {
             ecoScore = value;
+            UIManager.instance.UpdateEcoBar();
             OnEcoScoreChanged?.Invoke(this, new(value));
         }
     }
