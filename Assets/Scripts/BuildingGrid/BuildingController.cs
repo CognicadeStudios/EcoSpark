@@ -79,18 +79,7 @@ public class BuildingController : MonoBehaviour
 
     public static int GetCostToBuild(BuildingType type)
     {
-        //money?
-        return type switch
-        {
-            BuildingType.HOUSE => 35,
-            BuildingType.SOLAR_PANEL => 120, //ResearchManager.Instance.IsUpgradeResearched(Upgrade.Geothermal1) ? 10 : 20,
-            BuildingType.WIND_TURBINE => 100,
-            BuildingType.WATER_TURBINE => 175,
-            BuildingType.NUCLEAR_PLANT => 200,
-            //BuildingType.OIL_DRILL => 50,
-            BuildingType.COAL_MINE => 65,
-            _ => 0,
-        };
+        return BuildingInfo.BuildCosts[type][BuildingInfo.LevelOf[type]];
     }
 
     public void HourlyValueUpdates()
