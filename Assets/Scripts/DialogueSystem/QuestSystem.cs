@@ -78,16 +78,18 @@ public class QuestSystem : MonoBehaviour
             ts.Evaluate();
             if (ts.Completed)
             {
+                AvailableTasks.Add(ts);
                 Debug.Log(ts.name + " has been completed");
                 questUI.EnableCollectButton(i);
             }
         }
         
-        /*float prob = Random.Range(0.0f, 1.0f);
-        if (prob < probabilityOfTask)
+        //This randomly assigns quests
+        float prob = Random.Range(0.0f, 1.0f);
+        if (prob < probabilityOfTask && AvailableTasks.Count > 0)
         {
             AssignTask(Random.Range(0, AvailableTasks.Count));
-        }*/
+        }
     }
 
     public void AssignTask(int key)
