@@ -10,6 +10,7 @@ public class QuestUI : MonoBehaviour
     public GameObject questUIEntryPrefab, gridParent;
     private List<Transform> entries;
     public GameObject sidebar;
+    public GameObject counter;
 
     public void Awake()
     {
@@ -34,6 +35,16 @@ public class QuestUI : MonoBehaviour
             entry.Find("QuestText").GetComponent<TextMeshProUGUI>().text = quest.mission;
             entry.Find("Progress").GetComponent<TextMeshProUGUI>().text = quest.CurrentAmount + "/" + quest.RequiredAmount;
             entry.GetComponent<QuestButton>().index = i;
+        }
+        
+        if(entries.Count > 0)
+        {
+            counter.SetActive(true);
+            counter.transform.Find("Count").GetComponent<TextMeshProUGUI>().text = entries.Count.ToString();
+        }
+        else 
+        {
+            counter.SetActive(false);
         }
     }
 
