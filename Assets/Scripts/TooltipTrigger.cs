@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,6 +20,7 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         {
             if (isPriced)
             {
+                if(price < 0) price = BuildingController.GetCostToBuild((BuildingType)(-price));
                 TooltipSystem.Show(header, content, UIManager.FormatNumberAsK(price),currencyType);
             }
             else {

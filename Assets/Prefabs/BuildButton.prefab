@@ -179,7 +179,7 @@ MonoBehaviour:
   header: 
   content: 
   price: 0
-  isPriced: 0
+  isPriced: 1
   currencyType: 0
 --- !u!1 &6907037236216051162
 GameObject:
