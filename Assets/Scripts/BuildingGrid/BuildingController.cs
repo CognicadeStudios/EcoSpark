@@ -98,7 +98,7 @@ public class BuildingController : MonoBehaviour
         Cost total = new Cost();
         foreach (KeyValuePair<BuildingType, int> entry in BuildingInfo.NumberBuilt)
         {
-            total += entry.Value * BuildingInfo.Productions[entry.Key][BuildingInfo.LevelOf(entry.Key)];
+            total += entry.Value * BuildingInfo.Productions[entry.Key][BuildingInfo.LevelOf[entry.Key]];
         }
         GameManager.Instance.Transaction(total);
     }
@@ -186,10 +186,19 @@ public class BuildingInfo
 
     };
     public static Dictionary<BuildingType, int> NumberBuilt = new(){};
-    public static int LevelOf(BuildingType type)
+    public static Dictionary<BuildingType, int> LevelOf = new()
     {
-        return 0;
-    }
+        { BuildingType.HOUSE, 0},
+        { BuildingType.BUSINESS, 0},
+        { BuildingType.SOLAR_PANEL, 0},
+        { BuildingType.WIND_TURBINE, 0},
+        { BuildingType.GEOTHERMAL_PLANT, 0},
+        { BuildingType.WATER_TURBINE, 0},
+        { BuildingType.NUCLEAR_PLANT, 0},
+        { BuildingType.COAL_MINE, 0},
+        { BuildingType.ENERGY_STORAGE, 0},
+        { BuildingType.RESEARCH_LAB, 0},
+    };
 }
 
 public enum BuildingType : int

@@ -12,7 +12,6 @@ public class ResearchManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        Debug.Log(Instance);
     }
     public class OnUpgradeResearchedArgs : EventArgs { public Upgrade upgrade; }
     public event EventHandler<OnUpgradeResearchedArgs> OnUpgradeResearched;
@@ -110,66 +109,85 @@ public class ResearchManager : MonoBehaviour
             case Upgrade.None:
                 break;
             case Upgrade.Research1:
+                BuildingInfo.LevelOf[BuildingType.RESEARCH_LAB] = 1;
                 break;
             case Upgrade.Research2:
+                BuildingInfo.LevelOf[BuildingType.RESEARCH_LAB] = 2;
                 break;
             case Upgrade.Research3:
+                BuildingInfo.LevelOf[BuildingType.RESEARCH_LAB] = 3;
                 break;
             case Upgrade.Battery1:
+                BuildingInfo.LevelOf[BuildingType.ENERGY_STORAGE] = 1;
                 break;
             case Upgrade.Battery2:
+                BuildingInfo.LevelOf[BuildingType.ENERGY_STORAGE] = 2;
                 break;
             case Upgrade.Battery3:
-                break;
-            case Upgrade.HousingAndBusiness:
+                BuildingInfo.LevelOf[BuildingType.ENERGY_STORAGE] = 3;
                 break;
             case Upgrade.Housing1:
+                BuildingInfo.LevelOf[BuildingType.HOUSE] = 1;
                 break;
             case Upgrade.Housing2:
+                BuildingInfo.LevelOf[BuildingType.HOUSE] = 2;
                 break;
             case Upgrade.Housing3:
+                BuildingInfo.LevelOf[BuildingType.HOUSE] = 3;
                 break;
             case Upgrade.Business1:
+                BuildingInfo.LevelOf[BuildingType.BUSINESS] = 1;
                 break;
             case Upgrade.Business2:
+                BuildingInfo.LevelOf[BuildingType.BUSINESS] = 2;
                 break;
             case Upgrade.Business3:
-                break;
-            case Upgrade.RenewableEnergy:
+                BuildingInfo.LevelOf[BuildingType.BUSINESS] = 3;
                 break;
             case Upgrade.Solar1:
+                BuildingInfo.LevelOf[BuildingType.SOLAR_PANEL] = 1;
                 break;
             case Upgrade.Geothermal1:
+                BuildingInfo.LevelOf[BuildingType.GEOTHERMAL_PLANT] = 1;
                 break;
             case Upgrade.Geothermal2:
+                BuildingInfo.LevelOf[BuildingType.GEOTHERMAL_PLANT] = 2;
                 break;
-            case Upgrade.Hydro1:
+            case Upgrade.Water1:
+                BuildingInfo.LevelOf[BuildingType.WATER_TURBINE] = 1;
                 break;
             case Upgrade.Hydro2:
+                BuildingInfo.LevelOf[BuildingType.WATER_TURBINE] = 2;
                 break;
             case Upgrade.Hydro3:
+                BuildingInfo.LevelOf[BuildingType.WATER_TURBINE] = 3;
                 break;
             case Upgrade.Wind1:
+                BuildingInfo.LevelOf[BuildingType.WIND_TURBINE] = 1;
                 break;
             case Upgrade.Wind2:
+                BuildingInfo.LevelOf[BuildingType.WIND_TURBINE] = 2;
                 break;
             case Upgrade.Wind3:
+                BuildingInfo.LevelOf[BuildingType.WIND_TURBINE] = 3;
                 break;
             case Upgrade.Oil1:
+                BuildingInfo.LevelOf[BuildingType.COAL_MINE] = 1;
                 break;
             case Upgrade.Oil2:
+                BuildingInfo.LevelOf[BuildingType.COAL_MINE] = 2;
                 break;
             case Upgrade.Oil3:
+                BuildingInfo.LevelOf[BuildingType.COAL_MINE] = 3;
                 break;
             case Upgrade.Nuclear1:
+                BuildingInfo.LevelOf[BuildingType.NUCLEAR_PLANT] = 1;
                 break;
             case Upgrade.Nuclear2:
+                BuildingInfo.LevelOf[BuildingType.NUCLEAR_PLANT] = 2;
                 break;
             case Upgrade.Nuclear3:
-                break;
-            case Upgrade.NonrenewableEnergy:
-                break;
-            case Upgrade.StorageAndResearch:
+                BuildingInfo.LevelOf[BuildingType.NUCLEAR_PLANT] = 3;
                 break;
         }
     }
@@ -209,7 +227,7 @@ public enum Upgrade
     Solar1,
     Geothermal1,
     Geothermal2,
-    Hydro1,
+    Water1,
     Hydro2,
     Hydro3,
     Wind1,
@@ -250,7 +268,7 @@ public class UpgradeInfo
         {Upgrade.Solar1,             3},
         {Upgrade.Geothermal1,        4},
         {Upgrade.Geothermal2,        6},
-        {Upgrade.Hydro1,             1},
+        {Upgrade.Water1,             1},
         {Upgrade.Hydro2,             3},
         {Upgrade.Hydro3,             6},
         {Upgrade.Wind1,              2},
@@ -280,10 +298,10 @@ public class UpgradeInfo
         { Upgrade.Business2, new List<Upgrade>{ Upgrade.Business1 } },
         { Upgrade.Business3, new List<Upgrade>{ Upgrade.Business2, Upgrade.Housing2 } },
         { Upgrade.Solar1, new List<Upgrade>{ Upgrade.Wind1 } },
-        { Upgrade.Geothermal1, new List<Upgrade>{ Upgrade.Hydro1 } },
+        { Upgrade.Geothermal1, new List<Upgrade>{ Upgrade.Water1 } },
         { Upgrade.Geothermal2, new List<Upgrade>{ Upgrade.Geothermal1, Upgrade.Solar1 } },
-        { Upgrade.Hydro1, new List<Upgrade>{ Upgrade.RenewableEnergy } },
-        { Upgrade.Hydro2, new List<Upgrade>{ Upgrade.Hydro1 } },
+        { Upgrade.Water1, new List<Upgrade>{ Upgrade.RenewableEnergy } },
+        { Upgrade.Hydro2, new List<Upgrade>{ Upgrade.Water1 } },
         { Upgrade.Hydro3, new List<Upgrade>{ Upgrade.Hydro2 } },
         { Upgrade.Wind1, new List<Upgrade>{ Upgrade.RenewableEnergy } },
         { Upgrade.Wind2, new List<Upgrade>{ Upgrade.Wind1 } },
@@ -308,7 +326,7 @@ public class UpgradeInfo
         { Upgrade.Battery1, 1},
         { Upgrade.Business1, 1},
         { Upgrade.Housing1, 1},
-        { Upgrade.Hydro1, 1},
+        { Upgrade.Water1, 1},
         { Upgrade.Nuclear1, 1},
         { Upgrade.Oil1, 1},
         { Upgrade.Research1, 1},
