@@ -38,40 +38,6 @@ public class BuildingController : MonoBehaviour
         }
 
         if(isBuildingMode) return;
-
-        //Do building specific stuff...
-        switch(buildingType)
-        {
-            case BuildingType.SOLAR_PANEL:
-                float solarSpeed = 100.0f;
-                if(LightingManager.instance.isNight) solarSpeed *= 0.2f;
-                GameManager.Instance.CityEnergy += Time.deltaTime * solarSpeed;
-                break;
-            case BuildingType.HOUSE:
-                float rand = Random.Range(0.0f, 0.5f) * Time.deltaTime * (GameManager.Instance.PublicApproval/100.0f);
-                GameManager.Instance.Money += rand;
-                break;
-            case BuildingType.WIND_TURBINE:
-                float windSpeed = 10.0f + Random.Range(-10.0f, 10.0f);
-                GameManager.Instance.CityEnergy += Time.deltaTime * windSpeed;
-                break;
-            case BuildingType.WATER_TURBINE:
-                float waterSpeed = 15.0f;
-                GameManager.Instance.CityEnergy += Time.deltaTime * waterSpeed;
-                break;
-            case BuildingType.NUCLEAR_PLANT:
-                float nuclearPlantSpeed = 15.0f;
-                GameManager.Instance.CityEnergy += Time.deltaTime * nuclearPlantSpeed;
-                break;
-            //case BuildingType.OIL_DRILL:
-            //    float oilSpeed = 15.0f;
-            //    GameManager.Instance.CityEnergy += Time.deltaTime * oilSpeed;
-            //    break;
-            case BuildingType.COAL_MINE:
-                float coalFactorySpeed = 15.0f;
-                GameManager.Instance.CityEnergy += Time.deltaTime * coalFactorySpeed;
-                break;
-        }
     }
 
     /// <summary>
@@ -101,16 +67,13 @@ public class BuildingController : MonoBehaviour
     
     public void OnBuild(BuildingType type)
     {
-        switch(type)
+        if (BuildingInfo.NumberBuilt.ContainsKey(type))
         {
-            case BuildingType.Empty:
-            case BuildingType.HOUSE:
-            case BuildingType.SOLAR_PANEL:
-            case BuildingType.NUCLEAR_PLANT:
-            case BuildingType.COAL_MINE:
-            case BuildingType.WATER_TURBINE:
-            case BuildingType.WIND_TURBINE:
-                break;
+            BuildingInfo.NumberBuilt[type]++;
+        }
+        else
+        {
+            BuildingInfo.NumberBuilt[type] = 1;
         }
     }
 
@@ -129,6 +92,18 @@ public class BuildingController : MonoBehaviour
             _ => 0,
         };
     }
+
+    public void HourlyValueUpdates()
+    {
+        Cost total = new Cost();
+        foreach (KeyValuePair<BuildingType, int> entry in BuildingInfo.NumberBuilt)
+        {
+            total += entry.Value * BuildingInfo.Productions[entry.Key][BuildingInfo.LevelOf(entry.Key)];
+        }
+        GameManager.Instance.Transaction(total);
+    }
+    
+    
 }
 
 public class BuildingInfo
@@ -146,7 +121,7 @@ public class BuildingInfo
         { BuildingType.ENERGY_STORAGE,   new(){0, 50 , 60 , 70 } },
         { BuildingType.RESEARCH_LAB,     new(){0, 30 , 65 , 90 } },
     };
-    public static Dictionary<BuildingType, List<Cost>> productions = new()
+    public static Dictionary<BuildingType, List<Cost>> Productions = new()
     {
         {BuildingType.HOUSE, new List<Cost>{
             new(0, 0, 0, 0, 0),
@@ -210,6 +185,11 @@ public class BuildingInfo
         }},
 
     };
+    public static Dictionary<BuildingType, int> NumberBuilt = new(){};
+    public static int LevelOf(BuildingType type)
+    {
+        return 0;
+    }
 }
 
 public enum BuildingType : int
