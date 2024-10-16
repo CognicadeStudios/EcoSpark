@@ -79,7 +79,8 @@ public class BuildingController : MonoBehaviour
 
     public static int GetCostToBuild(BuildingType type)
     {
-        return BuildingInfo.BuildCosts[type][BuildingInfo.LevelOf[type]];
+        int level = BuildingInfo.LevelOf[type];
+        return BuildingInfo.BuildCosts[type][level > 0? level : 1];
     }
 
     public void HourlyValueUpdates()

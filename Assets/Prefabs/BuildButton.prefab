@@ -181,6 +181,7 @@ MonoBehaviour:
   price: 0
   isPriced: 1
   currencyType: 0
+  tooltipType: 1
 --- !u!1 &6907037236216051162
 GameObject:
   m_ObjectHideFlags: 0
