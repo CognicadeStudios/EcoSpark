@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
     public event EventHandler<OnValueUpdatedArgs> OnMoneyChanged;
 
     [Range(0,100), SerializeField]
-    private int publicApproval;
-    public int PublicApproval
+    private float publicApproval;
+    public float PublicApproval
     {
         get
         {
@@ -46,8 +46,8 @@ public class GameManager : MonoBehaviour
     public event EventHandler<OnValueUpdatedArgs> OnPublicApprovalChanged;
 
     [Range(0,100), SerializeField]
-    private int ecoScore;
-    public int EcoScore
+    private float ecoScore;
+    public float EcoScore
     {
         get
         {
@@ -99,11 +99,11 @@ public class GameManager : MonoBehaviour
 
     public void Transaction(Cost c)
     {
-        money += c.Money;
-        publicApproval += c.PublicApproval;
-        ecoScore += c.EcoScore;
-        cityEnergy += c.CityEnergy;
-        researchPoints += c.ResearchPoints;
+        Money += c.Money;
+        PublicApproval = (float)PublicApproval + c.PublicApproval;
+        EcoScore += c.EcoScore;
+        CityEnergy += c.CityEnergy;
+        ResearchPoints += c.ResearchPoints;
     }
 }
 
@@ -116,7 +116,8 @@ public class GameManager : MonoBehaviour
 /// </example>
 public class Cost
 {
-    public int ResearchPoints, PublicApproval, EcoScore;
+    public int ResearchPoints;
+    public float PublicApproval, EcoScore;
     public float CityEnergy, Money;
     public Cost() {
         ResearchPoints = 0;
@@ -126,7 +127,7 @@ public class Cost
         Money = 0f;
     }
 
-    public Cost(int research, int PublicApproval, int EcoScore, float money, float energy)
+    public Cost(int research, float PublicApproval, float EcoScore, float money, float energy)
     {
         this.ResearchPoints = research;
         this.PublicApproval = PublicApproval;
@@ -140,8 +141,8 @@ public class Cost
         return new Cost()
         {
             ResearchPoints = (int)(b.ResearchPoints * a),
-            PublicApproval = (int)Mathf.Clamp(b.PublicApproval * a, 0, 100),
-            EcoScore = (int)Mathf.Clamp(b.EcoScore * a, 0, 100),
+            PublicApproval = b.PublicApproval * a,
+            EcoScore = b.EcoScore * a,
             CityEnergy = b.CityEnergy * a,
             Money = b.Money * a
         };
@@ -151,8 +152,8 @@ public class Cost
         return new Cost()
         {
             ResearchPoints = a.ResearchPoints + b.ResearchPoints,
-            PublicApproval = Math.Clamp(a.PublicApproval + b.PublicApproval, 0, 100),
-            EcoScore = Math.Clamp(a.EcoScore + b.EcoScore, 0, 100),
+            PublicApproval = (a.PublicApproval + b.PublicApproval),
+            EcoScore = (a.EcoScore + b.EcoScore),
             CityEnergy = a.CityEnergy + b.CityEnergy,
             Money = a.Money + b.Money
         };

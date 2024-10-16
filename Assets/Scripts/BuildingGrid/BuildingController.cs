@@ -147,20 +147,67 @@ public class BuildingInfo
         { BuildingType.RESEARCH_LAB,     new(){0, 30 , 65 , 90 } },
     };
     public static Dictionary<BuildingType, List<Cost>> productions = new()
-{
-    {BuildingType.HOUSE, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
-    {BuildingType.BUSINESS, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
-    {BuildingType.SOLAR_PANEL, new List<Cost> { new Cost(1, 2, 3, 4, 5 ), new Cost(), new Cost(), new Cost() }},
-    {BuildingType.WIND_TURBINE, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
-    {BuildingType.GEOTHERMAL_PLANT, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
-    {BuildingType.WATER_TURBINE, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
-    {BuildingType.NUCLEAR_PLANT, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
-    {BuildingType.COAL_MINE, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
-    {BuildingType.ENERGY_STORAGE, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }},
-    {BuildingType.RESEARCH_LAB, new List<Cost> { new Cost(1, 2, 3, 4, 5), new Cost(), new Cost(), new Cost() }}
-};
-    public static Dictionary<BuildingType, List<Cost>> consumptions = new()
     {
+        {BuildingType.HOUSE, new List<Cost>{
+            new(0, 0, 0, 0, 0),
+            new(0, 0.2f, 0.1f, 20, -0.5f),
+            new(0, 0.3f, 0.2f, 50, -1),
+            new(0, 0.4f, 0.3f, 100, -1.5f),
+        }},
+        {BuildingType.BUSINESS, new List<Cost>{
+            new(0, 0, 0, 0, 0),
+            new(0, 0.1f, 0.1f, 100, -1),
+            new(0, 0.2f, 0.2f, 250, -2),
+            new(0, 0.3f, 0.3f, 500, -3),
+        }},
+        {BuildingType.SOLAR_PANEL, new List<Cost>{
+            new(0, 0, 0, 0, 0),
+            new(0, 0.3f, 0.4f, 0, 10),
+            new(0, 0, 0, 0, 0),
+            new(0, 0, 0, 0, 0),
+        }},
+        {BuildingType.WIND_TURBINE, new List<Cost>{
+            new(0, 0, 0, 0, 0),
+            new(0, 0.2f, 0.2f, 0, 3),
+            new(0, 0.3f, 0.3f, 0, 7),
+            new(0, 0.4f, 0.4f, 0, 12),
+        }},
+        {BuildingType.GEOTHERMAL_PLANT, new List<Cost>{
+            new(0, 0, 0, 0, 0),
+            new(0, 0.2f, 0.3f, 0, 15),
+            new(0, 0.3f, 0.4f, 0, 25),
+            new(0, 0, 0, 0, 0),
+        }},
+        {BuildingType.WATER_TURBINE, new List<Cost>{
+            new(0, 0, 0, 0, 0),
+            new(0, 0.2f, 0.3f, 0, 10),
+            new(0, 0.3f, 0.4f, 0, 20),
+            new(0, 0.4f, 0.5f, 0, 40),
+        }},
+        {BuildingType.NUCLEAR_PLANT, new List<Cost>{
+            new(0, 0, 0, 0, 0),
+            new(0, -0.1f, -0.3f, 0, 30),
+            new(0, -0.2f, -0.4f, 0, 60),
+            new(0, -0.3f, -0.5f, 0, 90),
+        }},
+        {BuildingType.COAL_MINE, new List<Cost>{
+            new(0, 0, 0, 0, 0),
+            new(0, -0.2f, -0.5f, 0, 2.5f),
+            new(0, -0.3f, -0.6f, 0, 10),
+            new(0, -0.4f, -0.7f, 0, 45),
+        }},
+        {BuildingType.ENERGY_STORAGE, new List<Cost>{
+            new(0, 0, 0, 0, 0),
+            new(0, 0.1f, 0.1f, 0, 20),
+            new(0, 0.2f, 0.2f, 0, 40),
+            new(0, 0.3f, 0.3f, 0, 80),
+        }},
+        {BuildingType.RESEARCH_LAB, new List<Cost>{
+            new(0, 0, 0, 0, 0),
+            new(2, 0.2f, 0.1f, 0, -5),
+            new(4, 0.3f, 0.2f, 0, -10),
+            new(6, 0.4f, 0.3f, 0, -15),
+        }},
 
     };
 }
