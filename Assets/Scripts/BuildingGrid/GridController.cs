@@ -12,11 +12,11 @@ public class GridController : MonoBehaviour
     public BuildingController [,] buildingsGrid;
     public GameObject buildingPrefab;
     public ProdecuralGenerator generator;
-    public static GridController instance;
+    public static GridController Instance;
     public List<int> BuildingsBuilt;
     public void Awake()
     {
-        instance = this;
+        Instance = this;
         buildingsGrid = new BuildingController[gridWidth, gridHeight];
         
         BuildingsBuilt = new List<int>();

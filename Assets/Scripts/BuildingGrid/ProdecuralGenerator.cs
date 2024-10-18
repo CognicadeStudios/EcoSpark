@@ -257,7 +257,7 @@ public class ProdecuralGenerator : MonoBehaviour
 
         int tileIndAsBuildingType = (tileInd == 0 ? 0 : tileInd + 10);
         //Spawn in the tile in world space :)
-        GameObject building = GridController.instance.SetBuilding(foundR, foundC, (BuildingType)(tileIndAsBuildingType));
+        GameObject building = GridController.Instance.SetBuilding(foundR, foundC, (BuildingType)(tileIndAsBuildingType));
         BuildingController controller = building.transform.parent.GetComponent<BuildingController>();
         controller.isBuildingMode = false;
         built[foundR, foundC] = true;
