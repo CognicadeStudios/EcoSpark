@@ -37,8 +37,7 @@ public class TooltipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     {
         delay = LeanTween.delayedCall(0.5f, () =>
         {
-            if (isPriced)
-            {
+            if (isPriced) {
                 tooltipinfo t = GenerateTooltip();
                 TooltipSystem.Show(t.head, t.cont, UIManager.FormatNumberAsK(t.price),currencyType);
             }

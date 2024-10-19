@@ -61,10 +61,25 @@ public class ProdecuralGenerator : MonoBehaviour
         /// After calling this method, the Prodecural Generator is ready to generate
         /// roads. To generate roads, simply call the GenerateRoads method.
         /// </remarks>
+        ///
+
+        /*
+            Good Seeds:
+            6527
+            5920
+            5302
+            8927
+            5973
+            7696
+            9605
+            8415
+        */
     public void Initialize(int n)
     {
-        //this.randomSeed = goodSeeds[UnityEngine.Random.Range(0, goodSeeds.Count - 1)];
+        this.goodSeeds = new List<int> { 6527, 5920, 5302, 8927, 5973, 7696, 9605, 8415 };
+        this.randomSeed = goodSeeds[UnityEngine.Random.Range(0, goodSeeds.Count - 1)];
         this.random = new Random(randomSeed);
+        Debug.Log("Seed: " + randomSeed);
         this.probabilities = new float[]
         {
             1.5f,

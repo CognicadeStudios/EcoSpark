@@ -171,4 +171,12 @@ public class UIManager : MonoBehaviour
         color.a = alpha;
         researchDim.GetComponent<Image>().color = color;
     }
+
+    public GameObject popup;
+    public void popupText(string s, Vector2 v, Color c)
+    {
+        TextMeshPro g = Instantiate(popup, new Vector3(v.x, v.y, -5), Quaternion.identity).transform.GetChild(0).GetComponent<TextMeshPro>();
+        g.color = c;
+        g.text = s;
+    }
 }

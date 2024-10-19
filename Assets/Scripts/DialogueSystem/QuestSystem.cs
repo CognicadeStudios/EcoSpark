@@ -7,20 +7,16 @@ using UnityEngine.UI;
 public class QuestSystem : MonoBehaviour
 {
     //Quest Management
-    private float probabilityOfTask;
+    private float probabilityOfTask = 0f;
     public List<QuestGoal> AvailableTasks;
     public List<QuestGoal> CurrentTasks;
-    public const float baseProbability = 0.2f;
+    public const float baseProbability = 0.0001f;
     public const float timeThreshold = 4.0f;
     private LightingManager lightManager;
 
     //Misc
     public QuestUI questUI;
     public static QuestSystem instance;
-    
-    //TODO: Uncomment Animator Commands
-    public Animator anim;
-    private Queue<string> sentences;
     private QuestSystem taskManager;
 
     public void Awake()
@@ -36,11 +32,8 @@ public class QuestSystem : MonoBehaviour
         probabilityOfTask = baseProbability;
         lightManager = LightingManager.instance;
 
-        sentences = new Queue<string>();
         taskManager = FindObjectOfType<QuestSystem>();
         PopulateTaskList();
-
-        StartRandomDialogue();
     }
 
      private void PopulateTaskList()
@@ -50,14 +43,69 @@ public class QuestSystem : MonoBehaviour
             new QuestGoal(
                 (int)BuildingType.SOLAR_PANEL,
                 "Build", 
-                new Cost(0, 10, 0, 10, 0),
+                new Cost(0, 5, 0, 100, 0),
                 2,
                 "Our renewable energy output is lagging behind! "+
                 "Build 2 solar panels to help meet our sustainability goals.",
                 "Build 2 Level 1 Solar Panels",
-                "Glen Youngkin",
+                "Governor",
                 null
-            )
+            ),
+            new QuestGoal(
+                (int)Upgrade.Solar1,
+                "Upgrade", 
+                new Cost(1, 3, 5, 150, 0),
+                2,
+                "'Our energy bills are out of control. " +
+                "If you could upgrade a few of our buildings to be more energy efficient, we'd all save a fortune.",
+                "Upgrade Solar Panels to Level 2",
+                "Local Business Owner",
+                null
+            ),
+            new QuestGoal(
+                (int)BuildingType.WIND_TURBINE,
+                "Build", 
+                new Cost(0, 5, 0, 100, 0),
+                2,
+                "'We,ve had a power shortage in our area. We need help!"+
+                "Could you build a wind farm and supply us with energy?",
+                "Build 2 Level 1 Wind Turbines",
+                "Farmers' Council",
+                null
+            ),
+            new QuestGoal(
+                (int)Upgrade.Wind1,
+                "Upgrade", 
+                new Cost(0, 5, 0, 150, 0),
+                2,
+                "The recent coal shortage has severely impacted our power output." +
+                "We need to compensate by boosting wind energy production.",
+                "Upgrade Wind Turbines to Level 2",
+                "Energy Advisor",
+                null
+            ),
+            new QuestGoal(
+                (int)Upgrade.Wind2,
+                "Upgrade", 
+                new Cost(0, 5, 0, 200, 0),
+                2,
+                "The recent drought has severely impacted our hydropower output." +
+                "We need to compensate by boosting wind energy production.",
+                "Upgrade Wind Turbines to Level 2",
+                "Energy Advisor",
+                null
+            ),
+            new QuestGoal(
+                (int)Upgrade.Wind3,
+                "Upgrade", 
+                new Cost(0, 5, 0, 400, 0),
+                2,
+                "The recent drought has severely impacted our hydropower output." +
+                "We need to compensate by boosting wind energy production.",
+                "Upgrade Wind Turbines to Level 2",
+                "Energy Advisor",
+                null
+            ),
         };
     }
 
@@ -65,13 +113,6 @@ public class QuestSystem : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        float timeElapsed = lightManager.TimeElapsed;
-        if(timeElapsed > timeThreshold)
-        {
-            probabilityOfTask += timeElapsed / (timeThreshold * 100.0f);
-            probabilityOfTask = Mathf.Min(probabilityOfTask, 1.0f);
-        }
-
         for(int i = CurrentTasks.Count - 1; i >= 0; i--)
         {
             QuestGoal ts = CurrentTasks[i];
@@ -86,12 +127,17 @@ public class QuestSystem : MonoBehaviour
         
         //This randomly assigns quests
         float prob = Random.Range(0.0f, 1.0f);
-        if (prob < probabilityOfTask && AvailableTasks.Count > 0)
+        if (prob < probabilityOfTask && AvailableTasks.Count > 0 && CurrentTasks.Count < 3)
         {
-            AssignTask(Random.Range(0, AvailableTasks.Count));
+            StartRandomDialogue();
         }
     }
 
+
+    /// <summary>
+    /// Assign a task to the current tasks by key
+    /// </summary>
+    /// <param name="key">The index of the task in the AvailableTasks list</param>
     public void AssignTask(int key)
     {   //Assign Task to CurentTask based on the key
         CurrentTasks.Add(AvailableTasks[key]);
@@ -101,6 +147,7 @@ public class QuestSystem : MonoBehaviour
 
     public void StartRandomDialogue()
     {
+        Debug.Log("Starting next quest: " + CurrentTasks[0].mission);
         //TODO: Randomly assign the key
         int dialogueKey = 0;
         AssignTask(dialogueKey);

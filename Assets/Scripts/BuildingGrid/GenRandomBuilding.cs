@@ -11,6 +11,7 @@ public class GenRandomBuilding : MonoBehaviour
     {
         objects ??= new List<GenRandomBuilding>();
     }
+
     void Start()
     {
         currentRadius = 0.0f;
@@ -62,9 +63,8 @@ public class GenRandomBuilding : MonoBehaviour
 
         Transform buildingPrefab;
         float rand = Random.Range(0.0f, 1.0f);
-        if(rand > 0.5f) buildingPrefab = transform.GetChild(0);
-        else if(rand > 0.2f) buildingPrefab = transform.GetChild(1);
-        else return;
+        if(rand > 0.4f) buildingPrefab = transform.GetChild(0);
+        else buildingPrefab = transform.GetChild(1);
         
         int numChildren = buildingPrefab.childCount;
         int randomChild = Random.Range(0, numChildren);
@@ -76,8 +76,4 @@ public class GenRandomBuilding : MonoBehaviour
         currentRadius = newRadius;
     }
 
-    void Update()
-    {
-    
-    }
 }

@@ -131,6 +131,13 @@ public class GridController : MonoBehaviour
 
             if(Input.GetMouseButtonDown(0))
             {
+                //we gotta implement a check to see if we can place it here
+                if(buildingsGrid[gridPosition.x, gridPosition.y].buildingType != currentBuildingType)
+                {
+                    Debug.Log("Cannot Place Building: " + buildingsGrid[gridPosition.x, gridPosition.y].buildingType );
+                    return;
+                }
+
                 isBuilding = false;
                 Debug.Log("Completing Building: " + currentBuildingType);
                 buildingPreviewPosition = new Vector2Int(-1, -1);
