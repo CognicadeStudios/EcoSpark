@@ -4,7 +4,6 @@ using UnityEngine;
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
 {
-    public event EventHandler<HourChangedArgs> HourChanged;
     public class HourChangedArgs
     {
         public int hour;

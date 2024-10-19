@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
         set
         {
             cityEnergy = value;
+            OnCityEnergyChanged?.Invoke(this, new(value));
         }
     }
     public event EventHandler<OnValueUpdatedArgs> OnCityEnergyChanged;
