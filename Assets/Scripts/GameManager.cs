@@ -153,8 +153,8 @@ public class Cost
         return new Cost()
         {
             ResearchPoints = a.ResearchPoints + b.ResearchPoints,
-            PublicApproval = (a.PublicApproval + b.PublicApproval),
-            EcoScore = (a.EcoScore + b.EcoScore),
+            PublicApproval = a.PublicApproval + b.PublicApproval,
+            EcoScore = a.EcoScore + b.EcoScore,
             CityEnergy = a.CityEnergy + b.CityEnergy,
             Money = a.Money + b.Money
         };

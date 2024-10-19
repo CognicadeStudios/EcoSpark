@@ -89,7 +89,7 @@ public class BuildingController : MonoBehaviour
             }
         }
         GameManager.Instance.Transaction(total);
-        //Debug.Log("net productions of buildings: " + total);
+        Debug.Log("net productions of buildings: " + total);
     }
     
     
@@ -203,14 +203,14 @@ public class BuildingInfo
     public static Dictionary<BuildingType, int> LevelOf = new()
     {
         { BuildingType.Empty, 0},
-        { BuildingType.HOUSE, 0},
+        { BuildingType.HOUSE, 1},
         { BuildingType.BUSINESS, 0},
         { BuildingType.SOLAR_PANEL, 0},
         { BuildingType.WIND_TURBINE, 0},
         { BuildingType.GEOTHERMAL_PLANT, 0},
         { BuildingType.WATER_TURBINE, 0},
         { BuildingType.NUCLEAR_PLANT, 0},
-        { BuildingType.COAL_MINE, 0},
+        { BuildingType.COAL_MINE, 1},
         { BuildingType.ENERGY_STORAGE, 0},
         { BuildingType.RESEARCH_LAB, 0},
     };

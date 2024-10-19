@@ -220,6 +220,7 @@ public class ProdecuralGenerator : MonoBehaviour
                 while (GridController.Instance.GetBuilding(r, c).buildingType != BuildingType.Empty);
 
                 GridController.Instance.SetBuilding(r, c, BuildingType.COAL_MINE);
+                BuildingInfo.NumberBuilt[BuildingType.COAL_MINE]++;
             }
 
             return possible = false;
