@@ -16,6 +16,7 @@ public class QuestUI : MonoBehaviour
     {
         entries = new List<Transform>();
         InvokeRepeating(nameof(UpdateListUI), 5f, 2f);
+        rewardObjects = new List<GameObject>();
     }
 
     public void AddNewQuest()
@@ -63,6 +64,27 @@ public class QuestUI : MonoBehaviour
         entries.RemoveAt(key);
     }
 
+    public GameObject rewardPrefab;
+    public Sprite ecoScoreSprite, moneySprite, researchPointsSprite, energySprite, publicApprovalSprite;
+    List<GameObject> rewardObjects;
+
+    private void CreateReward(float amount, Sprite sprite)
+    {
+        GameObject go = Instantiate(rewardPrefab, sidebar.transform.Find("Rewards Panel"));
+        go.transform.Find("RewardIcon").GetComponent<Image>().sprite = sprite;
+        go.transform.Find("Amount").GetComponent<TextMeshProUGUI>().text = Mathf.RoundToInt(amount).ToString();
+        rewardObjects.Add(go);
+    }
+
+    private void DestroyRewards()
+    {
+        foreach(GameObject go in rewardObjects)
+        {
+            Destroy(go);
+        }
+        rewardObjects.Clear();
+    }
+
     public void HighlightQuest(int key)
     {
         QuestGoal quest = QuestSystem.instance.CurrentTasks[key];
@@ -71,5 +93,32 @@ public class QuestUI : MonoBehaviour
         sidebar.transform.Find("QuestDialogue").GetComponent<TextMeshProUGUI>().text = quest.dialogue;
         sidebar.transform.Find("Quest Info").Find("Quest Statement").GetComponent<TextMeshProUGUI>().text = quest.mission;
         sidebar.transform.Find("Quest Info").Find("QuestProgress").GetComponent<TextMeshProUGUI>().text = quest.CurrentAmount + "/" + quest.RequiredAmount;
+
+        DestroyRewards();
+        //Set Rewards
+        if(quest.cost.Money != 0)
+        {
+            CreateReward(quest.cost.Money, moneySprite);
+        }
+
+        if(quest.cost.ResearchPoints != 0)
+        {
+            CreateReward(quest.cost.ResearchPoints, researchPointsSprite);
+        }
+
+        if(quest.cost.EcoScore != 0)
+        {
+            CreateReward(quest.cost.EcoScore, ecoScoreSprite);
+        }
+
+        if(quest.cost.CityEnergy != 0)
+        {
+            CreateReward(quest.cost.EcoScore, energySprite);
+        }
+
+        if(quest.cost.PublicApproval != 0)
+        {
+            CreateReward(quest.cost.PublicApproval, publicApprovalSprite);
+        }
     }
 }
