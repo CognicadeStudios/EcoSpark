@@ -26,7 +26,7 @@ public class QuestGoal
         this.Completed = false;
         this.cost = reward;
         this.type = type;
-        this.RequiredAmount = requiredAmount + GridController.Instance.BuildingsBuilt[this.ID];
+        this.RequiredAmount = requiredAmount;
         this.CurrentAmount = 0;
         this.dialogue = dialogue;
         this.mission = mission;
@@ -47,6 +47,14 @@ public class QuestGoal
         else if (this.type.Equals("Upgrade"))
         {
             if (ResearchManager.Instance.IsUpgradeResearched((Upgrade)ID))
+            {
+                Completed = true;
+            }
+        }
+        else if(this.type.Equals("Destroy"))
+        {
+            CurrentAmount = GridController.Instance.BuildingsBuilt[this.ID];
+            if (CurrentAmount <= RequiredAmount)
             {
                 Completed = true;
             }

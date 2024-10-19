@@ -43,7 +43,7 @@ public class QuestSystem : MonoBehaviour
             new QuestGoal(
                 (int)BuildingType.SOLAR_PANEL,
                 "Build", 
-                new Cost(0, 5, 0, 100, 0),
+                new Cost(0, 5, 3, 100, 0),
                 2,
                 "Our renewable energy output is lagging behind! "+
                 "Build 2 solar panels to help meet our sustainability goals.",
@@ -54,7 +54,7 @@ public class QuestSystem : MonoBehaviour
             new QuestGoal(
                 (int)Upgrade.Solar1,
                 "Upgrade", 
-                new Cost(1, 3, 5, 150, 0),
+                new Cost(0, 3, 5, 150, 0),
                 2,
                 "'Our energy bills are out of control. " +
                 "If you could upgrade a few of our buildings to be more energy efficient, we'd all save a fortune.",
@@ -65,7 +65,7 @@ public class QuestSystem : MonoBehaviour
             new QuestGoal(
                 (int)BuildingType.WIND_TURBINE,
                 "Build", 
-                new Cost(0, 5, 0, 100, 0),
+                new Cost(0, 5, 3, 100, 0),
                 2,
                 "'We,ve had a power shortage in our area. We need help!"+
                 "Could you build a wind farm and supply us with energy?",
@@ -76,7 +76,7 @@ public class QuestSystem : MonoBehaviour
             new QuestGoal(
                 (int)Upgrade.Wind1,
                 "Upgrade", 
-                new Cost(0, 5, 0, 150, 0),
+                new Cost(0, 5, 5, 150, 0),
                 2,
                 "The recent coal shortage has severely impacted our power output." +
                 "We need to compensate by boosting wind energy production.",
@@ -87,23 +87,23 @@ public class QuestSystem : MonoBehaviour
             new QuestGoal(
                 (int)Upgrade.Wind2,
                 "Upgrade", 
-                new Cost(0, 5, 0, 200, 0),
+                new Cost(0, 5, 5, 200, 0),
                 2,
-                "The recent drought has severely impacted our hydropower output." +
+                "The city has had a surge in electic consumtion." +
                 "We need to compensate by boosting wind energy production.",
-                "Upgrade Wind Turbines to Level 2",
-                "Energy Advisor",
+                "Upgrade Wind Turbines to Level 3",
+                "People's Council",
                 null
             ),
             new QuestGoal(
                 (int)Upgrade.Wind3,
                 "Upgrade", 
-                new Cost(0, 5, 0, 400, 0),
+                new Cost(0, 5, 5, 1000, 0),
                 2,
-                "The recent drought has severely impacted our hydropower output." +
-                "We need to compensate by boosting wind energy production.",
-                "Upgrade Wind Turbines to Level 2",
-                "Energy Advisor",
+                "Recently, renewable energy has hit a high in the markets" +
+                "To win over investors, create modern wind infrastructure",
+                "Upgrade Wind Turbines to Level 4",
+                "Investors",
                 null
             ),
         };

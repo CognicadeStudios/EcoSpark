@@ -187,8 +187,11 @@ public class ProdecuralGenerator : MonoBehaviour
         /// Generates the next tile in the grid by finding the tile with the most entropy, randomly selecting a roadtype from that tile, and then updating the entropies of the surrounding tiles.
         /// </summary>
         /// <returns>True if a tile was successfully generated, false if all tiles have been generated.</returns>
+    public bool possible = true;
     public bool GenerateNextTile()
     {
+        if(!possible) return false;
+
         int foundR = -1, foundC = -1;
         for(int i = 0; i < n; i++) 
         {
@@ -203,7 +206,24 @@ public class ProdecuralGenerator : MonoBehaviour
         }
 
         //All entropies are 1
-        if(foundR == -1) return false;
+        if(foundR == -1) 
+        {
+            //this runs after generation is done
+            //generated 3 random coal factories to kickstart energy production
+            for(int k = 0; k < 3; k++)
+            {
+                int r = -1, c = -1;
+                do {
+                    r = random.Next(0, n);
+                    c = random.Next(0, n);
+                }
+                while (GridController.Instance.GetBuilding(r, c).buildingType != BuildingType.Empty);
+
+                GridController.Instance.SetBuilding(r, c, BuildingType.COAL_MINE);
+            }
+
+            return possible = false;
+        }
 
         //For the current found tile, randomly pick a roadtype and place it
         RoadTypes randomTile = GetRandomRoad(entropies[foundR, foundC]);

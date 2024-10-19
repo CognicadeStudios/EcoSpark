@@ -204,7 +204,6 @@ public enum BuildingType : int
     COAL_MINE,
     ENERGY_STORAGE,
     RESEARCH_LAB,
-
     Crossroad,
     StraightX,
     StraightY,
