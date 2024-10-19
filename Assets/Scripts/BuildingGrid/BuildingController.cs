@@ -25,13 +25,13 @@ public class BuildingController : MonoBehaviour
 
     void Update()
     { 
-        if(GridController.instance.isBuilding && buildingType == BuildingType.Empty && !displayingRedPlane)
+        if(GridController.Instance.isBuilding && buildingType == BuildingType.Empty && !displayingRedPlane)
         {
             displayingRedPlane = true;
             redPlane = Instantiate(redPlanePrefab, transform.position + redPlanePrefab.transform.position, redPlanePrefab.transform.rotation, transform);
         }
         
-        if(displayingRedPlane && !(GridController.instance.isBuilding && buildingType == BuildingType.Empty))
+        if(displayingRedPlane && !(GridController.Instance.isBuilding && buildingType == BuildingType.Empty))
         {
             displayingRedPlane = false;
             Destroy(redPlane);

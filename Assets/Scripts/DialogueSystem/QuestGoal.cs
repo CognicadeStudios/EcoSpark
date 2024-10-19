@@ -20,13 +20,13 @@ public class QuestGoal
     public Sprite image;
     public string name, dialogue, mission;
 
-    public QuestGoal(int id, string type, Cost cost, int requiredAmount, string dialogue, string mission, string name, Sprite image)
+    public QuestGoal(int id, string type, Cost reward, int requiredAmount, string dialogue, string mission, string name, Sprite image)
     {
         this.ID = id;
         this.Completed = false;
-        this.cost = cost;
+        this.cost = reward;
         this.type = type;
-        this.RequiredAmount = requiredAmount;
+        this.RequiredAmount = requiredAmount + GridController.Instance.BuildingsBuilt[this.ID];
         this.CurrentAmount = 0;
         this.dialogue = dialogue;
         this.mission = mission;
@@ -38,7 +38,7 @@ public class QuestGoal
     {
         if (this.type.Equals("Build"))
         {
-            CurrentAmount = GridController.instance.BuildingsBuilt[this.ID];
+            CurrentAmount = GridController.Instance.BuildingsBuilt[this.ID];
             if (CurrentAmount >= RequiredAmount)
             {
                 Completed = true;

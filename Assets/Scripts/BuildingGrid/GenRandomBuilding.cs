@@ -19,7 +19,7 @@ public class GenRandomBuilding : MonoBehaviour
         {
             Transform grandpa = transform.parent.parent;
             var position = grandpa.GetComponent<BuildingController>().gridPosition;
-            var centerPosition = new Vector2(GridController.instance.gridWidth / 2, GridController.instance.gridHeight / 2);
+            var centerPosition = new Vector2(GridController.Instance.gridWidth / 2, GridController.Instance.gridHeight / 2);
             distFromCenter = Vector2.Distance(centerPosition, position);
 
             UpdateBuildingGeneration(4.0f);
