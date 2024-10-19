@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        LeanTween.init(1600);
+        LeanTween.init(6900);
         Instance = this;
     }
 

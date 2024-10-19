@@ -34,6 +34,10 @@ public class QuestSystem : MonoBehaviour
 
         taskManager = FindObjectOfType<QuestSystem>();
         PopulateTaskList();
+
+        
+        StartRandomDialogue();
+        StartRandomDialogue();
     }
 
      private void PopulateTaskList()
@@ -119,8 +123,7 @@ public class QuestSystem : MonoBehaviour
             ts.Evaluate();
             if (ts.Completed)
             {
-                AvailableTasks.Add(ts);
-                Debug.Log(ts.name + " has been completed");
+                //Debug.Log(ts.name + " has been completed");
                 questUI.EnableCollectButton(i);
             }
         }
@@ -130,6 +133,7 @@ public class QuestSystem : MonoBehaviour
         if (prob < probabilityOfTask && AvailableTasks.Count > 0 && CurrentTasks.Count < 3)
         {
             StartRandomDialogue();
+            SoundManager.instance.PlaySound("Click");
         }
     }
 
@@ -147,7 +151,7 @@ public class QuestSystem : MonoBehaviour
 
     public void StartRandomDialogue()
     {
-        Debug.Log("Starting next quest: " + CurrentTasks[0].mission);
+        Debug.Log("Starting next quest: " + AvailableTasks[0].mission);
         //TODO: Randomly assign the key
         int dialogueKey = 0;
         AssignTask(dialogueKey);

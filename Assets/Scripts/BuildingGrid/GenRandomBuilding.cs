@@ -39,7 +39,7 @@ public class GenRandomBuilding : MonoBehaviour
     /// </summary>
     /// <param name="newRadius">The new radius to pass to
     /// UpdateBuildingGeneration.</param>
-    static void TriggerRadiusUpdate(float newRadius)
+    public static void TriggerRadiusUpdate(float newRadius)
     {
         foreach(GenRandomBuilding obj in objects)
         {
@@ -60,6 +60,9 @@ public class GenRandomBuilding : MonoBehaviour
             currentRadius = newRadius;
             return;
         }
+        
+        BuildingController controller = transform.parent.parent.GetComponent<BuildingController>();
+        if(controller.buildingType != BuildingType.Empty) return;
 
         Transform buildingPrefab;
         float rand = Random.Range(0.0f, 1.0f);
@@ -69,8 +72,7 @@ public class GenRandomBuilding : MonoBehaviour
         int numChildren = buildingPrefab.childCount;
         int randomChild = Random.Range(0, numChildren);
         buildingPrefab.GetChild(randomChild).gameObject.SetActive(true);
-        
-        BuildingController controller = transform.parent.parent.GetComponent<BuildingController>();
+
         controller.buildingType = BuildingType.HOUSE;
 
         currentRadius = newRadius;

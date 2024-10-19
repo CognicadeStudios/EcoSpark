@@ -82,14 +82,14 @@ public class BuildingController : MonoBehaviour
         Cost total = new Cost();
         foreach (KeyValuePair<BuildingType, int> entry in BuildingInfo.NumberBuilt)
         {
-            Debug.Log(entry);
+            //Debug.Log(entry);
             if (entry.Key < BuildingType.Crossroad)
             {
                 total += entry.Value * BuildingInfo.Productions[entry.Key][BuildingInfo.LevelOf[entry.Key]];
             }
         }
         GameManager.Instance.Transaction(total);
-        Debug.Log("net productions of buildings: " + total);
+        //Debug.Log("net productions of buildings: " + total);
     }
     
     

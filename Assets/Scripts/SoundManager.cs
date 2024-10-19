@@ -8,13 +8,16 @@ public class SoundManager : MonoBehaviour
     public List<AudioClip> soundEffects;
     public List<string> soundNames;
     public AudioSource audioSource;
+    public static SoundManager instance;
     public AudioClip backgroundMusic;
     public void Awake()
     {
         //play background music on repeat always
         audioSource.loop = true;
         audioSource.clip = backgroundMusic;
+        audioSource.volume = 0.5f;
         audioSource.Play();
+        instance = this;
     }
 
     /// <summary>

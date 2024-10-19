@@ -128,12 +128,15 @@ public class ResearchManager : MonoBehaviour
                 break;
             case Upgrade.Housing1:
                 BuildingInfo.LevelOf[BuildingType.HOUSE] = 1;
+                GenRandomBuilding.TriggerRadiusUpdate(5.0f);
                 break;
             case Upgrade.Housing2:
                 BuildingInfo.LevelOf[BuildingType.HOUSE] = 2;
+                GenRandomBuilding.TriggerRadiusUpdate(5.5f);
                 break;
             case Upgrade.Housing3:
                 BuildingInfo.LevelOf[BuildingType.HOUSE] = 3;
+                GenRandomBuilding.TriggerRadiusUpdate(6.25f);
                 break;
             case Upgrade.Business1:
                 BuildingInfo.LevelOf[BuildingType.BUSINESS] = 1;

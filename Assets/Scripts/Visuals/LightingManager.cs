@@ -52,7 +52,7 @@ public class LightingManager : MonoBehaviour
             if(!firedUpdate && TimeOfDay % 1 < 0.1f)
             {
                 BuildingController.HourlyValueUpdates(null, null);
-                Debug.Log("Event fired");
+                //Debug.Log("Event fired");
                 firedUpdate = true;
             }
             UpdateLighting(TimeOfDay / 24f);
