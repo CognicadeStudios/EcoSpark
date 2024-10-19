@@ -158,5 +158,10 @@ public class Cost
             Money = a.Money + b.Money
         };
     }
+
+    public override string ToString()
+    {
+        return $"Cost: {{RPs:{ResearchPoints}, PA: {PublicApproval}, EcoScore: {EcoScore}, Energy: {CityEnergy}, Money: {Money} }}";
+    }
 };
 

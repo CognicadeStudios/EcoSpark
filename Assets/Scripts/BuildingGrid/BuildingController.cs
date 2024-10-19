@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class BuildingController : MonoBehaviour
 {
+    public LightingManager lightingManager;
     public ResearchManager researchManager;
     public List<GameObject> buildingPrefabs;
     public BuildingType buildingType;
@@ -67,14 +68,7 @@ public class BuildingController : MonoBehaviour
     
     public void OnBuild(BuildingType type)
     {
-        if (BuildingInfo.NumberBuilt.ContainsKey(type))
-        {
-            BuildingInfo.NumberBuilt[type]++;
-        }
-        else
-        {
-            BuildingInfo.NumberBuilt[type] = 1;
-        }
+        
     }
 
     public static int GetCostToBuild(BuildingType type)
@@ -83,14 +77,19 @@ public class BuildingController : MonoBehaviour
         return BuildingInfo.BuildCosts[type][level > 0? level : 1];
     }
 
-    public void HourlyValueUpdates()
+    public static void HourlyValueUpdates(object sender, LightingManager.HourChangedArgs e)
     {
         Cost total = new Cost();
         foreach (KeyValuePair<BuildingType, int> entry in BuildingInfo.NumberBuilt)
         {
-            total += entry.Value * BuildingInfo.Productions[entry.Key][BuildingInfo.LevelOf[entry.Key]];
+            Debug.Log(entry);
+            if (entry.Key < BuildingType.Crossroad)
+            {
+                total += entry.Value * BuildingInfo.Productions[entry.Key][BuildingInfo.LevelOf[entry.Key]];
+            }
         }
         GameManager.Instance.Transaction(total);
+        Debug.Log(total);
     }
     
     
@@ -113,6 +112,12 @@ public class BuildingInfo
     };
     public static Dictionary<BuildingType, List<Cost>> Productions = new()
     {
+        {BuildingType.Empty, new(){
+            new(0, 0, 0, 0, 0),
+            new(0, 0, 0, 0, 0),
+            new(0, 0, 0, 0, 0),
+            new(0, 0, 0, 0, 0),
+        }},
         {BuildingType.HOUSE, new List<Cost>{
             new(0, 0, 0, 0, 0),
             new(0, 0.2f, 0.1f, 20, -0.5f),
@@ -175,9 +180,29 @@ public class BuildingInfo
         }},
 
     };
-    public static Dictionary<BuildingType, int> NumberBuilt = new(){};
+    public static Dictionary<BuildingType, int> NumberBuilt = new(){
+        {BuildingType.Empty, 0},
+        {BuildingType.HOUSE, 0},
+        {BuildingType.BUSINESS, 0},
+        {BuildingType.SOLAR_PANEL, 0},
+        {BuildingType.WIND_TURBINE, 0},
+        {BuildingType.GEOTHERMAL_PLANT, 0},
+        {BuildingType.WATER_TURBINE, 0},
+        {BuildingType.NUCLEAR_PLANT, 0},
+        {BuildingType.COAL_MINE, 0},
+        {BuildingType.ENERGY_STORAGE, 0},
+        {BuildingType.RESEARCH_LAB, 0},
+        {BuildingType.Crossroad, 0},
+        {BuildingType.StraightX, 0},
+        {BuildingType.StraightY, 0},
+        {BuildingType.RoadNE, 0},
+        {BuildingType.RoadNW, 0},
+        {BuildingType.RoadSE, 0},
+        {BuildingType.RoadSW, 0},
+    };
     public static Dictionary<BuildingType, int> LevelOf = new()
     {
+        { BuildingType.Empty, 0},
         { BuildingType.HOUSE, 0},
         { BuildingType.BUSINESS, 0},
         { BuildingType.SOLAR_PANEL, 0},

@@ -1,8 +1,19 @@
+using System;
 using UnityEngine;
 
 [ExecuteAlways]
 public class LightingManager : MonoBehaviour
 {
+    public event EventHandler<HourChangedArgs> HourChanged;
+    public class HourChangedArgs
+    {
+        public int hour;
+        public HourChangedArgs(int hour)
+        {
+            this.hour = hour;
+        }
+    }
+
     //Scene References
     [SerializeField] private Light DirectionalLight;
     [SerializeField] private LightingPreset Preset;
@@ -24,6 +35,7 @@ public class LightingManager : MonoBehaviour
 
     private void Update()
     {
+        bool firedUpdate = false;
         if (Preset == null)
             return;
 
@@ -33,6 +45,17 @@ public class LightingManager : MonoBehaviour
             TimeOfDay += Time.deltaTime * TimeSpeed;
             TimeElapsed += Time.deltaTime * TimeSpeed;
             TimeOfDay %= 24; //Modulus to ensure always between 0-24
+            if(firedUpdate && (TimeOfDay % 1 > 0.5f))
+            {
+                firedUpdate = false;
+                //30 minutes in (reset the update flag)
+            }
+            if(!firedUpdate && TimeOfDay % 1 < 0.1f)
+            {
+                BuildingController.HourlyValueUpdates(null, null);
+                Debug.Log("Event fired");
+                firedUpdate = true;
+            }
             UpdateLighting(TimeOfDay / 24f);
         }
         else

@@ -14,19 +14,29 @@ public class QuestGoal
     public int CurrentAmount { get; set; }
     public int RequiredAmount { get; set; }
     public int ID { get; set; }
-    public string type { get; set; }
+    public Objective type { get; set; }
+
+    public int StartingAmount { get; set; }
 
     //Dialogue stuff
     public Sprite image;
     public string name, dialogue, mission;
 
-    public QuestGoal(int id, string type, Cost reward, int requiredAmount, string dialogue, string mission, string name, Sprite image)
+    public QuestGoal(int id, Objective type, Cost reward, int requiredAmount, string dialogue, string mission, string name, Sprite image)
     {
         this.ID = id;
         this.Completed = false;
         this.cost = reward;
         this.type = type;
         this.RequiredAmount = requiredAmount;
+        this.StartingAmount = type switch
+        {
+            Objective.Upgrade => 0,
+            Objective.Build => BuildingInfo.NumberBuilt[(BuildingType)ID],
+            Objective.Destroy => BuildingInfo.NumberBuilt[(BuildingType)ID],
+            Objective.HaveBuildings => BuildingInfo.NumberBuilt[(BuildingType)ID],
+            _ => 0
+        };
         this.CurrentAmount = 0;
         this.dialogue = dialogue;
         this.mission = mission;
@@ -36,28 +46,36 @@ public class QuestGoal
 
     public void Evaluate()
     {
-        if (this.type.Equals("Build"))
+        switch (type)
         {
-            CurrentAmount = GridController.Instance.BuildingsBuilt[this.ID];
-            if (CurrentAmount >= RequiredAmount)
-            {
-                Completed = true;
-            }
-        }
-        else if (this.type.Equals("Upgrade"))
-        {
-            if (ResearchManager.Instance.IsUpgradeResearched((Upgrade)ID))
-            {
-                Completed = true;
-            }
-        }
-        else if(this.type.Equals("Destroy"))
-        {
-            CurrentAmount = GridController.Instance.BuildingsBuilt[this.ID];
-            if (CurrentAmount <= RequiredAmount)
-            {
-                Completed = true;
-            }
+            case Objective.Build:
+                CurrentAmount = BuildingInfo.NumberBuilt[(BuildingType)ID] - StartingAmount;
+                if (CurrentAmount >= RequiredAmount)
+                {
+                    Completed = true;
+                }
+                break;
+            case Objective.Destroy:
+                CurrentAmount = -(BuildingInfo.NumberBuilt[(BuildingType)ID] - StartingAmount);
+                if (CurrentAmount >= RequiredAmount)
+                {
+                    Completed = true;
+                }
+                break;
+            case Objective.Upgrade:
+                if (ResearchManager.Instance.IsUpgradeResearched((Upgrade)ID))
+                {
+                    Completed = true;
+                    CurrentAmount = 1;
+                }
+                break;
+            case Objective.HaveBuildings:
+                CurrentAmount = BuildingInfo.NumberBuilt[(BuildingType)(ID)];
+                if (CurrentAmount >= RequiredAmount)
+                {
+                    Completed = true;
+                }
+                break;
         }
     }
     
@@ -66,4 +84,11 @@ public class QuestGoal
         GameManager.Instance.Transaction(cost);
     }
 
+}
+public enum Objective
+{
+    Build,
+    Upgrade,
+    Destroy,
+    HaveBuildings
 }

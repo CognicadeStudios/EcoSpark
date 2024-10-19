@@ -6,6 +6,7 @@ using Unity.Mathematics;
 
 public class GridController : MonoBehaviour
 {
+    public LightingManager lightingManager;
     public int gridWidth, gridHeight;
     public float gridScale;
     public Vector3 gridOffset;
@@ -13,18 +14,11 @@ public class GridController : MonoBehaviour
     public GameObject buildingPrefab;
     public ProdecuralGenerator generator;
     public static GridController Instance;
-    public List<int> BuildingsBuilt;
     public void Awake()
     {
         Instance = this;
         buildingsGrid = new BuildingController[gridWidth, gridHeight];
         
-        BuildingsBuilt = new List<int>();
-        for (int i = 0; i < System.Enum.GetValues(typeof(BuildingType)).Length; i++)
-        {
-            BuildingsBuilt.Add(0);
-        }
-
         for (int x = 0; x < gridWidth; x++)
         {
             for (int y = 0; y < gridHeight; y++)
@@ -32,6 +26,7 @@ public class GridController : MonoBehaviour
                 buildingsGrid[x, y] = Instantiate(buildingPrefab, GetWorldPosition(new Vector2Int(x, y)), buildingPrefab.transform.rotation, transform).GetComponent<BuildingController>();
                 buildingsGrid[x, y].gridPosition = new Vector2Int(x, y);
                 buildingsGrid[x, y].GetComponent<BoxCollider>().size = new Vector3(gridScale, gridScale, 1);
+                buildingsGrid[x, y].lightingManager = lightingManager;
             }
         }
 
@@ -143,7 +138,7 @@ public class GridController : MonoBehaviour
                 buildingPreviewPosition = new Vector2Int(-1, -1);
                 SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
                 buildingsGrid[gridPosition.x, gridPosition.y].isBuildingMode = false;
-                BuildingsBuilt[(int)currentBuildingType]++;
+                BuildingInfo.NumberBuilt[currentBuildingType]++;
             }
             
             if(buildingsGrid[gridPosition.x, gridPosition.y].buildingType == BuildingType.Empty && buildingPreviewPosition != gridPosition)

@@ -42,7 +42,7 @@ public class QuestSystem : MonoBehaviour
         {
             new QuestGoal(
                 (int)BuildingType.SOLAR_PANEL,
-                "Build", 
+                Objective.Build, 
                 new Cost(0, 5, 3, 100, 0),
                 2,
                 "Our renewable energy output is lagging behind! "+
@@ -53,9 +53,9 @@ public class QuestSystem : MonoBehaviour
             ),
             new QuestGoal(
                 (int)Upgrade.Solar1,
-                "Upgrade", 
+                Objective.Upgrade, 
                 new Cost(0, 3, 5, 150, 0),
-                2,
+                1,
                 "'Our energy bills are out of control. " +
                 "If you could upgrade a few of our buildings to be more energy efficient, we'd all save a fortune.",
                 "Upgrade Solar Panels to Level 2",
@@ -64,7 +64,7 @@ public class QuestSystem : MonoBehaviour
             ),
             new QuestGoal(
                 (int)BuildingType.WIND_TURBINE,
-                "Build", 
+                Objective.Build, 
                 new Cost(0, 5, 3, 100, 0),
                 2,
                 "'We,ve had a power shortage in our area. We need help!"+
@@ -75,20 +75,20 @@ public class QuestSystem : MonoBehaviour
             ),
             new QuestGoal(
                 (int)Upgrade.Wind1,
-                "Upgrade", 
+                Objective.Upgrade, 
                 new Cost(0, 5, 5, 150, 0),
-                2,
+                1,
                 "The recent coal shortage has severely impacted our power output." +
-                "We need to compensate by boosting wind energy production.",
-                "Upgrade Wind Turbines to Level 2",
+                "We need to compensate by boosting solar energy production.",
+                "Unlock Solar Panels",
                 "Energy Advisor",
                 null
             ),
             new QuestGoal(
                 (int)Upgrade.Wind2,
-                "Upgrade", 
+                Objective.Upgrade, 
                 new Cost(0, 5, 5, 200, 0),
-                2,
+                1,
                 "The city has had a surge in electic consumtion." +
                 "We need to compensate by boosting wind energy production.",
                 "Upgrade Wind Turbines to Level 3",
@@ -96,13 +96,13 @@ public class QuestSystem : MonoBehaviour
                 null
             ),
             new QuestGoal(
-                (int)Upgrade.Wind3,
-                "Upgrade", 
+                (int)Upgrade.Hydro3,
+                Objective.Upgrade, 
                 new Cost(0, 5, 5, 1000, 0),
-                2,
+                1,
                 "Recently, renewable energy has hit a high in the markets" +
                 "To win over investors, create modern wind infrastructure",
-                "Upgrade Wind Turbines to Level 4",
+                "Upgrade Water Turbines to Level 3",
                 "Investors",
                 null
             ),
