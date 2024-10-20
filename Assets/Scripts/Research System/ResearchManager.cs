@@ -247,6 +247,7 @@ public enum Upgrade
 };
 
 
+
 public class UpgradeInfo
 {
     public static List<Upgrade> researchedUpgrades;

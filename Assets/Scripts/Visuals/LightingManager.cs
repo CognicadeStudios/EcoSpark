@@ -36,7 +36,6 @@ public class LightingManager : MonoBehaviour
 
     private void Update()
     {
-        bool firedUpdate = false;
         if (Preset == null)
             return;
 
