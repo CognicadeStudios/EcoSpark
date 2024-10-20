@@ -190,11 +190,11 @@ public class UIManager : MonoBehaviour
 
     public string GenerateStatsText()
     {
-        return "Total Energy Generated:\t\t" + GameManager.Instance.CityEnergy + "\n\n\n" 
-                    + "Research Points:\t\t\t" + GameManager.Instance.ResearchPoints + "\n\n\n"
-                    + "Public Approval:\t\t\t" + GameManager.Instance.PublicApproval + "\n\n\n"
-                    + "Enviornmental Score:\t\t" + GameManager.Instance.EcoScore + "\n\n\n"
-                    + "Total Money Earned:\t\t" + GameManager.Instance.Money;
+        return "Total Energy Generated:\t\t" + Mathf.Round(GameManager.Instance.CityEnergy) + "\n\n\n" 
+                    + "Research Points:\t\t\t" +  Mathf.Round(GameManager.Instance.ResearchPoints) + "\n\n\n"
+                    + "Public Approval:\t\t\t" +  Mathf.Round(GameManager.Instance.PublicApproval) + "\n\n\n"
+                    + "Enviornmental Score:\t\t" +  Mathf.Round(GameManager.Instance.EcoScore) + "\n\n\n"
+                    + "Total Money Earned:\t\t" +  Mathf.Round(GameManager.Instance.Money);
     }
 
     public void ToggleUIScreen(GameObject screen)

@@ -106,7 +106,7 @@ public class GameManager : MonoBehaviour
         if(PlayerPrefs.HasKey("MayorName")) mayorName.text = (PlayerPrefs.GetString("MayorName") + "'s City").ToUpper();
     }
 
-    public GameObject lossScreen;
+    public GameObject lossScreen, winScreen, daysLeftText;
     void Update()
     {
         if(EcoScore < 10f)
@@ -121,6 +121,17 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ToggleUIScreen(lossScreen);           
             lossScreen.transform.Find("LossStory").GetComponent<TextMeshProUGUI>().text = "Due to low public approval, the city council  removed you from the mayorial office";
         }
+
+        int days = Mathf.FloorToInt(LightingManager.instance.TimeElapsed / 24f);
+        if(days >= 30)
+        {
+            UIManager.Instance.ToggleUIScreen(winScreen);
+        }
+        else 
+        {
+            daysLeftText.GetComponent<TextMeshProUGUI>().text = (30 - days).ToString() + " Days Left";
+        }
+
     }
 
     public void Transaction(Cost c)

@@ -107,6 +107,31 @@ public class GridController : MonoBehaviour
     {
         generator.GenerateNextTile();
 
+        if(Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit hit;
+            if(!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 1000f))
+            {
+                return;
+            }
+
+            Vector3 worldPosition = hit.point;
+            Vector2Int gridPosition = GetGridPosition(worldPosition);
+            mousePosition = GetGridPositionNoRound(worldPosition);
+            
+            if (!(gridPosition.x >= 0 && gridPosition.y >= 0 && gridPosition.x < gridWidth && gridPosition.y < gridHeight))
+            {
+                return;
+            }
+            
+            BuildingType type = GetBuilding(gridPosition.x, gridPosition.y).buildingType;
+            if(type >= BuildingType.SOLAR_PANEL && type <= BuildingType.COAL_MINE)
+            {
+                Debug.Log("Destroying Building at: " + gridPosition.x + ", " + gridPosition.y);
+                SetBuilding(gridPosition.x, gridPosition.y, BuildingType.Empty);
+            }
+        }
+
         if(isBuilding)
         {
             if(Input.GetKeyDown(KeyCode.Escape))
