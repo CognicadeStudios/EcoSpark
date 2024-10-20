@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         if(PlayerPrefs.HasKey("Volume")) SoundManager.instance.audioSource.volume = PlayerPrefs.GetFloat("Volume");
-        if(PlayerPrefs.HasKey("MayorName")) mayorName.text = PlayerPrefs.GetString("MayorName");
+        if(PlayerPrefs.HasKey("MayorName")) mayorName.text = (PlayerPrefs.GetString("MayorName") + "'s City").ToUpper();
     }
 
     public void Transaction(Cost c)

@@ -3911,7 +3911,7 @@ MonoBehaviour:
   SettingsUI: {fileID: 2101541895}
   mayorNameText: {fileID: 294304946}
   volumeSlider: {fileID: 278425231}
-  seedTextInput: {fileID: 0}
+  seedTextInput: {fileID: 2079128776}
 --- !u!1 &1223083126
 GameObject:
   m_ObjectHideFlags: 0

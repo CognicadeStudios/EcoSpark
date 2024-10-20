@@ -14,10 +14,12 @@ public class GridController : MonoBehaviour
     public GameObject buildingPrefab;
     public ProdecuralGenerator generator;
     public static GridController Instance;
+    public Texture2D normalCursor;
     public void Awake()
     {
         Instance = this;
         buildingsGrid = new BuildingController[gridWidth, gridHeight];
+        Cursor.SetCursor(normalCursor, new Vector2(225, 0), CursorMode.Auto);
         
         for (int x = 0; x < gridWidth; x++)
         {

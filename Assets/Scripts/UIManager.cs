@@ -179,4 +179,17 @@ public class UIManager : MonoBehaviour
         g.color = c;
         g.text = s;
     }
+
+    public GameObject pause;
+    public void StartPauseScreen()
+    {
+        pause.SetActive(true);
+
+        //Set the statistics
+        TextMeshProUGUI stats = pause.transform.Find("StatsText").GetComponent<TextMeshProUGUI>();
+        stats.text = "Total Energy Generated: " + GameManager.Instance.CityEnergy + "\n" 
+                    + "Research Points: " + GameManager.Instance.ResearchPoints + "\n"
+                    + "Public Approval: " + GameManager.Instance.PublicApproval + "\n"
+                    + "Total Money Earned: " + GameManager.Instance.Money;
+    }
 }
