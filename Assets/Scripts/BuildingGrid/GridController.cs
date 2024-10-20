@@ -7,6 +7,7 @@ using Unity.Mathematics;
 public class GridController : MonoBehaviour
 {
     public LightingManager lightingManager;
+    public Material previewMat;
     public int gridWidth, gridHeight;
     public float gridScale;
     public Vector3 gridOffset;
@@ -150,7 +151,7 @@ public class GridController : MonoBehaviour
                 GameObject g = SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
                 for(int i = 0; i < g.transform.childCount; i++)
                 {
-                    g.transform.GetChild(i).GetComponent<MeshRenderer>().material.color = new Color(1.5f, 1.5f, 1.5f, 0.5f);
+                    g.transform.GetChild(i).GetComponent<MeshRenderer>().material = previewMat;
                 }
             }
         }
