@@ -21,7 +21,8 @@ public class LightingManager : MonoBehaviour
     [SerializeField, Range(0, 24)] public float TimeOfDay;
     public float TimeElapsed = 0.0f;
 
-    [SerializeField, Range(0.0f, 1.0f)] private float TimeSpeed;
+    [SerializeField, Range(0.0f, 1.0f)] public float TimeSpeed;
+    public bool paused = false;
 
     public static LightingManager instance;
     public bool isNight;
@@ -39,7 +40,7 @@ public class LightingManager : MonoBehaviour
         if (Preset == null)
             return;
 
-        if (Application.isPlaying)
+        if (Application.isPlaying && !paused)
         {
             //(Replace with a reference to the game time)
             TimeOfDay += Time.deltaTime * TimeSpeed;
