@@ -41,7 +41,9 @@ public class QuestGoal
         this.dialogue = dialogue;
         this.mission = mission;
         this.name = name;
-        this.image = image;
+        
+        //randomly select
+        this.image = QuestUI.instance.people[UnityEngine.Random.Range(0, QuestUI.instance.people.Count)];
     }
 
     public void Evaluate()

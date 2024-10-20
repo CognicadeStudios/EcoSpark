@@ -11,12 +11,15 @@ public class QuestUI : MonoBehaviour
     private List<Transform> entries;
     public GameObject sidebar;
     public GameObject counter;
+    public List<Sprite> people;
+    public static QuestUI instance;
 
     public void Awake()
     {
         entries = new List<Transform>();
         InvokeRepeating(nameof(UpdateListUI), 5f, 2f);
         rewardObjects = new List<GameObject>();
+        instance = this;
     }
 
     public void AddNewQuest()
