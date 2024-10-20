@@ -78,6 +78,12 @@ public class ProdecuralGenerator : MonoBehaviour
     {
         this.goodSeeds = new List<int> { 6527, 5920, 5302, 8927, 5973, 7696, 9605, 8415 };
         this.randomSeed = goodSeeds[UnityEngine.Random.Range(0, goodSeeds.Count - 1)];
+
+        if(PlayerPrefs.HasKey("Seed"))
+        {
+            this.randomSeed = PlayerPrefs.GetInt("Seed");
+        }
+        
         this.random = new Random(randomSeed);
         Debug.Log("Seed: " + randomSeed);
         this.probabilities = new float[]

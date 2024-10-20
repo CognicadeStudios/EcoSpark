@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -96,6 +97,13 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+    }
+
+    public TextMeshProUGUI mayorName;
+    void Start()
+    {
+        if(PlayerPrefs.HasKey("Volume")) SoundManager.instance.audioSource.volume = PlayerPrefs.GetFloat("Volume");
+        if(PlayerPrefs.HasKey("MayorName")) mayorName.text = PlayerPrefs.GetString("MayorName");
     }
 
     public void Transaction(Cost c)
