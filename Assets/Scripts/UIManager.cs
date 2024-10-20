@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 //using static System.Net.Mime.MediaTypeNames;
 
 public class UIManager : MonoBehaviour
@@ -180,27 +181,43 @@ public class UIManager : MonoBehaviour
         g.text = s;
     }
 
-    public void StopPauseScreen()
+    public void StopScreen(GameObject screen)
     {
-        pause.SetActive(false);
+        screen.SetActive(false);
         //LightingManager.instance.TimeSpeed = 0.1f;
         LightingManager.instance.paused = false;
     }
 
-    public GameObject pause;
-    public void StartPauseScreen()
+    public string GenerateStatsText()
     {
-        pause.SetActive(true);
-
-        LightingManager.instance.paused = true;
-        //LightingManager.instance.TimeSpeed = 0.0f;
-
-        //Set the statistics
-        TextMeshProUGUI stats = pause.transform.Find("StatsText").GetComponent<TextMeshProUGUI>();
-        stats.text = "Total Energy Generated:\t\t" + GameManager.Instance.CityEnergy + "\n\n\n" 
+        return "Total Energy Generated:\t\t" + GameManager.Instance.CityEnergy + "\n\n\n" 
                     + "Research Points:\t\t\t" + GameManager.Instance.ResearchPoints + "\n\n\n"
                     + "Public Approval:\t\t\t" + GameManager.Instance.PublicApproval + "\n\n\n"
                     + "Enviornmental Score:\t\t" + GameManager.Instance.EcoScore + "\n\n\n"
                     + "Total Money Earned:\t\t" + GameManager.Instance.Money;
+    }
+
+    public void ToggleUIScreen(GameObject screen)
+    {
+        LightingManager.instance.paused = true;
+        screen.SetActive(true);
+        //LightingManager.instance.TimeSpeed = 0.0f;
+
+        //Set the statistics
+        TextMeshProUGUI stats = screen.transform.Find("StatsText").GetComponent<TextMeshProUGUI>();
+        stats.text = GenerateStatsText();
+    }
+
+    public static void ApplyMaterial(Transform t, Material m)
+    {
+        if(t.GetComponent<Renderer>() != null)
+        {
+            t.GetComponent<Renderer>().material = m;
+        }
+
+        foreach(Transform child in t)
+        {
+            ApplyMaterial(child, m);
+        }
     }
 }
