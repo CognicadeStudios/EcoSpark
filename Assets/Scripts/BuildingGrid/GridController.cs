@@ -69,12 +69,18 @@ public class GridController : MonoBehaviour
         return new Vector2Int(Mathf.RoundToInt((worldPosition.x - gridOffset.x) / gridScale), Mathf.RoundToInt((worldPosition.z - gridOffset.y) / gridScale));
     }
 
+    public Vector2 GetGridPositionNoRound(Vector3 worldPosition)
+    {
+        return new Vector2((worldPosition.x - gridOffset.x) / gridScale, (worldPosition.z - gridOffset.y) / gridScale);
+    }
+
     public Vector3 GetWorldPosition(Vector2Int gridPosition)
     {
         return new Vector3(gridPosition.x * gridScale, 0, gridPosition.y * gridScale) + gridOffset;
     }
     public bool isBuilding = false;
     public Vector2Int buildingPreviewPosition;
+    public Vector2 mousePosition;
     BuildingType currentBuildingType;
 
     public void EnableBuildingMode(int buildingType)
@@ -121,6 +127,7 @@ public class GridController : MonoBehaviour
 
             Vector3 worldPosition = hit.point;
             Vector2Int gridPosition = GetGridPosition(worldPosition);
+            mousePosition = GetGridPositionNoRound(worldPosition);
             
             if (!(gridPosition.x >= 0 && gridPosition.y >= 0 && gridPosition.x < gridWidth && gridPosition.y < gridHeight))
             {
@@ -149,10 +156,6 @@ public class GridController : MonoBehaviour
                 SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingType.Empty);
                 buildingPreviewPosition = gridPosition;
                 GameObject g = SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
-                for(int i = 0; i < g.transform.childCount; i++)
-                {
-                    g.transform.GetChild(i).GetComponent<MeshRenderer>().material = previewMat;
-                }
             }
         }
     }

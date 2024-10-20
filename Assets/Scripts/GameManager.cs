@@ -106,6 +106,23 @@ public class GameManager : MonoBehaviour
         if(PlayerPrefs.HasKey("MayorName")) mayorName.text = (PlayerPrefs.GetString("MayorName") + "'s City").ToUpper();
     }
 
+    public GameObject lossScreen;
+    void Update()
+    {
+        if(EcoScore < 10f)
+        {
+            //Losing due to enviornmental damanges
+            UIManager.Instance.ToggleUIScreen(lossScreen);
+            lossScreen.transform.Find("LossStory").GetComponent<TextMeshProUGUI>().text = "YOUR CITY IS IN FLAMES, and natural disasters wreak havoc due to rapid climate change!";
+        }
+        else if (PublicApproval < 10f)
+        {
+            //Losing due to public disapproval
+            UIManager.Instance.ToggleUIScreen(lossScreen);           
+            lossScreen.transform.Find("LossStory").GetComponent<TextMeshProUGUI>().text = "Due to low public approval, the city council  removed you from the mayorial office";
+        }
+    }
+
     public void Transaction(Cost c)
     {
         Money += c.Money;

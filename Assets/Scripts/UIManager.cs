@@ -210,14 +210,28 @@ public class UIManager : MonoBehaviour
 
     public static void ApplyMaterial(Transform t, Material m)
     {
-        if(t.GetComponent<Renderer>() != null)
+        if(t.GetComponent<MeshRenderer>() != null)
         {
-            t.GetComponent<Renderer>().material = m;
+            t.GetComponent<MeshRenderer>().material = m;
         }
 
         foreach(Transform child in t)
         {
             ApplyMaterial(child, m);
+        }
+    }
+    
+    public static void ApplyColor(Transform t, Color c)
+    {
+        if(t.GetComponent<MeshRenderer>() != null)
+        {
+            t.GetComponent<MeshRenderer>().material.color = c;
+            Debug.Log("D");
+        }
+
+        foreach(Transform child in t)
+        {
+            ApplyColor(child, c);
         }
     }
 }

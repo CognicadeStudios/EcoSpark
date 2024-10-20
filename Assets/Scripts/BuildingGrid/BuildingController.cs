@@ -38,7 +38,11 @@ public class BuildingController : MonoBehaviour
             Destroy(redPlane);
         }
 
-        if(isBuildingMode) return;
+        /*if(displayingRedPlane)
+        {
+            float dist = Vector2.Distance(GridController.Instance.mousePosition, new Vector2(gridPosition.x,  gridPosition.y));
+            UIManager.ApplyColor(redPlane.transform, new Color(1f/dist, 1f/dist, 1f/dist));
+        }*/
     }
 
     /// <summary>
