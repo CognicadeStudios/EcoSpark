@@ -21,7 +21,7 @@ public class GridController : MonoBehaviour
     {
         Instance = this;
         buildingsGrid = new BuildingController[gridWidth, gridHeight];
-        Cursor.SetCursor(normalCursor, new Vector2(225, 0), CursorMode.Auto);
+        Cursor.SetCursor(normalCursor, new Vector2(0, 0), CursorMode.Auto);
         
         for (int x = 0; x < gridWidth; x++)
         {

@@ -46,7 +46,9 @@ public class UIManager : MonoBehaviour
         moneyCounter.text = FormatNumberAsK(Mathf.RoundToInt(e.newValue));
         foreach (BuildButton b in buildButtons)
         {
-            b.GetComponent<Button>().enabled = BuildingController.GetCostToBuild(b.buildingType) <= GameManager.Instance.Money;
+            b.GetComponent<Button>().enabled = 
+                (BuildingController.GetCostToBuild(b.buildingType) <= GameManager.Instance.Money
+                && BuildingInfo.LevelOf[b.buildingType] > 0);
         }
     }
 
