@@ -16,6 +16,7 @@ public class GridController : MonoBehaviour
     public ProdecuralGenerator generator;
     public static GridController Instance;
     public Texture2D normalCursor;
+    public GameObject buildParticles;
     public void Awake()
     {
         Instance = this;
@@ -171,6 +172,7 @@ public class GridController : MonoBehaviour
                 isBuilding = false;
                 Debug.Log("Completing Building: " + currentBuildingType);
                 buildingPreviewPosition = new Vector2Int(-1, -1);
+                Instantiate(buildParticles, GetWorldPosition(gridPosition), Quaternion.identity);
                 SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
                 buildingsGrid[gridPosition.x, gridPosition.y].isBuildingMode = false;
                 BuildingInfo.NumberBuilt[currentBuildingType]++;
@@ -181,6 +183,9 @@ public class GridController : MonoBehaviour
                 SetBuilding(buildingPreviewPosition.x, buildingPreviewPosition.y, BuildingType.Empty);
                 buildingPreviewPosition = gridPosition;
                 GameObject g = SetBuilding(gridPosition.x, gridPosition.y, currentBuildingType);
+
+                //assign preview mat
+                UIManager.ApplyMaterial(g.transform, previewMat);
             }
         }
     }
