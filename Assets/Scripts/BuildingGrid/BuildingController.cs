@@ -78,7 +78,7 @@ public class BuildingController : MonoBehaviour
     public static int GetCostToBuild(BuildingType type)
     {
         int level = BuildingInfo.LevelOf[type];
-        return BuildingInfo.BuildCosts[type][level > 0? level : 1];
+        return BuildingInfo.BuildCosts[type][level > 0 ? level : 1];
     }
 
     public static void HourlyValueUpdates(object sender, LightingManager.HourChangedArgs e)
