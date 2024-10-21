@@ -46,20 +46,6 @@ public class LightingManager : MonoBehaviour
             TimeOfDay += Time.deltaTime * TimeSpeed;
             TimeElapsed += Time.deltaTime * TimeSpeed;
             TimeOfDay %= 24; //Modulus to ensure always between 0-24
-            
-            /*if(firedUpdate && (TimeOfDay - Mathf.FloorToInt(TimeOfDay) > 0.5f))
-            {
-                firedUpdate = false;
-                //30 minutes in (reset the update flag)
-            }
-            if(!firedUpdate && TimeOfDay - Mathf.FloorToInt(TimeOfDay) < 0.1f)
-            {
-                BuildingController.HourlyValueUpdates(null, null);
-                //Debug.Log("Event fired");
-                firedUpdate = true;
-            }
-            @Arush IDK what this does so i replaced it
-            */
 
             if(TimeElapsed % 1 <= previousTick % 1)
             {

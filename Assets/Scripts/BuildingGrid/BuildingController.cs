@@ -123,16 +123,16 @@ public class BuildingInfo
             new(0, 0, 0, 0, 0),
         }},
         {BuildingType.HOUSE, new List<Cost>{
-            new(0, 0, 0, 0, 0),
-            new(0, 0.2f, 0.1f, 20, -0.5f),
-            new(0, 0.3f, 0.2f, 50, -1),
-            new(0, 0.4f, 0.3f, 100, -1.5f),
+            new(0, 0.1f, 0, 10, -0.5f),
+            new(0, 0.2f, 0, 20, -0.5f),
+            new(0, 0.3f, 0, 50, -1),
+            new(0, 0.4f, 0, 100, -1.5f),
         }},
         {BuildingType.BUSINESS, new List<Cost>{
-            new(0, 0, 0, 0, 0),
-            new(0, 0.1f, 0.1f, 100, -1),
-            new(0, 0.2f, 0.2f, 250, -2),
-            new(0, 0.3f, 0.3f, 500, -3),
+            new(0, 0.1f, 0, 0, -1),
+            new(0, 0.2f, 0, 100, -1),
+            new(0, 0.3f, 0, 250, -2),
+            new(0, 0.4f, 0, 500, -3),
         }},
         {BuildingType.SOLAR_PANEL, new List<Cost>{
             new(0, 0, 0, 0, 0),
@@ -207,7 +207,7 @@ public class BuildingInfo
     public static Dictionary<BuildingType, int> LevelOf = new()
     {
         { BuildingType.Empty, 0},
-        { BuildingType.HOUSE, 1},
+        { BuildingType.HOUSE, 0},
         { BuildingType.BUSINESS, 0},
         { BuildingType.SOLAR_PANEL, 0},
         { BuildingType.WIND_TURBINE, 0},
