@@ -95,8 +95,6 @@ public class BuildingController : MonoBehaviour
         GameManager.Instance.Transaction(total);
         Debug.Log("net productions of buildings: " + total);
     }
-    
-    
 }
 
 public class BuildingInfo
