@@ -79,8 +79,8 @@ public class GameManager : MonoBehaviour
     public event EventHandler<OnValueUpdatedArgs> OnCityEnergyChanged;
 
     [SerializeField]
-    private int researchPoints;
-    public int ResearchPoints
+    private float researchPoints;
+    public float ResearchPoints
     {
         get
         {
@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
 /// </example>
 public class Cost
 {
-    public int ResearchPoints;
+    public float ResearchPoints;
     public float PublicApproval, EcoScore;
     public float CityEnergy, Money;
     public Cost() {
@@ -164,7 +164,7 @@ public class Cost
         Money = 0f;
     }
 
-    public Cost(int research, float PublicApproval, float EcoScore, float money, float energy)
+    public Cost(float research, float PublicApproval, float EcoScore, float money, float energy)
     {
         this.ResearchPoints = research;
         this.PublicApproval = PublicApproval;
@@ -177,7 +177,7 @@ public class Cost
     {
         return new Cost()
         {
-            ResearchPoints = (int)(b.ResearchPoints * a),
+            ResearchPoints = b.ResearchPoints * a,
             PublicApproval = b.PublicApproval * a,
             EcoScore = b.EcoScore * a,
             CityEnergy = b.CityEnergy * a,

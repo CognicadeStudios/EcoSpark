@@ -102,6 +102,8 @@ public class ResearchManager : MonoBehaviour
         return true;
     }
 
+    public GameObject solBB, windBB, geoBB, hydroBB, nucBB, coalBB;
+
     private void ResearchManager_OnUpgradeResearched(object sender, OnUpgradeResearchedArgs e)
     {
         switch (e.upgrade)
@@ -149,15 +151,18 @@ public class ResearchManager : MonoBehaviour
                 break;
             case Upgrade.Solar1:
                 BuildingInfo.LevelOf[BuildingType.SOLAR_PANEL] = 1;
+                solBB.SetActive(true);
                 break;
             case Upgrade.Geothermal1:
                 BuildingInfo.LevelOf[BuildingType.GEOTHERMAL_PLANT] = 1;
+                geoBB.SetActive(true);
                 break;
             case Upgrade.Geothermal2:
                 BuildingInfo.LevelOf[BuildingType.GEOTHERMAL_PLANT] = 2;
                 break;
             case Upgrade.Water1:
                 BuildingInfo.LevelOf[BuildingType.WATER_TURBINE] = 1;
+                hydroBB.SetActive(true);
                 break;
             case Upgrade.Hydro2:
                 BuildingInfo.LevelOf[BuildingType.WATER_TURBINE] = 2;
@@ -167,6 +172,7 @@ public class ResearchManager : MonoBehaviour
                 break;
             case Upgrade.Wind1:
                 BuildingInfo.LevelOf[BuildingType.WIND_TURBINE] = 1;
+                windBB.SetActive(true);
                 break;
             case Upgrade.Wind2:
                 BuildingInfo.LevelOf[BuildingType.WIND_TURBINE] = 2;
@@ -176,6 +182,7 @@ public class ResearchManager : MonoBehaviour
                 break;
             case Upgrade.Oil1:
                 BuildingInfo.LevelOf[BuildingType.COAL_MINE] = 1;
+                coalBB.SetActive(true);
                 break;
             case Upgrade.Oil2:
                 BuildingInfo.LevelOf[BuildingType.COAL_MINE] = 2;
@@ -185,6 +192,7 @@ public class ResearchManager : MonoBehaviour
                 break;
             case Upgrade.Nuclear1:
                 BuildingInfo.LevelOf[BuildingType.NUCLEAR_PLANT] = 1;
+                nucBB.SetActive(true);
                 break;
             case Upgrade.Nuclear2:
                 BuildingInfo.LevelOf[BuildingType.NUCLEAR_PLANT] = 2;

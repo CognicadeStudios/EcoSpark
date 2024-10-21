@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4430cb28a6a5354b86f6a5f585e8986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lightingManager: {fileID: 0}
   researchManager: {fileID: 0}
   buildingPrefabs:
   - {fileID: 6892387069130419943, guid: 01662c02b363416a69b3068f952c83c7, type: 3}
@@ -53,9 +54,9 @@ MonoBehaviour:
   - {fileID: 6892387069130419943, guid: fdab159f9b93aad4185f601632ba3866, type: 3}
   - {fileID: 754958622050744880, guid: fd3fba131220b4f0c879223fe31963ff, type: 3}
   - {fileID: 754958622050744880, guid: 634cd85fe5e56f453a8acc4cab2513b0, type: 3}
-  - {fileID: 754958622050744880, guid: e71d05f2a17a3a141a0c471ddf573924, type: 3}
-  - {fileID: 754958622050744880, guid: ba17e71ef9201aac89bff19ee72dfa1a, type: 3}
   - {fileID: 754958622050744880, guid: 212cae04fce70706b9585d18577acc77, type: 3}
+  - {fileID: 754958622050744880, guid: ba17e71ef9201aac89bff19ee72dfa1a, type: 3}
+  - {fileID: 754958622050744880, guid: e71d05f2a17a3a141a0c471ddf573924, type: 3}
   - {fileID: 754958622050744880, guid: ff262d5b387f1587aa88a2ba7f065ee7, type: 3}
   - {fileID: 6892387069130419943, guid: e337bdd08ca2f6e40a8ca99d6088ef77, type: 3}
   - {fileID: 6892387069130419943, guid: 6fe0c05caad0e4d43aadc6cb527e5350, type: 3}

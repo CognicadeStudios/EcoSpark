@@ -22,7 +22,7 @@ public class GenRandomBuilding : MonoBehaviour
             var centerPosition = new Vector2(GridController.Instance.gridWidth / 2, GridController.Instance.gridHeight / 2);
             distFromCenter = Vector2.Distance(centerPosition, position);
 
-            UpdateBuildingGeneration(4.0f);
+            Invoke(nameof(InitialUpdate), 3.0f);
             objects.Add(this);
         }
         else 
@@ -45,6 +45,11 @@ public class GenRandomBuilding : MonoBehaviour
         {
             obj.UpdateBuildingGeneration(newRadius);
         }
+    }
+
+    void InitialUpdate()
+    {
+        UpdateBuildingGeneration(4.0f);
     }
 
     void UpdateBuildingGeneration(float newRadius)
@@ -76,6 +81,8 @@ public class GenRandomBuilding : MonoBehaviour
         controller.buildingType = BuildingType.HOUSE;
 
         currentRadius = newRadius;
+
+        BuildingInfo.NumberBuilt[BuildingType.HOUSE]++;
     }
 
 }

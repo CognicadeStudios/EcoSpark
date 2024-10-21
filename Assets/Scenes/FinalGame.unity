@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1251958013}
+  m_Material: {fileID: 1668385346}
   m_Color: {r: 0, g: 0, b: 0, a: 0.36078432}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -783,6 +783,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Water Wheel
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Harnesses river flow for power, low impact on wildlife.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -925,6 +935,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -512900130, guid: d475b3104710f9f42a17ed623d37b611,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Sustainable Community
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Carbon-zero residential houses
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -1768,6 +1788,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -154265498, guid: ee49f65098c24f0499dab0bf56e5a76f,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Fission Reactor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Produces massive energy output, with radiation risk if damaged.
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -2721,7 +2751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1775508547}
+  m_Material: {fileID: 1724334783}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -2773,6 +2803,12 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 256359924}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &243704854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1798672537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &256359924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2787,6 +2823,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 352816245, guid: ee49f65098c24f0499dab0bf56e5a76f,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Wind Farm
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Array of turbines generating clean energy, requires open space.
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -3286,6 +3332,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Wind Turbine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Generates clean energy but requires strong winds
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -3646,6 +3702,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -365265354, guid: d475b3104710f9f42a17ed623d37b611,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Apartment Complex
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Increases residential buildings in city
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -4056,6 +4122,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skillTree: {fileID: 311311968}
   ErrorMessage: 
+  solBB: {fileID: 1216350042}
+  windBB: {fileID: 694152133}
+  geoBB: {fileID: 1095621081}
+  hydroBB: {fileID: 243704854}
+  nucBB: {fileID: 1686550065}
+  coalBB: {fileID: 1071763309}
 --- !u!1 &319203393 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2573979779500346856, guid: 171bbbacf4fbe8440ac887d23596f6f8,
@@ -4177,7 +4249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1537957770}
+  m_Material: {fileID: 1854502131}
   m_Color: {r: 1, g: 0.7466017, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -4540,6 +4612,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Fusion Reactor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Provides limitless clean energy, but requires advanced technology.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -4684,6 +4766,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Nuclear Mini-Reactor
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Generates vast energy with minimal emissions, but high risk
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -4812,6 +4904,124 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 171bbbacf4fbe8440ac887d23596f6f8, type: 3}
+--- !u!1 &327064017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 327064021}
+  - component: {fileID: 327064020}
+  - component: {fileID: 327064019}
+  m_Layer: 0
+  m_Name: NightLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &327064019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327064017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 1
+--- !u!108 &327064020
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327064017}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 1
+  m_Shape: 0
+  m_Color: {r: 0.9686275, g: 0.9686275, b: 0.9686275, a: 1}
+  m_Intensity: 0.1
+  m_Range: 10
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 4161
+  m_UseColorTemperature: 1
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
+--- !u!4 &327064021
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327064017}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.061628457, y: 0.70441604, z: -0.70441604, w: 0.061628457}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &329025774
 GameObject:
   m_ObjectHideFlags: 0
@@ -5151,6 +5361,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1092522652, guid: ee49f65098c24f0499dab0bf56e5a76f,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Riverflow Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Harvests energy from river currents, affecting aquatic life.
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -5545,6 +5765,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -854766405, guid: d475b3104710f9f42a17ed623d37b611,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Classroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Increases public approval and consumes money
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -5994,6 +6224,46 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8589caa9b33b0e746a1327c8fbc82ef7, type: 3}
+--- !u!21 &461091961
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 103.0117, g: 37.9641, b: 24.8, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &469484712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6008,6 +6278,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -187775161, guid: febad35a26b369e4fbdb03e1dee235b8,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Basic Housing
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Increases the buildings in the city
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -6658,6 +6938,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Office Building
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Creates more industrial buildings
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -6918,7 +7208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 795654837}
+  m_Material: {fileID: 1863973120}
   m_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.31764707}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -6944,6 +7234,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 512779598}
   m_CullTransparentMesh: 1
+--- !u!21 &516896912
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0.69501823, g: 0.66759, b: 0.8104496, a: 0.93074787}
+    - _WidthHeightRadius: {r: 133.026, g: 124.696, b: 106.4, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &523886972
 GameObject:
   m_ObjectHideFlags: 0
@@ -7303,46 +7633,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531604887}
   m_CullTransparentMesh: 1
---- !u!21 &532069812
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 103.0117, g: 37.9641, b: 24.8, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &541295468
 GameObject:
   m_ObjectHideFlags: 0
@@ -7553,46 +7843,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545024719}
   m_CullTransparentMesh: 1
---- !u!21 &551754993
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 710, g: 670, b: 36.26, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &552922067
 GameObject:
   m_ObjectHideFlags: 0
@@ -7967,6 +8217,46 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 369967822}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &595292543
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 140, g: 140, b: 24, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &622824477
 GameObject:
   m_ObjectHideFlags: 0
@@ -8069,6 +8359,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 187825158, guid: febad35a26b369e4fbdb03e1dee235b8,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Nonrenewables
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Nonrenewable energy provides cheap resources at the cost of eco-friendliness.
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -8325,7 +8625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 551754993}
+  m_Material: {fileID: 1052641214}
   m_Color: {r: 0, g: 0, b: 0, a: 0.3137255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -8552,6 +8852,12 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 355907204531880774, guid: 8589caa9b33b0e746a1327c8fbc82ef7,
     type: 3}
   m_PrefabInstance: {fileID: 257769864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &694152133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1487697887}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &703305035
 PrefabInstance:
@@ -9042,6 +9348,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766107518}
   m_CullTransparentMesh: 1
+--- !u!21 &769772043
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 339.3499, g: 45.9753, b: 19.8, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &772645689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9190,6 +9536,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -861150366, guid: d475b3104710f9f42a17ed623d37b611,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Coal Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Produces stable power but emits moderate pollution
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -9440,46 +9796,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!21 &784000999
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 143.2416, g: 42.0091, b: 18.8, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &793474368
 GameObject:
   m_ObjectHideFlags: 0
@@ -9561,46 +9877,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 995034735}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &795654837
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 155, g: 59.5834, b: 24, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &803470939
 GameObject:
   m_ObjectHideFlags: 0
@@ -9676,46 +9952,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 803470939}
   m_CullTransparentMesh: 1
---- !u!21 &805200898
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 103.0117, g: 37.9641, b: 24.8, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &810238676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10141,6 +10377,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: AI Hub
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Innovation boom! Massive research boosts
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -10396,7 +10642,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1250421774}
+  m_Material: {fileID: 769772043}
   m_Color: {r: 0.95686275, g: 0.7607044, b: 0.14117648, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -10745,6 +10991,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1512801748, guid: ee49f65098c24f0499dab0bf56e5a76f,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Solar Farm
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Converts sunlight to energy; efficiency drops on cloudy days
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -11137,6 +11393,32 @@ PrefabInstance:
       value: Coal is a nonrenewable source that uses burning organic remnants to
         produce energy.
       objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076240066457603204, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 33705c62f5146c741bee742557523245,
+        type: 3}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_Pivot.x
@@ -11155,7 +11437,7 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -11165,17 +11447,17 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -11215,12 +11497,12 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 875
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -11246,6 +11528,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CoalBB
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7826097965038625869, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -11279,7 +11566,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 918739310}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1071763309}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -12131,6 +12418,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 187825158, guid: febad35a26b369e4fbdb03e1dee235b8,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Power Bank
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Increases energy storage capacity
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -13460,6 +13757,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Research Lab
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Increases Produciton of Research Points
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -13920,6 +14227,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050274725}
   m_CullTransparentMesh: 1
+--- !u!21 &1052641214
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 710, g: 670, b: 36.26, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1053776670
 GameObject:
   m_ObjectHideFlags: 0
@@ -14185,6 +14532,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Oil Drill
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Extracts oil efficiently, but heavily pollutes surrounding areas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -14323,6 +14680,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 171bbbacf4fbe8440ac887d23596f6f8, type: 3}
+--- !u!1 &1071763309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+    type: 3}
+  m_PrefabInstance: {fileID: 918739310}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1076234679 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4457817625098917048, guid: 8589caa9b33b0e746a1327c8fbc82ef7,
@@ -14391,7 +14754,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1924887867}
+  m_Material: {fileID: 1663876094}
   m_Color: {r: 0.9568628, g: 0.7607844, b: 0.13333334, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -14431,6 +14794,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 12.4
   image: {fileID: 1087074649}
+--- !u!1 &1095621081 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+    type: 3}
+  m_PrefabInstance: {fileID: 2022033416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1097843366
 GameObject:
   m_ObjectHideFlags: 0
@@ -14600,7 +14969,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1247771729}
+  m_Material: {fileID: 1775705590}
   m_Color: {r: 0, g: 0, b: 0, a: 0.6039216}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -15189,7 +15558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 784000999}
+  m_Material: {fileID: 1251091021}
   m_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.31764707}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -15789,6 +16158,21 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Hydro Dam
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Stores and generates clean energy from water flow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: isPriced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -16061,6 +16445,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8589caa9b33b0e746a1327c8fbc82ef7, type: 3}
+--- !u!1 &1216350042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1670184956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1222539454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16085,6 +16475,32 @@ PrefabInstance:
       value: By splitting apart heavy elements through fusion, tons of energy gets
         released.
       objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 125
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076240066457603204, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 75b89080db69e1144a007ad7bec22538,
+        type: 3}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_Pivot.x
@@ -16103,7 +16519,7 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -16113,17 +16529,17 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -16163,12 +16579,12 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 715
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -16194,6 +16610,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NuclearBB
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7826097965038625869, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -16227,7 +16648,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1222539454}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1686550065}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -16399,6 +16820,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Innovation Institute
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Increases Research Point Production
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -16527,7 +16958,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 171bbbacf4fbe8440ac887d23596f6f8, type: 3}
---- !u!21 &1247771729
+--- !u!21 &1251091021
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -16565,87 +16996,7 @@ Material:
     - _UseUIAlphaClip: 0
     m_Colors:
     - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 900, g: 800, b: 135.66, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &1250421774
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 339.3499, g: 45.9753, b: 19.8, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &1251958013
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 462.7028, g: 397.83, b: 79.52, a: 0}
+    - _WidthHeightRadius: {r: 143.2416, g: 42.0091, b: 18.8, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &1271439927
 GameObject:
@@ -17449,7 +17800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 805200898}
+  m_Material: {fileID: 1958155063}
   m_Color: {r: 0.8207547, g: 0.60133886, b: 0.06581525, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -17730,6 +18081,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 946717685, guid: ee49f65098c24f0499dab0bf56e5a76f,
         type: 3}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: header
+      value: Coal Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Generates power but increases city pollution levels
+      objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
       propertyPath: currencyType
@@ -18431,6 +18792,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Geothermal Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: "Utilizes Earth\u2019s heat for energy, with minimal surface impact."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -18679,6 +19050,26 @@ PrefabInstance:
       propertyPath: isPriced
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_Pivot.x
@@ -18697,7 +19088,7 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -18707,17 +19098,17 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -18757,12 +19148,12 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 235
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -18788,6 +19179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: WindTurbineBB
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7826097965038625869, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -18821,7 +19217,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1487697887}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 694152133}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -18879,46 +19275,6 @@ RectTransform:
   m_AnchoredPosition: {x: -214.3045, y: -72.74202}
   m_SizeDelta: {x: 93.611, y: 93.282}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!21 &1503616506
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 300, g: 670, b: 36.26, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1522570093
 GameObject:
   m_ObjectHideFlags: 0
@@ -18951,46 +19307,6 @@ Transform:
   - {fileID: 323922508}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1537957770
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0.69501823, g: 0.66759, b: 0.8104496, a: 0.93074787}
-    - _WidthHeightRadius: {r: 133.026, g: 124.696, b: 106.4, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1538467813 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2573979779500346856, guid: 171bbbacf4fbe8440ac887d23596f6f8,
@@ -19729,6 +20045,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Supercapacitor Vaults
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Greatly increases maximum energy storage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -20055,7 +20381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1503616506}
+  m_Material: {fileID: 1701171477}
   m_Color: {r: 0, g: 0, b: 0, a: 0.3137255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -20146,7 +20472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 532069812}
+  m_Material: {fileID: 461091961}
   m_Color: {r: 0.8207547, g: 0.60133886, b: 0.06581525, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -20184,6 +20510,86 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1000551139}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1663876094
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 464.9646, g: 120, b: 24.8, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1668385346
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 462.7028, g: 397.83, b: 79.52, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1669370878
 GameObject:
   m_ObjectHideFlags: 0
@@ -20284,6 +20690,32 @@ PrefabInstance:
       value: Uses sunlight to generate electricity. Reduced power generation during
         the night.
       objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076240066457603204, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5109ad3ebfddb754c9eae55b5527aace,
+        type: 3}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_Pivot.x
@@ -20302,7 +20734,7 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -20312,17 +20744,17 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -20362,12 +20794,12 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -20393,6 +20825,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SolarPanelBB
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7826097965038625869, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -20426,7 +20863,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1670184956}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1216350042}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -20507,6 +20944,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681728106}
   m_CullTransparentMesh: 1
+--- !u!1 &1686550065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+    type: 3}
+  m_PrefabInstance: {fileID: 1222539454}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1699316268
 GameObject:
   m_ObjectHideFlags: 0
@@ -20717,6 +21160,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699743622}
   m_CullTransparentMesh: 1
+--- !u!21 &1701171477
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 300, g: 670, b: 36.26, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1706999889
 GameObject:
   m_ObjectHideFlags: 0
@@ -20990,6 +21473,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1713615458}
   m_CullTransparentMesh: 1
+--- !u!21 &1724334783
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 551.826, g: 501.826, b: 490.4, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1730296290
 GameObject:
   m_ObjectHideFlags: 0
@@ -21371,6 +21894,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Energy Cores
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Provides efficient power, reducing fuel consumption significantly
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -21574,7 +22107,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1759088413}
   m_CullTransparentMesh: 1
---- !u!21 &1775508547
+--- !u!21 &1775705590
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -21612,7 +22145,7 @@ Material:
     - _UseUIAlphaClip: 0
     m_Colors:
     - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 551.826, g: 501.826, b: 490.4, a: 0}
+    - _WidthHeightRadius: {r: 900, g: 800, b: 135.66, a: 0}
   m_BuildTextureStacks: []
 --- !u!224 &1777383093 stripped
 RectTransform:
@@ -21626,46 +22159,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1455121364}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1787867978
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0.69501823, g: 0.66759, b: 0.8104496, a: 0.93074787}
-    - _WidthHeightRadius: {r: 133.026, g: 124.696, b: 106.4, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1798672537
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21689,6 +22182,32 @@ PrefabInstance:
       propertyPath: content
       value: These use the energy released in flowing water to generate electricity.
       objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076240066457603204, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d0a2b908d443714c86e251cefbe1eb4,
+        type: 3}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_Pivot.x
@@ -21707,7 +22226,7 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -21717,17 +22236,17 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -21767,12 +22286,12 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 555
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -21798,6 +22317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HydroBB
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7826097965038625869, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -21831,7 +22355,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1798672537}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 243704854}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -22392,6 +22916,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838634825}
   m_CullTransparentMesh: 1
+--- !u!21 &1854502131
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0.69501823, g: 0.66759, b: 0.8104496, a: 0.93074787}
+    - _WidthHeightRadius: {r: 133.026, g: 124.696, b: 106.4, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1857462589
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22526,6 +23090,46 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 757699668}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1863973120
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 155, g: 59.5834, b: 24, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1886171716
 GameObject:
   m_ObjectHideFlags: 0
@@ -22733,7 +23337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1787867978}
+  m_Material: {fileID: 516896912}
   m_Color: {r: 1, g: 0.7466017, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -23074,6 +23678,16 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
         type: 3}
+      propertyPath: header
+      value: Industrial Center
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
+      propertyPath: content
+      value: Boosts research point production output
+      objectReference: {fileID: 0}
+    - target: {fileID: 2372213803699181610, guid: 171bbbacf4fbe8440ac887d23596f6f8,
+        type: 3}
       propertyPath: currencyType
       value: 1
       objectReference: {fileID: 0}
@@ -23364,46 +23978,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 164996335}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &1924887867
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 464.9646, g: 120, b: 24.8, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &1929109012 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2573979779500346856, guid: 171bbbacf4fbe8440ac887d23596f6f8,
@@ -23645,46 +24219,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1936282389}
   m_CullTransparentMesh: 1
---- !u!21 &1944978734
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: UI/RoundedCorners/RoundedCorners
-  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_LockedProperties: 
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _ColorMask: 15
-    - _Stencil: 0
-    - _StencilComp: 8
-    - _StencilOp: 0
-    - _StencilReadMask: 255
-    - _StencilWriteMask: 255
-    - _UseUIAlphaClip: 0
-    m_Colors:
-    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
-    - _WidthHeightRadius: {r: 140, g: 140, b: 24, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1945392844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24068,6 +24602,46 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 703305035}
   m_PrefabAsset: {fileID: 0}
+--- !u!21 &1958155063
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UI/RoundedCorners/RoundedCorners
+  m_Shader: {fileID: 4800000, guid: 0bd2ec5d73751e34a814274a454bec41, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _ColorMask: 15
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UseUIAlphaClip: 0
+    m_Colors:
+    - _OuterUV: {r: 0, g: 0, b: 1, a: 1}
+    - _WidthHeightRadius: {r: 103.0117, g: 37.9641, b: 24.8, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1 &1960818179 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2573979779500346856, guid: 171bbbacf4fbe8440ac887d23596f6f8,
@@ -24185,7 +24759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 1944978734}
+  m_Material: {fileID: 595292543}
   m_Color: {r: 0.31132078, g: 0.31132078, b: 0.31132078, a: 0.72156864}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
@@ -24745,6 +25319,32 @@ PrefabInstance:
       value: Geothermal Plants use the energy of the Earth's interal heat to generate
         electricity.
       objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 551950812134662093, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076240066457603204, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fb91b4bd810da0d4197013d767713e42,
+        type: 3}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_Pivot.x
@@ -24763,7 +25363,7 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -24773,17 +25373,17 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -24823,12 +25423,12 @@ PrefabInstance:
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 395
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 4945756061014038868, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -24854,6 +25454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GeothermalBB
+      objectReference: {fileID: 0}
+    - target: {fileID: 6862839792863953333, guid: 7ef9cccecce373948a17661058382f97,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7826097965038625869, guid: 7ef9cccecce373948a17661058382f97,
         type: 3}
@@ -24887,7 +25492,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2022033416}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1095621081}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -26320,4 +26925,5 @@ SceneRoots:
   - {fileID: 2144206263}
   - {fileID: 470756768}
   - {fileID: 2008636392}
+  - {fileID: 327064021}
   - {fileID: 1522570094}
