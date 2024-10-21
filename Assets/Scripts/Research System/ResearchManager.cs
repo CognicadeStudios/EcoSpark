@@ -24,7 +24,8 @@ public class ResearchManager : MonoBehaviour
             Upgrade.RenewableEnergy,
             Upgrade.NonrenewableEnergy,
             Upgrade.StorageAndResearch,
-            Upgrade.HousingAndBusiness
+            Upgrade.HousingAndBusiness,
+            Upgrade.Oil1,
         };
 
         OnUpgradeResearched += ResearchManager_OnUpgradeResearched;

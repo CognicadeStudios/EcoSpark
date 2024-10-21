@@ -104,6 +104,8 @@ public class GameManager : MonoBehaviour
     {
         if(PlayerPrefs.HasKey("Volume")) SoundManager.instance.audioSource.volume = PlayerPrefs.GetFloat("Volume");
         if(PlayerPrefs.HasKey("MayorName")) mayorName.text = (PlayerPrefs.GetString("MayorName") + "'s City").ToUpper();
+
+        //ResearchManager.Instance.TryUnlockUpgrade(Upgrade.Oil1);
     }
 
     public GameObject lossScreen, winScreen, daysLeftText;
@@ -141,6 +143,11 @@ public class GameManager : MonoBehaviour
         EcoScore += c.EcoScore;
         CityEnergy += c.CityEnergy;
         ResearchPoints += c.ResearchPoints;
+
+        CityEnergy = Mathf.Max(CityEnergy, 0f);
+        Money = Mathf.Max(Money, 0f);
+        PublicApproval = Mathf.Clamp(PublicApproval, 0f, 100f);
+        EcoScore = Mathf.Clamp(EcoScore, 0f, 100f);
     }
 }
 

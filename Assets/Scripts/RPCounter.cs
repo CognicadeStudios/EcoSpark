@@ -16,6 +16,6 @@ public class RPCounter : MonoBehaviour
 
     void UpdateCounter(object sender, GameManager.OnValueUpdatedArgs e)
     {
-        countText.SetText(e.newValue.ToString());
+        countText.SetText(Mathf.FloorToInt(e.newValue).ToString());
     }
 }

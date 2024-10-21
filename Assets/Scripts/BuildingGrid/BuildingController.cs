@@ -112,6 +112,9 @@ public class BuildingInfo
         { BuildingType.ENERGY_STORAGE,   new(){0, 50 , 60 , 70 } },
         { BuildingType.RESEARCH_LAB,     new(){0, 30 , 65 , 90 } },
     };
+
+    //public Cost(float research, float PublicApproval, float EcoScore, float money, float energy)
+    //per hour
     public static Dictionary<BuildingType, List<Cost>> Productions = new()
     {
         {BuildingType.Empty, new(){
@@ -121,22 +124,22 @@ public class BuildingInfo
             new(0, 0, 0, 0, 0),
         }},
         {BuildingType.HOUSE, new List<Cost>{
-            new(0.1f, 0.1f, 0, 10, -0.5f),
-            new(0.1f, 0.2f, 0, 20, -0.5f),
-            new(0.1f, 0.3f, 0, 50, -1),
-            new(0.1f, 0.4f, 0, 100, -1.5f),
+            new(0.02f, 0.1f, 0, 10, -0.5f),
+            new(0.02f, 0.2f, 0, 20, -0.5f),
+            new(0.02f, 0.3f, 0, 30, -1),
+            new(0.02f, 0.4f, 0, 50, -1.5f),
         }},
         {BuildingType.BUSINESS, new List<Cost>{
-            new(0.1f, 0.1f, 0, 0, -1),
-            new(0.1f, 0.2f, 0, 100, -1),
-            new(0.1f, 0.3f, 0, 250, -2),
-            new(0.1f, 0.4f, 0, 500, -3),
+            new(0.05f, 0.1f, 0, 0, -1),
+            new(0.05f, 0.2f, 0, 10, -1),
+            new(0.05f, 0.3f, 0, 25, -2),
+            new(0.05f, 0.4f, 0, 50, -3),
         }},
         {BuildingType.SOLAR_PANEL, new List<Cost>{
             new(0, 0, 0, 0, 0),
             new(0, 0.3f, 0.4f, 0, 10),
-            new(0, 0, 0, 0, 0),
-            new(0, 0, 0, 0, 0),
+            new(0, 0.4f, 0.5f, 0, 20),
+            new(0, 0.5f, 0.6f, 0, 30),
         }},
         {BuildingType.WIND_TURBINE, new List<Cost>{
             new(0, 0, 0, 0, 0),
@@ -148,7 +151,7 @@ public class BuildingInfo
             new(0, 0, 0, 0, 0),
             new(0, 0.2f, 0.3f, 0, 15),
             new(0, 0.3f, 0.4f, 0, 25),
-            new(0, 0, 0, 0, 0),
+            new(0, 0.4f, 0.5f, 0, 35),
         }},
         {BuildingType.WATER_TURBINE, new List<Cost>{
             new(0, 0, 0, 0, 0),
@@ -164,9 +167,9 @@ public class BuildingInfo
         }},
         {BuildingType.COAL_MINE, new List<Cost>{
             new(0, 0, 0, 0, 0),
-            new(0, -0.2f, -0.5f, 0, 2.5f),
-            new(0, -0.3f, -0.6f, 0, 10),
-            new(0, -0.4f, -0.7f, 0, 45),
+            new(0, -0.2f, -0.5f, 0, 12.5f),
+            new(0, -0.3f, -0.6f, 0, 25),
+            new(0, -0.4f, -0.7f, 0, 50),
         }},
         {BuildingType.ENERGY_STORAGE, new List<Cost>{
             new(0, 0, 0, 0, 0),
@@ -176,9 +179,9 @@ public class BuildingInfo
         }},
         {BuildingType.RESEARCH_LAB, new List<Cost>{
             new(0, 0, 0, 0, 0),
-            new(2, 0.2f, 0.1f, 0, -5),
-            new(4, 0.3f, 0.2f, 0, -10),
-            new(6, 0.4f, 0.3f, 0, -15),
+            new(0.5f, 0.2f, 0.1f, 0, -5),
+            new(1.0f, 0.3f, 0.2f, 0, -10),
+            new(1.5f, 0.4f, 0.3f, 0, -15),
         }},
 
     };
