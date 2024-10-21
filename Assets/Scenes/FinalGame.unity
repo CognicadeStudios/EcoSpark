@@ -6368,7 +6368,7 @@ MonoBehaviour:
   buildingPrefab: {fileID: 6512959986631814516, guid: 1d64193033a94d54a868cee1522055aa,
     type: 3}
   generator: {fileID: 470756764}
-  normalCursor: {fileID: 2800000, guid: 62cfd0ddc221ef947b5c84f6167f6e49, type: 3}
+  normalCursor: {fileID: 2800000, guid: a64528dfc71620546a69508b65fa11b8, type: 3}
   buildParticles: {fileID: 141433446842962269, guid: 9fe8f8b3288e45a44af36ff8aa04486e,
     type: 3}
   isBuilding: 0
